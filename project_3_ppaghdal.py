@@ -77,30 +77,57 @@ isAlive = False
 for key, value in individualsData.items():
     age = 0
     for i in range(len(value)):
-        famc = ""
-        fams = ""
+        famc = []
+        fams = []
         if(value[i][0] == "NAME"):
-            name = value[i][1]
+            temp = value[i][1]
+            if(len(temp) == 0):
+                temp = "NA"
+            name = temp
         if(value[i][0] == "SEX"):
-            gender = value[i][1]
+            temp = value[i][1]
+            if(len(temp) == 0):
+                temp = "NA"
+            gender = temp
         if(value[i][0] == "DATE"):
-            birthday = datetime.datetime.strptime(value[i][1], "%d %b %Y").date()
+            temp = datetime.datetime.strptime(value[i][1], "%d %b %Y").date()
+            if(len(str(temp)) == 0):
+                temp = "NA"
+            birthday = temp
         if(value[i][0] == "DEAT"):
-            death = datetime.datetime.strptime(value[i][1], "%d %b %Y").date()
+            temp = datetime.datetime.strptime(value[i][1], "%d %b %Y").date()
+            if(len(str(temp)) == 0):
+                temp = "NA"
+            death = temp
         if(value[i][0] == "FAMC"):
-            famc = value[i][1]
+            temp = value[i][1]
+            if(len(temp) == 0):
+                temp = "NA"
+            famc.append(temp)
         if(value[i][0] == "FAMS"):
-            fams = value[i][1]
+            temp = value[i][1]
+            if(len(temp) == 0):
+                temp = "NA"
+            fams.append(temp)
     if(any("DEAT" in i for i in value)):
         age = relativedelta(death, birthday).years
         isAlive = True
     else:
         age = relativedelta(datetime.datetime.now(), birthday).years
 
+    if(len(famc) == 0):
+        famc = "NA"
+    else:
+        famc = str(famc)
+        famc = famc.replace("[", "{").replace("]", "}")
+
+    if(len(fams) == 0):
+        fams = "NA"
+    else:
+        fams = str(fams)
+        fams = fams.replace("[", "{").replace("]", "}")
+    
     tempArr = [key, name, gender, birthday, age, isAlive, death, famc, fams]
-    for i in range(len(tempArr)):
-        if(len(str(tempArr[i])) == 0):
-            tempArr[i] = "NA"
     individualsTable.add_row(tempArr)
 
 print("Individuals")
@@ -152,6 +179,11 @@ for key, value in familiesData.items():
     for i in range(len(tempArr)):
         if(len(str(tempArr[i])) == 0):
             tempArr[i] = "NA"
+    if(len(innerChild) == 0):
+        innerChild = "NA"
+    else:
+        innerChild = str(innerChild)
+        innerChild = innerChild.replace("[", "{").replace("]", "}")
     tempArr.append(innerChild)
     famliesTable.add_row(tempArr)
 
