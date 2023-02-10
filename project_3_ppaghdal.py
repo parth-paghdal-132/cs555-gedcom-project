@@ -91,7 +91,7 @@ individuals = []
 name = ""
 gender = ""
 birthday = ""
-death = ""
+death = "NA"
 isAlive = False
 
 # Iteraing over individuals data and getting only values needed for output
@@ -155,7 +155,7 @@ for key, value in individualsData.items():
         fams = str(fams)
         fams = fams.replace("[", "{").replace("]", "}")
     
-    individuals.append([key, name, gender, birthday, age, isAlive, death, famc, fams])
+    individuals.append([key, name, gender, str(birthday), age, isAlive, str(death), famc, fams])
 
 individualsTable.add_rows(individuals)
 
