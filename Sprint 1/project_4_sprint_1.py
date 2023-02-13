@@ -18,6 +18,9 @@ with open(fileName, 'r') as file:
     lines = file.read().splitlines()
 lines = [[line] for line in lines]
 
+# sprint1CodeOutput = open("Sprint 1/sprint_1_code_output.txt","a")
+# sprint1CodeOutput.truncate(0)
+
 # this for loop is finding any gedcom line with errors
 # if line is not having tag or level it will set error to lines
 for i in range(len(lines)):
@@ -162,6 +165,8 @@ individualsTable.add_rows(individuals)
 # Showing individuals details
 print("Individuals")
 print(individualsTable)
+# print("Individuals", file=sprint1CodeOutput)
+# print(individualsTable, file=sprint1CodeOutput)
 
 # Iterating over infolist of gather information for families
 for i in range(len(infoList)):
@@ -237,6 +242,29 @@ famliesTable.add_rows(families)
 # Showing family table
 print("Families")
 print(famliesTable)
+# print("Families", file=sprint1CodeOutput)
+# print(famliesTable, file=sprint1CodeOutput)
+
+
+# Declaring constant for indexes of individuals and family
+IDX_IND_ID = 0
+IDX_IND_NAME = 1
+IDX_IND_GENDER = 2
+IDX_IND_BIRTHDAY = 3
+IDX_IND_AGE = 4
+IDX_IND_ALIVE = 5
+IDX_IND_DEATH = 6
+IDX_IND_CHILD = 7
+IDX_IND_SPOUCE = 8
+
+IDX_FAM_ID = 0
+IDX_FAM_MARRIED = 1
+IDX_FAM_DIVORCED = 2
+IDX_FAM_HUSBAND_ID = 3
+IDX_FAM_HUSBAND_NAME = 4
+IDX_FAM_WIFE_ID = 5
+IDX_FAM_WIFE_NAME = 6
+IDX_FAM_CHILD = 7
 
 
 # User story US03 
@@ -245,19 +273,52 @@ print(famliesTable)
 # Email: ppaghdal@stevens.edu
 def us03_birth_before_death():
     data = []
-    todaysDate = datetime.datetime.today().strftime("%d %b %Y")
-    todaysDate = datetime.datetime.strptime(todaysDate, "%d %b %Y").date()
+    # Iterating over individuals data and finding birth and death date
     for individual in individuals:
-        death = individual[6]
-        birth = individual[3]
-        birth = datetime.datetime.strptime(birth, "%Y-%m-%d").date()
+        death = individual[IDX_IND_DEATH]
+        birth = individual[IDX_IND_BIRTHDAY]
         if(death == "NA") :
-            death = todaysDate
-        else:
-            death = datetime.datetime.strptime(death, "%Y-%m-%d").date()
+            continue
+        if(birth == "NA"):
+            continue
+        # Converting string date to date object
+        birth = datetime.datetime.strptime(birth, "%Y-%m-%d").date()
+        death = datetime.datetime.strptime(death, "%Y-%m-%d").date()
+        
+        # Comparing birth and death date to find death should not occure before birth 
         if(birth > death) :
-            data.append("Error: INDIVIDUAL US03 "  + str(individual[0])+": "+ "named: "+ str(individual[1]) + "Died: "+ str(individual[6] + " before born at " + str(individual[3])))
+            data.append("Error: INDIVIDUAL US03 "  + str(individual[0])+": "+ "named: "+ str(individual[1]) + " Died: "+ str(individual[6] + " before born at " + str(individual[3])))
     return data
 
 data = us03_birth_before_death()
 print(*data, sep="\n")
+# print(*data, sep="\n", file=sprint1CodeOutput)
+
+# User story US30
+# Story Name: List living married
+# Owner: Parth Paghdal (pp)
+# Email: ppaghdal@stevens.edu
+def us30_list_living_married():
+    data = []
+    # Iterating over families to find out married couple
+    for family in families:
+        isStillMarried = family[IDX_FAM_DIVORCED] == "NA"
+        if(isStillMarried):
+            husbandId = family[IDX_FAM_HUSBAND_ID]
+            husbandName = family[IDX_FAM_HUSBAND_NAME]
+            wifeId = family[IDX_FAM_WIFE_ID]
+            wifeName = family[IDX_FAM_WIFE_NAME]
+            isBothAlive = True
+            # Checking husband and wife are alive using individuals detail list
+            for individual in individuals:
+                if(individual[IDX_IND_ID] == husbandId or individual[IDX_IND_ID] == wifeId):
+                    if(individual[IDX_IND_ALIVE] == False):
+                        isBothAlive = False
+            # If both are alive then adding record to data
+            if(isBothAlive):
+                data.append("Error: Family US30 Family id "+ str(family[0])+ " husband name: "+husbandName+ " and wife name: "+ wifeName+ " both are still living married couple.")
+    return data
+
+data = us30_list_living_married()
+print(*data, sep="\n")
+# print(*data, sep="\n", file=sprint1CodeOutput)
