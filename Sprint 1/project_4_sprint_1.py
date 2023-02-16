@@ -342,7 +342,7 @@ def us_29_List_deceased():
         if isinstance(e,IndividualElement):
             if e.is_deceased():
                 (first,last) = e.get_name()
-                d.append(first+" "+last)
+                d.append("Error: INDIVIDUAL US29 List Deceased": first+" "+last)
     return d
 dat = us_29_List_deceased()
 print(*dat,sep="\n")
