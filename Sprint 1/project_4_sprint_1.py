@@ -342,7 +342,8 @@ def us_29_List_deceased():
         if isinstance(e,IndividualElement):
             if e.is_deceased():
                 (first,last) = e.get_name()
-                d.append("Error: INDIVIDUAL US29 List Deceased": first+" "+last)
-    return d
-dat = us_29_List_deceased()
-print(*dat,sep="\n")
+                 l = len(d)
+    for i in range(l):
+        print("Error Individual List Deceased us29:name:"+d[i]+"\n")
+us_29_List_deceased()
+
