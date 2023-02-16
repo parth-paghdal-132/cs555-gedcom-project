@@ -353,3 +353,16 @@ def us_29_List_deceased():
 data = us_29_List_deceased()
 print(*data, sep="\n")
 
+# User story US31
+# Story Name: List living single
+# Owner: Manoj Patel (mp)
+# Email: mpateld@stevens.edu
+def us31_list_living_single():
+    data = []
+    for individual in individuals:
+        if (individual[IDX_IND_SPOUCE] == "NA" and individual[IDX_IND_ALIVE]):
+            data.append("Error: Individual US31 Individual id " + str(individual[0]) + " name: " + individual[IDX_IND_NAME] + " is living single.")
+    return data
+
+data = us31_list_living_single()
+print(*data, sep="\n")
