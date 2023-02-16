@@ -322,3 +322,27 @@ def us30_list_living_married():
 data = us30_list_living_married()
 print(*data, sep="\n")
 # print(*data, sep="\n", file=sprint1CodeOutput)
+
+#User Story US29
+#Story Name: List deceased
+#Owner:Sai Krishna (km)
+#Email : smiriyal@stevens.edu
+# Set up the GEDCOM parser.
+from gedcom.parser import Parser
+from gedcom.element.individual import IndividualElement
+gedcom_parser = Parser()
+
+# Load the GEDCOM file
+gedcom_parser.parse_file("Sprint 1/input.ged")
+
+def us_29_List_deceased():
+    d = []
+    elem = gedcom_parser.get_element_list()
+    for e in elem:
+        if isinstance(e,IndividualElement):
+            if e.is_deceased():
+                (first,last) = e.get_name()
+                d.append(first+" "+last)
+    return d
+dat = us_29_List_deceased()
+print(*dat,sep="\n")
