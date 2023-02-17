@@ -328,28 +328,13 @@ print(*data, sep="\n")
 #Owner:Sai Krishna (km)
 #Email : smiriyal@stevens.edu
 # Set up the GEDCOM parser.
-from gedcom.parser import Parser
-from gedcom.element.individual import IndividualElement
-
-# Set up the GEDCOM parser.
-gedcom_parser = Parser()
-
-# Load the GEDCOM file
-gedcom_parser.parse_file('C:\\Users\\mysel\\OneDrive\\Pictures\\project.ged')
-
-data=[]
-
-# loop through every person in the GEDCOM file
 def us_29_List_deceased():
-    d = []
-    elem = gedcom_parser.get_element_list()
-    for e in elem:
-        if isinstance(e,IndividualElement):
-            if e.is_deceased():
-                (first,last) = e.get_name()
-                d.append("Error Individual List Deceased us29:name:"+first+" "+last+"\n")
-    return d
 
+    data = []
+    for individual in individuals:
+        if(individual[IDX_IND_DEATH] != "NA"):
+            data.append("Error: Individual US29 "+ individual[IDX_IND_ID]+" : named: "+individual[IDX_IND_NAME]+" died on: "+individual[IDX_IND_DEATH])
+    return data
 data = us_29_List_deceased()
 print(*data, sep="\n")
 
