@@ -18,8 +18,8 @@ with open(fileName, 'r') as file:
     lines = file.read().splitlines()
 lines = [[line] for line in lines]
 
-# sprint1CodeOutput = open("Sprint 1/sprint_1_code_output.txt","a")
-# sprint1CodeOutput.truncate(0)
+sprint1CodeOutput = open("Sprint 1/sprint_1_code_output.txt","a")
+sprint1CodeOutput.truncate(0)
 
 # this for loop is finding any gedcom line with errors
 # if line is not having tag or level it will set error to lines
@@ -165,8 +165,8 @@ individualsTable.add_rows(individuals)
 # Showing individuals details
 print("Individuals")
 print(individualsTable)
-# print("Individuals", file=sprint1CodeOutput)
-# print(individualsTable, file=sprint1CodeOutput)
+print("Individuals", file=sprint1CodeOutput)
+print(individualsTable, file=sprint1CodeOutput)
 
 # Iterating over infolist of gather information for families
 for i in range(len(infoList)):
@@ -242,8 +242,8 @@ famliesTable.add_rows(families)
 # Showing family table
 print("Families")
 print(famliesTable)
-# print("Families", file=sprint1CodeOutput)
-# print(famliesTable, file=sprint1CodeOutput)
+print("Families", file=sprint1CodeOutput)
+print(famliesTable, file=sprint1CodeOutput)
 
 
 # Declaring constant for indexes of individuals and family
@@ -292,7 +292,7 @@ def us03_birth_before_death():
 
 data = us03_birth_before_death()
 print(*data, sep="\n")
-# print(*data, sep="\n", file=sprint1CodeOutput)
+print(*data, sep="\n", file=sprint1CodeOutput)
 
 # User story US30
 # Story Name: List living married
@@ -321,7 +321,7 @@ def us30_list_living_married():
 
 data = us30_list_living_married()
 print(*data, sep="\n")
-# print(*data, sep="\n", file=sprint1CodeOutput)
+print(*data, sep="\n", file=sprint1CodeOutput)
 
 #User Story US29
 #Story Name: List deceased
@@ -337,7 +337,7 @@ def us_29_List_deceased():
     return data
 data = us_29_List_deceased()
 print(*data, sep="\n")
-
+print(*data, sep="\n", file=sprint1CodeOutput)
 
 
 # User story US31
@@ -353,6 +353,7 @@ def us31_list_living_single():
 
 data = us31_list_living_single()
 print(*data, sep="\n")
+print(*data, sep="\n", file=sprint1CodeOutput)
 
 print("\n")
 print("\n")
@@ -393,6 +394,7 @@ def us05_marriage_before_death():
 
 data = us05_marriage_before_death()
 print(*data, sep="\n")
+print(*data, sep="\n", file=sprint1CodeOutput)
 
 # User story US16
 # Story Name: Male Last Names
@@ -426,7 +428,7 @@ def us16_male_last_names():
 
 data = us16_male_last_names()
 print(*data, sep="\n")
-
+print(*data, sep="\n", file=sprint1CodeOutput)
 
 # User story US16
 # Story Name: order siblings by age
@@ -454,5 +456,5 @@ def us28_order_siblings_by_age():
 
 data = us28_order_siblings_by_age()
 print(*data, sep="\n")
-
+print(*data, sep="\n", file=sprint1CodeOutput)
 

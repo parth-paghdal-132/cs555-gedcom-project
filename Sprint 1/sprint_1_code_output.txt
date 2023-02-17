@@ -25,8 +25,8 @@ Individuals
 | I21 |   Boris /Chapmen/   |   M    | 1946-05-29 |  76 |  True |     NA     |  {'F3'} |    NA   |
 | I22 | Kimberely /Chapmen/ |   F    | 2011-08-16 |  11 |  True |     NA     |  {'F3'} |    NA   |
 | I23 |   Nicola /Chapmen/  |   F    | 1945-04-14 |  77 |  True |     NA     |    NA   | {'F11'} |
-| I24 |  Penelope /Chapmen/ |   F    | 1947-09-16 |  75 |  True |     NA     |    NA   | {'F12'} |
-| I25 |   Andrew /Chapmen/  |   M    | 1970-05-15 |  52 |  True |     NA     | {'F11'} |    NA   |
+| I24 |   Andrew /Chapmen/  |   M    | 1970-05-15 |  52 |  True |     NA     | {'F11'} |    NA   |
+| I25 |  Penelope /Chapmen/ |   F    | 1947-09-16 |  75 |  True |     NA     |    NA   | {'F12'} |
 | I26 |   Sonia /Chapmen/   |   F    | 1975-06-17 |  47 |  True |     NA     | {'F12'} |    NA   |
 +-----+---------------------+--------+------------+-----+-------+------------+---------+---------+
 Families
@@ -43,9 +43,9 @@ Families
 |  F8 | 1988-05-05 |     NA     |    I15     |   Neil /Chapmen/   |   I17   |  Victoria /Chapmen/ |                  NA                  |
 |  F9 | 1982-07-04 | 1987-06-17 |    I15     |   Neil /Chapmen/   |   I18   |   Abigail /Black/   |                  NA                  |
 | F10 | 1986-05-19 |     NA     |    I16     |   Sam /Chapmen/    |   I19   |  Felicity /Chapmen/ |                  NA                  |
-| F11 | 1968-07-08 |     NA     |    I20     | Benjamin /Chapmen/ |   I23   |   Nicola /Chapmen/  |               {'I25'}                |
-| F12 | 1970-05-03 |     NA     |    I21     |  Boris /Chapmen/   |   I24   |  Penelope /Chapmen/ |               {'I26'}                |
-| F14 |     NA     |     NA     |    I25     |  Andrew /Chapmen/  |   I22   | Kimberely /Chapmen/ |                  NA                  |
+| F11 | 1968-07-08 |     NA     |    I20     | Benjamin /Chapmen/ |   I23   |   Nicola /Chapmen/  |               {'I24'}                |
+| F12 | 1970-05-03 |     NA     |    I21     |  Boris /Chapmen/   |   I25   |  Penelope /Chapmen/ |               {'I26'}                |
+| F14 | 2002-05-07 |     NA     |    I24     |  Andrew /Chapmen/  |   I22   | Kimberely /Chapmen/ |                  NA                  |
 +-----+------------+------------+------------+--------------------+---------+---------------------+--------------------------------------+
 Error: INDIVIDUAL US03 I7: named: John /Chapmen/ Died: 1929-03-19 before born at 1930-03-16
 Error: INDIVIDUAL US03 I8: named: Adrian /Chapmen/ Died: 1925-05-19 before born at 1930-03-16
@@ -55,3 +55,50 @@ Error: Family US30 Family id F10 husband name: Sam /Chapmen/ and wife name: Feli
 Error: Family US30 Family id F11 husband name: Benjamin /Chapmen/ and wife name: Nicola /Chapmen/ both are still living married couple.
 Error: Family US30 Family id F12 husband name: Boris /Chapmen/ and wife name: Penelope /Chapmen/ both are still living married couple.
 Error: Family US30 Family id F14 husband name: Andrew /Chapmen/ and wife name: Kimberely /Chapmen/ both are still living married couple.
+Error: Individual US29 I1 : named: Edward /Chapmen/ died on: 2010-03-15
+Error: Individual US29 I2 : named: Wanda /Chapmen/ died on: 2005-06-19
+Error: Individual US29 I3 : named: Sam /Chapmen/ died on: 2015-04-16
+Error: Individual US29 I6 : named: John /Chapmen/ died on: 2012-02-18
+Error: Individual US29 I7 : named: John /Chapmen/ died on: 1929-03-19
+Error: Individual US29 I8 : named: Adrian /Chapmen/ died on: 1925-05-19
+Error: Individual US29 I9 : named: Karen /Chapmen/ died on: 1990-05-18
+Error: Individual US29 I11 : named: Carol /Chapmen/ died on: 2015-10-30
+Error: Individual US29 I13 : named: Maria /Chapmen/ died on: 1999-05-16
+Error: Individual US31 Individual id I4 name: Sebastian /Chapmen/ is living single.
+Error: Individual US31 Individual id I5 name: Dominic /Chapmen/ is living single.
+Error: Individual US31 Individual id I15 name: Neil /Chapmen/ is living single.
+Error: Individual US31 Individual id I16 name: Sam /Chapmen/ is living single.
+Error: Individual US31 Individual id I20 name: Benjamin /Chapmen/ is living single.
+Error: Individual US31 Individual id I21 name: Boris /Chapmen/ is living single.
+Error: Individual US31 Individual id I22 name: Kimberely /Chapmen/ is living single.
+Error: Individual US31 Individual id I24 name: Andrew /Chapmen/ is living single.
+Error: Individual US31 Individual id I26 name: Sonia /Chapmen/ is living single.
+Error: FAMILY US05 Family id F5 husband died before marriage date.
+Error: FAMILY US05 Family id F6 husband died before marriage date.
+Error: FAMILY US05 Family id F7 husband died before marriage date.
+Error: Family US16 Family id F1 all male members have same last name Edward /Chapmen/
+Error: Family US16 Family id F2 all male members have same last name Sam /Chapmen/
+Error: Family US16 Family id F3 all male members have same last name Joanne /Chapmen/
+Error: Family US16 Family id F4 all male members have same last name Dominic /Chapmen/
+Error: Family US16 Family id F5 all male members have same last name John /Chapmen/
+Error: Family US16 Family id F6 all male members have same last name John /Chapmen/
+Error: Family US16 Family id F7 all male members have same last name Adrian /Chapmen/
+Error: Family US16 Family id F8 all male members have same last name Neil /Chapmen/
+Error: Family US16 Family id F9 all male members have same last name Neil /Chapmen/
+Error: Family US16 Family id F10 all male members have same last name Sam /Chapmen/
+Error: Family US16 Family id F11 all male members have same last name Benjamin /Chapmen/
+Error: Family US16 Family id F12 all male members have same last name Boris /Chapmen/
+Error: Family US16 Family id F14 all male members have same last name Andrew /Chapmen/
+Family F1: Ordered siblings by age
+Family F2: Ordered siblings by age
+Family F3: Ordered siblings by age
+Family F4: Ordered siblings by age
+Family F5: Ordered siblings by age
+Family F6: Ordered siblings by age
+Family F7: Ordered siblings by age
+Family F8: Ordered siblings by age
+Family F9: Ordered siblings by age
+Family F10: Ordered siblings by age
+Family F11: Ordered siblings by age
+Family F12: Ordered siblings by age
+Family F14: Ordered siblings by age
