@@ -265,9 +265,9 @@ class Test11(unittest.TestCase):
     # This test case will pass since assertNotEqual is used to check content of both arrays and that content is different
     def test_us_31_different_content(self):
         us31Data = [
-            "Error: Individual US31 Individual id I4, name John /Doe/ is living and single.",
-            "Error: Individual US31 Individual id I5, name Jane /Doe/ is living and single.",
-            "Error: Individual US31 Individual id I6, name Alex /Doe/ is living and single."
+            "Error: Individual US31 Individual id I4, name Sebastian /Chapmen/ is living and single.",
+            "Error: Individual US31 Individual id I5, name Dominic /Chapmen/ is living and single.",
+            "Error: Individual US31 Individual id I15, name Neil /Chapmen/ is living and single."
         ]
         data = project_4_sprint_1.us31_list_living_single()
         for index, value in enumerate(data):
