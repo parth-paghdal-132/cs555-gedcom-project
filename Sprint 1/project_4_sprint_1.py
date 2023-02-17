@@ -351,3 +351,38 @@ def us31_list_living_single():
 
 data = us31_list_living_single()
 print(*data, sep="\n")
+
+# User story US16
+# Story Name: Male Last Names
+# Owner: Ambati Baby Naga Sahithya (sa)
+# Email: bambati@stevens.edu
+def us16_male_last_names():
+    data = []
+    # Iterating over families to find out male last names
+    for family in families:
+        husbandId = family[IDX_FAM_HUSBAND_ID]
+        # Checking husband is male
+        for individual in individuals:
+            if (individual[IDX_IND_ID] == husbandId):
+                if (individual[IDX_IND_GENDER] == "M"):
+                    husbandLastName = individual[IDX_IND_NAME].split("/")[-1].strip()
+
+                    isSameLastName = True
+                    # Checking all children's last name in family
+                    for childId in family[IDX_FAM_CHILD]:
+                        for individual in individuals:
+                            if (individual[IDX_IND_ID] == childId):
+                                if (individual[IDX_IND_GENDER] == "M"):
+                                    childLastName = individual[IDX_IND_NAME].split("/")[-1].strip()
+                                    if (husbandLastName != childLastName):
+                                        isSameLastName = False
+                    # If all male members in family has same last name then adding record to data
+                    if (isSameLastName):
+
+                        data.append("Error: Family US16 Family id " + str(family[0]) + " all male members have same last name "+ str(family[4])  +"")
+    return data
+
+data = us16_male_last_names()
+print(*data, sep="\n")
+
+
