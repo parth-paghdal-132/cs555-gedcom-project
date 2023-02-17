@@ -275,6 +275,94 @@ class Test11(unittest.TestCase):
                                 "This test case will pass since assertNotEqual is used to check content of both arrays and that content is different")
 
 
+      # Test case for us16_male_last_names()
+
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertEqual is used and both array has same length
+    def test_us_16_same_length(self):
+        us16Data = [
+            "Error: FAMILY US16 F1: Male members have different last names: ['Chapmen']"
+
+        ]
+        self.assertEqual(len(project_3.us16_male_last_names()), len(us16Data),
+                         "This test case will pass since assertEqual method is used and both array has same length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertEqual is used to check content of both array and that content is same
+    def test_us_16_same_content(self):
+        us16Data = [
+            "Error: FAMILY US16 F1: Male members have different last names: ['Chapmen']"
+
+        ]
+        data = project_3.us16_male_last_names()
+        for index, value in enumerate(data):
+            self.assertEqual(value, us16Data[index],
+                             "This test case will pass since assertEqual is used to check content of both array and that content is same")
+
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertNotEqual is used and both array has different length
+    def test_us_16_different_length(self):
+        us16Data = [
+            "Error: FAMILY US16 F1: Male members have different last names: ['Chapmen', 'Black']"
+        ]
+        self.assertNotEqual(len(project_3.us16_male_last_names()), len(us16Data),
+                            "This test case will pass since assertNotEqual is used and both array has different length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertNotEqual is used to check content both array and that content is different
+    def test_us_16_different_content(self):
+        us16Data = [
+            "Error: FAMILY US16 F2: Male members have different last names: ['Chapmen']"
+        ]
+        data = project_3.us16_male_last_names()
+        for index, value in enumerate(data):
+            self.assertNotEqual(value, us16Data[index],
+                                "This test case will pass since assertNotEqual is used to check content both array and that content is different")
+
+    def test_us_28_same_length(self):
+        us28Data = [
+            "Family US28 Family id F3: Child Edward /Chapmen/ has an age of 99 years.",
+            "Family US28 Family id F3: Child Wanda /Chapmen/ has an age of 94 years.",
+            "Family US28 Family id F3: Child Sam /Chapmen/ has an age of 85 years.",
+            "Family US28 Family id F3: Child Sabastian /Chapmen/ has an age of 92 years."
+        ]
+        self.assertEqual(len(project_3.us28_order_siblings_by_age()), len(us28Data),
+                         "This test case will pass since assertEqual method is used and both array has same length")
+
+    def test_us_28_same_content(self):
+        us28Data = [
+            "Family US28 Family id F3: Child Edward /Chapmen/ has an age of 99 years.",
+            "Family US28 Family id F3: Child Wanda /Chapmen/ has an age of 94 years.",
+            "Family US28 Family id F3: Child Sam /Chapmen/ has an age of 85 years.",
+            "Family US28 Family id F3: Child Sebastian /Chapmen/ has an age of 92 years."
+        ]
+        data = project_3.us28_order_siblings_by_age()
+        for index, value in enumerate(data):
+            self.assertEqual(value, us28Data[index],
+                             "This test case will pass since assertEqual is used to check content of both array and that content is same")
+
+    def test_us_28_different_length(self):
+        us28Data = [
+            "Family US28 Family id F3: Child Edward /Chapmen/ has an age of 99 years.",
+            "Family US28 Family id F3: Child Wanda /Chapmen/ has an age of 94 years."
+        ]
+        self.assertNotEqual(len(project_3.us28_order_siblings_by_age()), len(us28Data),
+                            "This test case will pass since assertNotEqual is used and both array has different length")
+
+    def test_us_28_different_content(self):
+        us28Data = [
+            "Family US28 Family id F3: Child Edward /Chapmen/ has an age of 99 years.",
+            "Family US28 Family id F3: Child Wanda /Chapmen/ has an age of 94 years.",
+            "Family US28 Family id F3: Child Sam /Chapmen/ has an age of 85 years.",
+            "Family US28 Family id F3: Child John /Chapmen/ has an age of 81 years."
+        ]
+        data = project_3.us28_order_siblings_by_age()
+        for index, value in enumerate(data):
+            self.assertNotEqual(value, us28Data[index],
+                                "This test case will pass since assertNotEqual is used to check content both array and that content is different")
+        
+            
+            
 if __name__ == '__main__':
     unittest.main()
 
