@@ -338,6 +338,8 @@ def us_29_List_deceased():
 data = us_29_List_deceased()
 print(*data, sep="\n")
 
+
+
 # User story US31
 # Story Name: List living single
 # Owner: Manoj Patel (mp)
@@ -350,6 +352,46 @@ def us31_list_living_single():
     return data
 
 data = us31_list_living_single()
+print(*data, sep="\n")
+
+print("\n")
+print("\n")
+
+
+# User story US05
+# Story Name: List living single
+# Owner: Manoj Patel (mp)
+# Email: mpateld@stevens.edu
+def us05_marriage_before_death():
+    data = []
+    # Iterating over families to find out married couple
+    for family in families:
+        husbandId = family[IDX_FAM_HUSBAND_ID]
+        wifeId = family[IDX_FAM_WIFE_ID]
+        marriageDate = family[IDX_FAM_MARRIED]
+        if marriageDate == "NA":
+            continue
+
+        # Checking husband and wife's death dates
+        husbandDeath = None
+        wifeDeath = None
+        for individual in individuals:
+            if individual[IDX_IND_ID] == husbandId:
+                husbandDeath = individual[IDX_IND_DEATH]
+            elif individual[IDX_IND_ID] == wifeId:
+                wifeDeath = individual[IDX_IND_DEATH]
+            if husbandDeath and wifeDeath:
+                break
+
+        if husbandDeath!="NA" and marriageDate!="NA":
+            if datetime.datetime.strptime(husbandDeath, "%Y-%m-%d").date() < marriageDate:
+                data.append("Error: FAMILY US05 Family id " + str(family[0]) + " husband died before marriage date.")
+        if wifeDeath!="NA" and datetime.datetime.strptime(wifeDeath, "%Y-%m-%d").date() < marriageDate:
+                data.append("Error: FAMILY US05 Family id " + str(family[0]) + " wife died before marriage date.")
+
+    return data
+
+data = us05_marriage_before_death()
 print(*data, sep="\n")
 
 # User story US16
