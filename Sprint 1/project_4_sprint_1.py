@@ -428,3 +428,31 @@ data = us16_male_last_names()
 print(*data, sep="\n")
 
 
+# User story US16
+# Story Name: order siblings by age
+# Owner: Ambati Baby Naga Sahithya (sa)
+# Email: bambati@stevens.edu
+def us28_order_siblings_by_age():
+    data = []
+    for family in families:
+        children_ids = family[IDX_FAM_CHILD]
+        children = []
+        for child_id in children_ids:
+            for individual in individuals:
+                if individual[IDX_IND_ID] == child_id:
+                    children.append(individual)
+        # Sort children by age
+        children.sort(key=lambda child: child[IDX_IND_BIRTHDATE])
+        # Create output string
+        output_str = "Family {}: Ordered siblings by age: ".format(family[IDX_FAM_ID])
+        for child in children:
+            output_str += child[IDX_IND_NAME] + " (age " + str(get_age(child[IDX_IND_BIRTHDATE])) + "), "
+        output_str = output_str[:-2]  # remove trailing comma
+        data.append(output_str)
+    return data
+
+
+data = us28_order_siblings_by_age()
+print(*data, sep="\n")
+
+
