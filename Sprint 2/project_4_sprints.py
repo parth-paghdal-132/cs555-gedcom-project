@@ -462,3 +462,43 @@ def us28_order_siblings_by_age():
 data = us28_order_siblings_by_age()
 print(*data, sep="\n")
 print(*data, sep="\n", file=sprint2CodeOutput)
+
+#User Story US12
+#Story Name: Parents not too old
+#Owner: Sai Krishna (km), Parth Paghdal (pp)
+#Email : smiriyal@stevens.edu, ppaghdal@stevens.edu
+#Note: this user story is backlog from Sprint 1
+#       This user story done using pair programming with Parth Paghdal (pp)
+def us12_parents_not_too_old():
+    data = []
+    for family in families:
+        fatherId = family[IDX_FAM_HUSBAND_ID]
+        motherId = family[IDX_FAM_WIFE_ID]
+
+        fatherName = family[IDX_FAM_HUSBAND_NAME]
+        motherName = family[IDX_FAM_WIFE_NAME]
+
+        children_ids = family[IDX_FAM_CHILD]
+        children_ids = children_ids.replace("{", "").replace("}", "").replace("'","").replace(" ","").split(",")
+
+        fatherAge = None
+        motherAge = None
+        for individual in individuals:
+            if individual[IDX_IND_ID] == fatherId:
+                fatherAge = individual[IDX_IND_AGE]
+            if individual[IDX_IND_ID] == motherId:
+                motherAge = 0
+            if fatherAge != None and motherAge != None:
+                break
+        
+        for individual in individuals:
+            if individual[IDX_IND_ID] in children_ids:
+                childAge = individual[IDX_IND_AGE]
+                if motherAge - childAge > 60:
+                    data.append("ERROR: US12 Family: "+ str(family[IDX_IND_ID])+" mother named: "+ motherName+" and age:" + str(motherAge)+ " more than 60 year than her child named: "+ individual[IDX_IND_NAME]+" with age "+ str(individual[IDX_IND_AGE]))
+                if fatherAge - childAge > 80:
+                    data.append("ERROR: US12 Family: "+ str(family[IDX_IND_ID])+" father named: "+ fatherName+" and age:" + str(fatherAge)+ " more than 80 year than his child named: "+ individual[IDX_IND_NAME]+" with age "+ str(individual[IDX_IND_AGE]))
+    return data
+data = us12_parents_not_too_old()
+print(*data, sep="\n")            
+print(*data, sep="\n", file=sprint2CodeOutput)
