@@ -183,55 +183,67 @@ class GedComProjectTestCases(unittest.TestCase):
     #CWID:- 20012221
     def test_us_05_same_length(self):
         usO5Data = [
-            "Error: INDIVIDUAL US05 I7: named: John /Chapmen/ Died: 1929-03-19 before married at 1959-05-10 to Maria /Chapmen/",
-            "Error: INDIVIDUAL US05 I8: named: Adrian /Chapmen/ Died: 1925-05-19 before married at 1954-06-15 to Jennifer /Chapmen/"
+            "ERROR: US05 Family: F5 husband died on 2012-02-18 before his marriage date 2016-07-06",
+            "ERROR: US05 Family: F6 husband died on 1929-03-19 before his marriage date 1959-05-10",
+            "ERROR: US05 Family: F7 husband died on 1925-05-19 before his marriage date 1954-06-15"
         ]
-        self.assertNotEqual(len(project_4_sprint_1.us05_marriage_before_death()), len(usO5Data), "This test case will pass since assertEqual method is used and both arrays have the same length")
+        self.assertEqual(len(project_4_sprint_1.us05_marriage_before_death()), len(usO5Data), "This test case will pass since assertEqual method is used and both arrays have the same length")
 
     def test_us_05_same_content(self):
         usO5Data = [
-            "Error: INDIVIDUAL US05 I7: named: John /Chapmen/ Died: 1929-03-19 before married at 1959-05-10 to Maria /Chapmen/",
-            "Error: INDIVIDUAL US05 I8: named: Adrian /Chapmen/ Died: 1925-05-19 before married at 1954-06-15 to Jennifer /Chapmen//"
+            "ERROR: US05 Family: F5 husband died on 2012-02-18 before his marriage date 2016-07-06",
+            "ERROR: US05 Family: F6 husband died on 1929-03-19 before his marriage date 1959-05-10",
+            "ERROR: US05 Family: F7 husband died on 1925-05-19 before his marriage date 1954-06-15"
         ]
         data = project_4_sprint_1.us05_marriage_before_death()
         for index, value in enumerate(data):
-            self.assertEqual(value, data[index], "This test case will pass since assertEqual is used to check the content of both arrays and the content is the same")
+            self.assertEqual(value, usO5Data[index], "This test case will pass since assertEqual is used to check the content of both arrays and the content is the same")
 
     def test_us_05_different_length(self):
         usO5Data = [
-            "Error: INDIVIDUAL US05 I7: named: John /Chapmen/ Died: 1929-03-19 before married at 1959-05-10 to Maria /Chapmen/",
-            "Error: INDIVIDUAL US05 I8: named: Adrian /Chapmen/ Died: 1925-05-19 before married at 1954-06-15 to Jennifer /Chapmen/",
-            "Error: INDIVIDUAL US05 I8: named: Nicola /Chapmen/ Died: 1925-05-19 before married at 1930-03-16 to Peter /Chapmen/"
+            "ERROR: US05 Family: F5 husband died on 2012-02-18 before his marriage date 2016-07-06",
+            "ERROR: US05 Family: F6 husband died on 1929-03-19 before his marriage date 1959-05-10",
+            "ERROR: US05 Family: F7 husband died on 1925-05-19 before his marriage date 1954-06-15",
+            "ERROR: US05 Family: F5 husband died on 2012-02-18 before his marriage date 2016-07-06",
+            "ERROR: US05 Family: F6 husband died on 1929-03-19 before his marriage date 1959-05-10",
+            "ERROR: US05 Family: F7 husband died on 1925-05-19 before his marriage date 1954-06-15"
         ]
-        self.assertEqual(len(project_4_sprint_1.us05_marriage_before_death()), len(usO5Data), "This test case will pass since assertNotEqual is used and both arrays have different lengths")
+        self.assertNotEqual(len(project_4_sprint_1.us05_marriage_before_death()), len(usO5Data), "This test case will pass since assertNotEqual is used and both arrays have different lengths")
 
     def test_us_05_different_content(self):
         usO5Data = [
-            "Error: INDIVIDUAL US05 I7: named: John /Chapmen/ Died: 1929-03-19 before married at 1959-05-10 to Maria /Chapmen/",
-            "Error: INDIVIDUAL US05 I8: named: Adrian /Chapmen/ Died: 1925-05-19 before married at 1954-06-15 to Jennifer /Chapmen/"
+            "ERROR: US05 Family: F7 husband died on 1925-05-19 before his marriage date 1954-06-15",
+            "ERROR: US05 Family: F5 husband died on 2012-02-18 before his marriage date 2016-07-06",
+            "ERROR: US05 Family: F6 husband died on 1929-03-19 before his marriage date 1959-05-10"
         ]
         data = project_4_sprint_1.us05_marriage_before_death()
         for index, value in enumerate(data):
-            self.assertNotEqual
+            self.assertNotEqual(value, usO5Data[index], "This test case will pass since assertNotEqual is used and both arrays have differetn content.")
 
 
     # This test case will check the length of the expected and actual output
     # This test case will pass since assertEqual is used and both arrays have the same length
     def test_us_31_same_length(self):
         us31Data = [
-            "Error: Individual US31 Individual id I1, name Emily /Chapman/ is living and single.",
-            "Error: Individual US31 Individual id I2, name Rachel /Chapman/ is living and single.",
-            "Error: Individual US31 Individual id I3, name Karen /Chapman/ is living and single."
+            "Error: INDIVIDUAL US31 I26 named: Sonia /Chapmen/ is alive, over 30 year old and never married"
         ]
-        self.assertNotEqual(len(project_4_sprint_1.us31_list_living_single()), len(us31Data),
+        self.assertEqual(len(project_4_sprint_1.us31_list_living_single()), len(us31Data),
                          "This test case will pass since assertEqual method is used and both arrays have the same length")
 
+    def test_us_31_same_content(self):
+        us31Data = [
+            "Error: INDIVIDUAL US31 I26 named: Sonia /Chapmen/ is alive, over 30 year old and never married"
+        ]
+        data = project_4_sprint_1.us31_list_living_single()
+        for index, value in enumerate(data):
+            self.assertEqual(value, us31Data[index], "This test case will pass since data is same in both array.")  
+    
     # This test case will check the length of the expected and actual output
     # This test case will pass since assertNotEqual is used and both arrays have different length
     def test_us_31_different_length(self):
         us31Data = [
-            "Error: Individual US31 Individual id I1, name Emily /Chapman/ is living and single.",
-            "Error: Individual US31 Individual id I2, name Rachel /Chapman/ is living and single."
+            "Error: INDIVIDUAL US31 I26 named: Sonia /Chapmen/ is alive, over 30 year old and never married",
+            "Error: INDIVIDUAL US31 I26 named: Sonia /Chapmen/ is alive, over 30 year old and never married"
         ]
         self.assertNotEqual(len(project_4_sprint_1.us31_list_living_single()), len(us31Data),
                             "This test case will pass since assertNotEqual is used and both arrays have different length")
@@ -240,46 +252,38 @@ class GedComProjectTestCases(unittest.TestCase):
     # This test case will pass since assertNotEqual is used to check content of both arrays and that content is different
     def test_us_31_different_content(self):
         us31Data = [
-            "Error: Individual US31 Individual id I4, name Sebastian /Chapmen/ is living and single.",
-            "Error: Individual US31 Individual id I5, name Dominic /Chapmen/ is living and single.",
-            "Error: Individual US31 Individual id I15, name Neil /Chapmen/ is living and single."
+            "Error: INDIVIDUAL US31 I26 named: Andrew /Chapmen/ is alive, over 30 year old and never married"
         ]
         data = project_4_sprint_1.us31_list_living_single()
         for index, value in enumerate(data):
-            self.assertEqual(value, data[index],
+            self.assertNotEqual(value, us31Data[index],
                                 "This test case will pass since assertNotEqual is used to check content of both arrays and that content is different")
 
-#Name:- SAHITHYA AMBATI
-#CWID:- 20012050
-      # Test case for us16_male_last_names()
+    #Name:- SAHITHYA AMBATI
+    #CWID:- 20012050
+    # Test case for us16_male_last_names()
 
     # This test case will check length of expected and actual output
     # This test case will pass since assertEqual is used and both array has same length
     def test_us_16_same_length(self):
-        us16Data = [
-            "Error: FAMILY US16 F1: Male members have different last names: ['Chapmen']"
-
-        ]
-        self.assertNotEqual(len(project_4_sprint_1.us16_male_last_names()), len(us16Data),
+        us16Data = []
+        self.assertEqual(len(project_4_sprint_1.us16_male_last_names()), len(us16Data),
                          "This test case will pass since assertEqual method is used and both array has same length")
 
     # This test case will check content of expected and actual output by in order
     # This test case will pass since assertEqual is used to check content of both array and that content is same
     def test_us_16_same_content(self):
-        us16Data = [
-            "Error: FAMILY US16 F1: Male members have different last names: ['Chapmen']"
-
-        ]
+        us16Data = []
         data = project_4_sprint_1.us16_male_last_names()
         for index, value in enumerate(data):
-            self.assertEqual(value, data[index],
+            self.assertEqual(value, us16Data[index],
                              "This test case will pass since assertEqual is used to check content of both array and that content is same")
 
     # This test case will check length of expected and actual output
     # This test case will pass since assertNotEqual is used and both array has different length
     def test_us_16_different_length(self):
         us16Data = [
-            "Error: FAMILY US16 F1: Male members have different last names: ['Chapmen', 'Black']"
+            "Some random string just for mock purpose."
         ]
         self.assertNotEqual(len(project_4_sprint_1.us16_male_last_names()), len(us16Data),
                             "This test case will pass since assertNotEqual is used and both array has different length")
@@ -288,29 +292,34 @@ class GedComProjectTestCases(unittest.TestCase):
     # This test case will pass since assertNotEqual is used to check content both array and that content is different
     def test_us_16_different_content(self):
         us16Data = [
-            "Error: FAMILY US16 F2: Male members have different last names: ['Chapmen']"
+            "Some random string just for mock purpose."
         ]
         data = project_4_sprint_1.us16_male_last_names()
         for index, value in enumerate(data):
-            self.assertEqual(value, data[index],
+            self.assertNotEqual(value, us16Data[index],
                                 "This test case will pass since assertNotEqual is used to check content both array and that content is different")
 
+    #Name:- SAHITHYA AMBATI
+    #CWID:- 20012050
+    # Test case for us28_order_siblings_by_age()
     def test_us_28_same_length(self):
         us28Data = [
-            "Family US28 Family id F3: Child Edward /Chapmen/ has an age of 99 years.",
-            "Family US28 Family id F3: Child Wanda /Chapmen/ has an age of 94 years.",
-            "Family US28 Family id F3: Child Sam /Chapmen/ has an age of 85 years.",
-            "Family US28 Family id F3: Child Sabastian /Chapmen/ has an age of 92 years."
+            "ERROR: US28 FAMILY: F1 sorted siblings (oldest first): ID:I4 Age: 92 |-| ID:I5 Age: 92 |-| ID:I3 Age: 85 |-| ID:I6 Age: 81 |-| ID:I7 Age: 0 |-| ID:I8 Age: -4",
+            "ERROR: US28 FAMILY: F2 sorted siblings (oldest first): ID:I16 Age: 69 |-| ID:I15 Age: 65",
+            "ERROR: US28 FAMILY: F3 sorted siblings (oldest first): ID:I20 Age: 80 |-| ID:I21 Age: 76 |-| ID:I22 Age: 11",
+            "ERROR: US28 FAMILY: F11 sorted siblings (oldest first): ID:I24 Age: 52",
+            "ERROR: US28 FAMILY: F12 sorted siblings (oldest first): ID:I26 Age: 47"
         ]
-        self.assertNotEqual(len(project_4_sprint_1.us28_order_siblings_by_age()), len(us28Data),
+        self.assertEqual(len(project_4_sprint_1.us28_order_siblings_by_age()), len(us28Data),
                          "This test case will pass since assertEqual method is used and both array has same length")
 
     def test_us_28_same_content(self):
         us28Data = [
-            "Family US28 Family id F3: Child Edward /Chapmen/ has an age of 99 years.",
-            "Family US28 Family id F3: Child Wanda /Chapmen/ has an age of 94 years.",
-            "Family US28 Family id F3: Child Sam /Chapmen/ has an age of 85 years.",
-            "Family US28 Family id F3: Child Sebastian /Chapmen/ has an age of 92 years."
+            "ERROR: US28 FAMILY: F1 sorted siblings (oldest first): ID:I4 Age: 92 |-| ID:I5 Age: 92 |-| ID:I3 Age: 85 |-| ID:I6 Age: 81 |-| ID:I7 Age: 0 |-| ID:I8 Age: -4",
+            "ERROR: US28 FAMILY: F2 sorted siblings (oldest first): ID:I16 Age: 69 |-| ID:I15 Age: 65",
+            "ERROR: US28 FAMILY: F3 sorted siblings (oldest first): ID:I20 Age: 80 |-| ID:I21 Age: 76 |-| ID:I22 Age: 11",
+            "ERROR: US28 FAMILY: F11 sorted siblings (oldest first): ID:I24 Age: 52",
+            "ERROR: US28 FAMILY: F12 sorted siblings (oldest first): ID:I26 Age: 47"
         ]
         data = project_4_sprint_1.us28_order_siblings_by_age()
         for index, value in enumerate(data):
@@ -319,22 +328,25 @@ class GedComProjectTestCases(unittest.TestCase):
 
     def test_us_28_different_length(self):
         us28Data = [
-            "Family US28 Family id F3: Child Edward /Chapmen/ has an age of 99 years.",
-            "Family US28 Family id F3: Child Wanda /Chapmen/ has an age of 94 years."
+            "ERROR: US28 FAMILY: F2 sorted siblings (oldest first): ID:I16 Age: 69 |-| ID:I15 Age: 65",
+            "ERROR: US28 FAMILY: F3 sorted siblings (oldest first): ID:I20 Age: 80 |-| ID:I21 Age: 76 |-| ID:I22 Age: 11",
+            "ERROR: US28 FAMILY: F11 sorted siblings (oldest first): ID:I24 Age: 52",
+            "ERROR: US28 FAMILY: F12 sorted siblings (oldest first): ID:I26 Age: 47"
         ]
         self.assertNotEqual(len(project_4_sprint_1.us28_order_siblings_by_age()), len(us28Data),
                             "This test case will pass since assertNotEqual is used and both array has different length")
 
     def test_us_28_different_content(self):
         us28Data = [
-            "Family US28 Family id F3: Child Edward /Chapmen/ has an age of 99 years.",
-            "Family US28 Family id F3: Child Wanda /Chapmen/ has an age of 94 years.",
-            "Family US28 Family id F3: Child Sam /Chapmen/ has an age of 85 years.",
-            "Family US28 Family id F3: Child John /Chapmen/ has an age of 81 years."
+            "ERROR: US28 FAMILY: F2 sorted siblings (oldest first): ID:I16 Age: 69 |-| ID:I15 Age: 65",
+            "ERROR: US28 FAMILY: F1 sorted siblings (oldest first): ID:I4 Age: 92 |-| ID:I5 Age: 92 |-| ID:I3 Age: 85 |-| ID:I6 Age: 81 |-| ID:I7 Age: 0 |-| ID:I8 Age: -4",
+            "ERROR: US28 FAMILY: F12 sorted siblings (oldest first): ID:I26 Age: 47",
+            "ERROR: US28 FAMILY: F3 sorted siblings (oldest first): ID:I20 Age: 80 |-| ID:I21 Age: 76 |-| ID:I22 Age: 11",
+            "ERROR: US28 FAMILY: F11 sorted siblings (oldest first): ID:I24 Age: 52"
         ]
         data = project_4_sprint_1.us28_order_siblings_by_age()
         for index, value in enumerate(data):
-            self.assertEqual(value, data[index],
+            self.assertNotEqual(value, us28Data[index],
                                 "This test case will pass since assertNotEqual is used to check content both array and that content is different")
         
             

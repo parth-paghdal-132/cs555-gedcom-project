@@ -163,8 +163,8 @@ for key, value in individualsData.items():
 individualsTable.add_rows(individuals)
 
 # Showing individuals details
-print("Individuals")
-print(individualsTable)
+# print("Individuals")
+# print(individualsTable)
 print("Individuals", file=sprint1CodeOutput)
 print(individualsTable, file=sprint1CodeOutput)
 
@@ -240,8 +240,8 @@ for key, value in familiesData.items():
 famliesTable.add_rows(families)
 
 # Showing family table
-print("Families")
-print(famliesTable)
+# print("Families")
+# print(famliesTable)
 print("Families", file=sprint1CodeOutput)
 print(famliesTable, file=sprint1CodeOutput)
 
@@ -346,50 +346,56 @@ print(*data, sep="\n", file=sprint1CodeOutput)
 # Email: mpateld@stevens.edu
 def us31_list_living_single():
     data = []
+    idOfPeopleWhoAreMarriedAtleastOne = []
+    for family in families:
+        idOfPeopleWhoAreMarriedAtleastOne.append(family[IDX_FAM_HUSBAND_ID])
+        idOfPeopleWhoAreMarriedAtleastOne.append(family[IDX_FAM_WIFE_ID])
     for individual in individuals:
-        if (individual[IDX_IND_SPOUCE] == "NA" and individual[IDX_IND_ALIVE]):
-            data.append("Error: Individual US31 Individual id " + str(individual[0]) + " name: " + individual[IDX_IND_NAME] + " is living single.")
+        age = individual[IDX_IND_AGE]
+        if(age < 30):
+            continue
+        if(individual[IDX_IND_ID] in idOfPeopleWhoAreMarriedAtleastOne):
+            continue
+        if(individual[IDX_IND_DEATH] != "NA"):
+            continue
+        data.append("Error: INDIVIDUAL US31 "+ str(individual[IDX_IND_ID])+ " named: "+individual[IDX_IND_NAME]+" is alive, over 30 year old and never married")
     return data
 
 data = us31_list_living_single()
 print(*data, sep="\n")
 print(*data, sep="\n", file=sprint1CodeOutput)
 
-print("\n")
-print("\n")
-
-
 # User story US05
-# Story Name: List living single
+# Story Name: Marriage before death
 # Owner: Manoj Patel (mp)
 # Email: mpateld@stevens.edu
 def us05_marriage_before_death():
     data = []
-    # Iterating over families to find out married couple
     for family in families:
         husbandId = family[IDX_FAM_HUSBAND_ID]
         wifeId = family[IDX_FAM_WIFE_ID]
         marriageDate = family[IDX_FAM_MARRIED]
-        if marriageDate == "NA":
-            continue
 
-        # Checking husband and wife's death dates
+        isHusbandAlive = True
+        isWifeAlive = True
         husbandDeath = None
         wifeDeath = None
         for individual in individuals:
             if individual[IDX_IND_ID] == husbandId:
-                husbandDeath = individual[IDX_IND_DEATH]
-            elif individual[IDX_IND_ID] == wifeId:
-                wifeDeath = individual[IDX_IND_DEATH]
-            if husbandDeath and wifeDeath:
-                break
-
-        if husbandDeath!="NA" and marriageDate!="NA":
-            if datetime.datetime.strptime(husbandDeath, "%Y-%m-%d").date() < marriageDate:
-                data.append("Error: FAMILY US05 Family id " + str(family[0]) + " husband died before marriage date.")
-        if wifeDeath!="NA" and datetime.datetime.strptime(wifeDeath, "%Y-%m-%d").date() < marriageDate:
-                data.append("Error: FAMILY US05 Family id " + str(family[0]) + " wife died before marriage date.")
-
+                isHusbandAlive = individual[IDX_IND_ALIVE]
+                if not isHusbandAlive:
+                    husbandDeath = datetime.datetime.strptime(individual[IDX_IND_DEATH], "%Y-%m-%d").date()
+            if individual[IDX_IND_ID] == wifeId:
+                isWifeAlive = individual[IDX_IND_ALIVE]
+                if not isWifeAlive:
+                    wifeDeath = datetime.datetime.strptime(individual[IDX_IND_DEATH], "%Y-%m-%d").date()
+        if isHusbandAlive and isWifeAlive:
+            continue
+        else:
+            if not isHusbandAlive and (husbandDeath != None and marriageDate > husbandDeath):
+                data.append("ERROR: US05 Family: "+ str(family[IDX_IND_ID]) + " husband died on "+str(husbandDeath)+" before his marriage date "+str(marriageDate))
+            elif not isWifeAlive and (wifeDeath != None and marriageDate > wifeDeath):
+                data.append("ERROR: US05 Family: "+ str(family[IDX_IND_ID]) + " wife died on "+str(wifeDeath)+" before her marriage date "+str(marriageDate))
     return data
 
 data = us05_marriage_before_death()
@@ -402,57 +408,56 @@ print(*data, sep="\n", file=sprint1CodeOutput)
 # Email: bambati@stevens.edu
 def us16_male_last_names():
     data = []
-    # Iterating over families to find out male last names
+
     for family in families:
-        husbandId = family[IDX_FAM_HUSBAND_ID]
-        # Checking husband is male
+        husbandName = family[IDX_FAM_HUSBAND_NAME]
+        names = husbandName.split("/")
+        if(len(names) < 2):
+            continue
+        familyLastName = names[1].strip()
+        children_ids = family[IDX_FAM_CHILD]
+        children_ids = children_ids.replace("{", "").replace("}", "").replace("'","").replace(" ","").split(",")
         for individual in individuals:
-            if (individual[IDX_IND_ID] == husbandId):
-                if (individual[IDX_IND_GENDER] == "M"):
-                    husbandLastName = individual[IDX_IND_NAME].split("/")[-1].strip()
-
-                    isSameLastName = True
-                    # Checking all children's last name in family
-                    for childId in family[IDX_FAM_CHILD]:
-                        for individual in individuals:
-                            if (individual[IDX_IND_ID] == childId):
-                                if (individual[IDX_IND_GENDER] == "M"):
-                                    childLastName = individual[IDX_IND_NAME].split("/")[-1].strip()
-                                    if (husbandLastName != childLastName):
-                                        isSameLastName = False
-                    # If all male members in family has same last name then adding record to data
-                    if (isSameLastName):
-
-                        data.append("Error: Family US16 Family id " + str(family[0]) + " all male members have same last name "+ str(family[4])  +"")
+            if(individual[IDX_IND_ID] not in children_ids):
+                continue
+            if(individual[IDX_IND_GENDER] != "M"):
+                continue
+            name = individual[IDX_IND_NAME].split("/")
+            if(len(name) < 2):
+                continue
+            lastName = name[1]
+            if(lastName != familyLastName):
+                data.append("ERROR US16 Family: "+str(family[IDX_IND_ID])+ " is having child named: "+ individual[IDX_IND_NAME]+" is having different last name")
     return data
 
 data = us16_male_last_names()
 print(*data, sep="\n")
 print(*data, sep="\n", file=sprint1CodeOutput)
 
-# User story US16
+# User story US28
 # Story Name: order siblings by age
 # Owner: Ambati Baby Naga Sahithya (sa)
 # Email: bambati@stevens.edu
 def us28_order_siblings_by_age():
     data = []
+   
     for family in families:
         children_ids = family[IDX_FAM_CHILD]
-        children = []
-        for child_id in children_ids:
+        children_ids = children_ids.replace("{", "").replace("}", "").replace("'","").replace(" ","").split(",")
+        childrens = []
+        for child in children_ids:
             for individual in individuals:
-                if individual[IDX_IND_ID] == child_id:
-                    children.append(individual)
-        # Sort children by age
-        children.sort(key=lambda child: child[IDX_IND_BIRTHDATE])
-        # Create output string
-        output_str = "Family {}: Ordered siblings by age: ".format(family[IDX_FAM_ID])
-        for child in children:
-            output_str += child[IDX_IND_NAME] + " (age " + str(get_age(child[IDX_IND_BIRTHDATE])) + "), "
-        output_str = output_str[:-2]  # remove trailing comma
-        data.append(output_str)
+                if child == individual[IDX_IND_ID]:
+                    childrens.append(individual)
+        if(len(childrens) <= 0):
+            continue
+        childrens = sorted(childrens, key=lambda x: x[IDX_IND_AGE], reverse= True)
+        outputString = "ERROR: US28 FAMILY: "+ str(family[IDX_FAM_ID])+" sorted siblings (oldest first): "
+        for child in childrens:
+            outputString += "ID:"+str(child[IDX_IND_ID])+" Age: "+ str(child[IDX_IND_AGE])+" |-| "
+        outputString = outputString[:-5]
+        data.append(outputString)
     return data
-
 
 data = us28_order_siblings_by_age()
 print(*data, sep="\n")
