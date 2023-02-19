@@ -356,7 +356,7 @@ class GedComProjectTestCases(unittest.TestCase):
 
     # This test case will check length of expected and actual output
     # This test case will pass since assertEqual is used and both array has same length
-    def test_us12_same_length(self):
+    def test_us_12_same_length(self):
         us12Data = [
             "ERROR: US12 Family: F1 father named: Edward /Chapmen/ and age:99 more than 80 year than his child named: John /Chapmen/ with age 0",
             "ERROR: US12 Family: F1 father named: Edward /Chapmen/ and age:99 more than 80 year than his child named: Adrian /Chapmen/ with age -4",
