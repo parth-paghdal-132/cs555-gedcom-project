@@ -1,0 +1,76 @@
+Individuals
++-----+---------------------+--------+------------+-----+-------+------------+---------+---------+
+|  ID |         Name        | Gender |  Birthday  | Age | Alive |   Death    |  Child  |  Spouse |
++-----+---------------------+--------+------------+-----+-------+------------+---------+---------+
+|  I1 |   Edward /Chapmen/  |   M    | 1910-08-15 |  99 | False | 2010-03-15 |    NA   |  {'F1'} |
+|  I2 |   Wanda /Chapmen/   |   F    | 1911-02-16 |  94 | False | 2005-06-19 |    NA   |  {'F1'} |
+|  I3 |    Sam /Chapmen/    |   M    | 1930-03-16 |  85 | False | 2015-04-16 |  {'F1'} |    NA   |
+|  I4 | Sebastian /Chapmen/ |   M    | 1930-03-16 |  92 |  True |     NA     |  {'F1'} |    NA   |
+|  I5 |  Dominic /Chapmen/  |   M    | 1930-03-16 |  92 |  True |     NA     |  {'F1'} |    NA   |
+|  I6 |    John /Chapmen/   |   M    | 1930-03-16 |  81 | False | 2012-02-18 |  {'F1'} |    NA   |
+|  I7 |    John /Chapmen/   |   M    | 1930-03-16 |  0  | False | 1929-03-19 |  {'F1'} |    NA   |
+|  I8 |   Adrian /Chapmen/  |   M    | 1930-03-16 |  -4 | False | 1925-05-19 |  {'F1'} |    NA   |
+|  I9 |   Karen /Chapmen/   |   F    | 1929-06-17 |  60 | False | 1990-05-18 |    NA   |  {'F2'} |
+| I10 |   Joanne /Chapmen/  |   M    | 1931-02-17 |  92 |  True |     NA     |    NA   |  {'F3'} |
+| I11 |   Carol /Chapmen/   |   F    | 1932-08-23 |  83 | False | 2015-10-30 |    NA   |  {'F4'} |
+| I12 |    Leah /Chapmen/   |   F    | 1928-05-13 |  94 |  True |     NA     |    NA   |  {'F5'} |
+| I13 |   Maria /Chapmen/   |   F    | 1928-08-15 |  70 | False | 1999-05-16 |    NA   |  {'F6'} |
+| I14 |  Jennifer /Chapmen/ |   F    | 1930-06-14 |  92 |  True |     NA     |    NA   |  {'F7'} |
+| I15 |    Neil /Chapmen/   |   M    | 1957-12-25 |  65 |  True |     NA     |  {'F2'} |    NA   |
+| I16 |    Sam /Chapmen/    |   M    | 1953-11-29 |  69 |  True |     NA     |  {'F2'} |    NA   |
+| I17 |  Victoria /Chapmen/ |   F    | 1959-09-29 |  63 |  True |     NA     |    NA   |  {'F8'} |
+| I18 |   Abigail /Black/   |   F    | 1959-04-19 |  63 |  True |     NA     |    NA   |  {'F9'} |
+| I19 |  Felicity /Chapmen/ |   F    | 1960-08-18 |  62 |  True |     NA     |    NA   | {'F10'} |
+| I20 |  Benjamin /Chapmen/ |   M    | 1943-01-12 |  80 |  True |     NA     |  {'F3'} |    NA   |
+| I21 |   Boris /Chapmen/   |   M    | 1946-05-29 |  76 |  True |     NA     |  {'F3'} |    NA   |
+| I22 | Kimberely /Chapmen/ |   F    | 2011-08-16 |  11 |  True |     NA     |  {'F3'} |    NA   |
+| I23 |   Nicola /Chapmen/  |   F    | 1945-04-14 |  77 |  True |     NA     |    NA   | {'F11'} |
+| I24 |   Andrew /Chapmen/  |   M    | 1970-05-15 |  52 |  True |     NA     | {'F11'} |    NA   |
+| I25 |  Penelope /Chapmen/ |   F    | 1947-09-16 |  75 |  True |     NA     |    NA   | {'F12'} |
+| I26 |   Sonia /Chapmen/   |   F    | 1975-06-17 |  47 |  True |     NA     | {'F12'} |    NA   |
++-----+---------------------+--------+------------+-----+-------+------------+---------+---------+
+Families
++-----+------------+------------+------------+--------------------+---------+---------------------+--------------------------------------+
+|  ID |  Married   |  Divorced  | Husband ID |    Husband Name    | Wife ID |      Wife Name      |               Children               |
++-----+------------+------------+------------+--------------------+---------+---------------------+--------------------------------------+
+|  F1 | 1928-08-07 |     NA     |     I1     |  Edward /Chapmen/  |    I2   |   Wanda /Chapmen/   | {'I3', 'I4', 'I5', 'I6', 'I7', 'I8'} |
+|  F2 | 1954-05-27 |     NA     |     I3     |   Sam /Chapmen/    |    I9   |   Karen /Chapmen/   |            {'I15', 'I16'}            |
+|  F3 | 1941-10-03 |     NA     |    I10     |  Joanne /Chapmen/  |    I4   | Sebastian /Chapmen/ |        {'I20', 'I21', 'I22'}         |
+|  F4 | 1942-04-06 |     NA     |     I5     | Dominic /Chapmen/  |   I11   |   Carol /Chapmen/   |                  NA                  |
+|  F5 | 2016-07-06 |     NA     |     I6     |   John /Chapmen/   |   I12   |    Leah /Chapmen/   |                  NA                  |
+|  F6 | 1959-05-10 | 1951-08-17 |     I7     |   John /Chapmen/   |   I13   |   Maria /Chapmen/   |                  NA                  |
+|  F7 | 1954-06-15 |     NA     |     I8     |  Adrian /Chapmen/  |   I14   |  Jennifer /Chapmen/ |                  NA                  |
+|  F8 | 1988-05-05 |     NA     |    I15     |   Neil /Chapmen/   |   I17   |  Victoria /Chapmen/ |                  NA                  |
+|  F9 | 1982-07-04 | 1987-06-17 |    I15     |   Neil /Chapmen/   |   I18   |   Abigail /Black/   |                  NA                  |
+| F10 | 1986-05-19 |     NA     |    I16     |   Sam /Chapmen/    |   I19   |  Felicity /Chapmen/ |                  NA                  |
+| F11 | 1968-07-08 |     NA     |    I20     | Benjamin /Chapmen/ |   I23   |   Nicola /Chapmen/  |               {'I24'}                |
+| F12 | 1970-05-03 |     NA     |    I21     |  Boris /Chapmen/   |   I25   |  Penelope /Chapmen/ |               {'I26'}                |
+| F14 | 2002-05-07 |     NA     |    I24     |  Andrew /Chapmen/  |   I22   | Kimberely /Chapmen/ |                  NA                  |
++-----+------------+------------+------------+--------------------+---------+---------------------+--------------------------------------+
+Error: INDIVIDUAL US03 I7: named: John /Chapmen/ Died: 1929-03-19 before born at 1930-03-16
+Error: INDIVIDUAL US03 I8: named: Adrian /Chapmen/ Died: 1925-05-19 before born at 1930-03-16
+Error: Family US30 Family id F3 husband name: Joanne /Chapmen/ and wife name: Sebastian /Chapmen/ both are still living married couple.
+Error: Family US30 Family id F8 husband name: Neil /Chapmen/ and wife name: Victoria /Chapmen/ both are still living married couple.
+Error: Family US30 Family id F10 husband name: Sam /Chapmen/ and wife name: Felicity /Chapmen/ both are still living married couple.
+Error: Family US30 Family id F11 husband name: Benjamin /Chapmen/ and wife name: Nicola /Chapmen/ both are still living married couple.
+Error: Family US30 Family id F12 husband name: Boris /Chapmen/ and wife name: Penelope /Chapmen/ both are still living married couple.
+Error: Family US30 Family id F14 husband name: Andrew /Chapmen/ and wife name: Kimberely /Chapmen/ both are still living married couple.
+Error: Individual US29 I1 : named: Edward /Chapmen/ died on: 2010-03-15
+Error: Individual US29 I2 : named: Wanda /Chapmen/ died on: 2005-06-19
+Error: Individual US29 I3 : named: Sam /Chapmen/ died on: 2015-04-16
+Error: Individual US29 I6 : named: John /Chapmen/ died on: 2012-02-18
+Error: Individual US29 I7 : named: John /Chapmen/ died on: 1929-03-19
+Error: Individual US29 I8 : named: Adrian /Chapmen/ died on: 1925-05-19
+Error: Individual US29 I9 : named: Karen /Chapmen/ died on: 1990-05-18
+Error: Individual US29 I11 : named: Carol /Chapmen/ died on: 2015-10-30
+Error: Individual US29 I13 : named: Maria /Chapmen/ died on: 1999-05-16
+Error: INDIVIDUAL US31 I26 named: Sonia /Chapmen/ is alive, over 30 year old and never married
+ERROR: US05 Family: F5 husband died on 2012-02-18 before his marriage date 2016-07-06
+ERROR: US05 Family: F6 husband died on 1929-03-19 before his marriage date 1959-05-10
+ERROR: US05 Family: F7 husband died on 1925-05-19 before his marriage date 1954-06-15
+
+ERROR: US28 FAMILY: F1 sorted siblings (oldest first): ID:I4 Age: 92 |-| ID:I5 Age: 92 |-| ID:I3 Age: 85 |-| ID:I6 Age: 81 |-| ID:I7 Age: 0 |-| ID:I8 Age: -4
+ERROR: US28 FAMILY: F2 sorted siblings (oldest first): ID:I16 Age: 69 |-| ID:I15 Age: 65
+ERROR: US28 FAMILY: F3 sorted siblings (oldest first): ID:I20 Age: 80 |-| ID:I21 Age: 76 |-| ID:I22 Age: 11
+ERROR: US28 FAMILY: F11 sorted siblings (oldest first): ID:I24 Age: 52
+ERROR: US28 FAMILY: F12 sorted siblings (oldest first): ID:I26 Age: 47
