@@ -348,6 +348,58 @@ class GedComProjectTestCases(unittest.TestCase):
         for index, value in enumerate(data):
             self.assertNotEqual(value, us28Data[index],
                                 "This test case will pass since assertNotEqual is used to check content both array and that content is different")
+            
+     # Test case for US12 - Parents not too old
+    # Test cases written by Sai Krishna (km) and Parth Paghdal (pp)
+    # This test case are written using pair programming
+    # There is total 4 test cases for this user story where two test cases for good data and two for bad data
+
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertEqual is used and both array has same length
+    def test_us12_same_length(self):
+        us12Data = [
+            "ERROR: US12 Family: F1 father named: Edward /Chapmen/ and age:99 more than 80 year than his child named: John /Chapmen/ with age 0",
+            "ERROR: US12 Family: F1 father named: Edward /Chapmen/ and age:99 more than 80 year than his child named: Adrian /Chapmen/ with age -4",
+            "ERROR: US12 Family: F3 father named: Joanne /Chapmen/ and age:92 more than 80 year than his child named: Kimberely /Chapmen/ with age 11"
+        ]
+        self.assertEqual(len(us12Data), len(project_4_sprints.us12_parents_not_too_old()), "This test case will pass since assertEqual method is used and both array has same length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertEqual is used to check content of both array and that content is same
+    def test_us_12_same_content(self):
+        us12Data = [
+            "ERROR: US12 Family: F1 father named: Edward /Chapmen/ and age:99 more than 80 year than his child named: John /Chapmen/ with age 0",
+            "ERROR: US12 Family: F1 father named: Edward /Chapmen/ and age:99 more than 80 year than his child named: Adrian /Chapmen/ with age -4",
+            "ERROR: US12 Family: F3 father named: Joanne /Chapmen/ and age:92 more than 80 year than his child named: Kimberely /Chapmen/ with age 11"
+        ]
+        data = project_4_sprints.us12_parents_not_too_old()
+        for index, value in enumerate(data):
+            self.assertEqual(value, us12Data[index], "This test case will pass since assertEqual is used to check content of both array and that content is same")
+
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertNotEqual is used and both array has different length
+    def test_us_12_different_length(self):
+        us12Data = [
+            "ERROR: US12 Family: F1 father named: Edward /Chapmen/ and age:99 more than 80 year than his child named: John /Chapmen/ with age 0",
+            "ERROR: US12 Family: F1 father named: Edward /Chapmen/ and age:99 more than 80 year than his child named: Adrian /Chapmen/ with age -4",
+            "ERROR: US12 Family: F3 father named: Joanne /Chapmen/ and age:92 more than 80 year than his child named: Kimberely /Chapmen/ with age 11",
+            "ERROR: US12 Family: F3 father named: Joanne /Chapmen/ and age:92 more than 80 year than his child named: Kimberely /Chapmen/ with age 11"
+        ]
+        self.assertNotEqual(len(us12Data), len(project_4_sprints.us12_parents_not_too_old()), "This test case will pass since assertNotEqual is used and both array has different length")
+
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertNotEqual is used to check content both array and that content is different
+    def test_us_12_different_content(self):
+        us12Data = [
+            "ERROR: US12 Family: F3 father named: Joanne /Chapmen/ and age:92 more than 80 year than his child named: Kimberely /Chapmen/ with age 11",
+            "ERROR: US12 Family: F1 father named: Edward /Chapmen/ and age:99 more than 80 year than his child named: John /Chapmen/ with age 0",
+            "ERROR: US12 Family: F1 father named: Edward /Chapmen/ and age:99 more than 80 year than his child named: Adrian /Chapmen/ with age -4"
+        ]
+        data = project_4_sprints.us12_parents_not_too_old()
+        for index, value in enumerate(data):
+            self.assertNotEqual(value, us12Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
+
         
     
 if __name__ == '__main__':
