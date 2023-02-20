@@ -502,3 +502,77 @@ def us12_parents_not_too_old():
 data = us12_parents_not_too_old()
 print(*data, sep="\n")            
 print(*data, sep="\n", file=sprint2CodeOutput)
+
+
+# User story US01
+# Story Name: Dates before current date
+# Owner: Parth Paghdal (pp)
+# Email: ppaghdal@stevens.edu
+# This story is implemented individually for finding difference between pair programming and individually
+def us01_dates_before_current_date():
+    data = []
+    todaysDate = datetime.datetime.now().date()
+    for individual in individuals:
+        birthday = individual[IDX_IND_BIRTHDAY]
+        
+        if birthday != "NA":
+            birthday = datetime.datetime.strptime(birthday, "%Y-%m-%d").date()
+            if birthday > todaysDate:
+                data.append("ERROR US01: Individual: "+ str(individual[IDX_IND_ID])+" named "+ str(individual[IDX_IND_NAME])+" has future birthdate "+ str(birthday)+" in regards to todays' date.")
+
+        if(individual[IDX_IND_DEATH] == "NA"):
+            continue
+        deathday = individual[IDX_IND_DEATH]
+        deathday = datetime.datetime.strptime(deathday, "%Y-%m-%d").date()
+        if deathday > todaysDate:
+            data.append("ERROR US01: Individual: "+ str(individual[IDX_IND_ID])+" named "+ str(individual[IDX_IND_NAME])+" has future deathdate "+ str(deathday)+" in regards to todays' date.")
+
+    for family in families:
+        if family[IDX_FAM_MARRIED] != "NA":
+            marriageDate = family[IDX_FAM_MARRIED]
+            if marriageDate > todaysDate:
+                data.append("ERROR US01: Family: "+ str(family[IDX_FAM_ID])+" has future marriage date "+ str(marriageDate)+" in regards to todays' date.")
+        if family[IDX_FAM_DIVORCED] != "NA":
+            divorceDate = family[IDX_FAM_DIVORCED]
+            if divorceDate > todaysDate:
+                data.append("ERROR US01: Family: "+ str(family[IDX_FAM_ID])+" has future divorce date "+ str(divorceDate)+" in regards to todays' date.")
+        
+    return data
+
+data = us01_dates_before_current_date()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint2CodeOutput)
+
+# User story US02
+# Story Name: Birth before marriage
+# Owner: Parth Paghdal (pp)
+# Email: ppaghdal@stevens.edu
+def us_02_birth_before_marriage():
+    data = []
+    for family in families:
+        husbandId = family[IDX_FAM_HUSBAND_ID]
+        wifeId = family[IDX_FAM_WIFE_ID]
+        marriageDate = family[IDX_FAM_MARRIED]
+        if marriageDate == "NA":
+            continue
+        
+        for individual in individuals:
+            if individual[IDX_IND_ID] == husbandId:
+                husbandBirthDay = individual[IDX_IND_BIRTHDAY]
+                if husbandBirthDay != "NA":
+                    husbandBirthDay = datetime.datetime.strptime(husbandBirthDay, "%Y-%m-%d").date()
+                    if (husbandBirthDay > marriageDate):
+                        data.append("ERROR: US02 Individual: "+ str(husbandId)+ " husband named "+ str(individual[IDX_IND_NAME])+ " has future birthdate "+ str(husbandBirthDay)+ " in regards to his marriage date "+ str(marriageDate))
+            
+            if individual[IDX_IND_ID] == wifeId:
+                wifeBirthday = individual[IDX_IND_BIRTHDAY]
+                if wifeBirthday != "NA":
+                    wifeBirthday = datetime.datetime.strptime(wifeBirthday, "%Y-%m-%d").date()
+                    if (wifeBirthday > marriageDate):
+                        data.append("ERROR: US02 Individual: "+ str(wifeId)+ " wife named "+ str(individual[IDX_IND_NAME])+ " has future birthdate "+ str(wifeBirthday)+ " in regards to her marriage date "+ str(marriageDate))
+            
+    return data
+
+data = us_02_birth_before_marriage()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint2CodeOutput)

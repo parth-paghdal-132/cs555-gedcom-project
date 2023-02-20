@@ -349,7 +349,7 @@ class GedComProjectTestCases(unittest.TestCase):
             self.assertNotEqual(value, us28Data[index],
                                 "This test case will pass since assertNotEqual is used to check content both array and that content is different")
             
-     # Test case for US12 - Parents not too old
+    # Test case for US12 - Parents not too old
     # Test cases written by Sai Krishna (km) and Parth Paghdal (pp)
     # This test case are written using pair programming
     # There is total 4 test cases for this user story where two test cases for good data and two for bad data
@@ -400,8 +400,79 @@ class GedComProjectTestCases(unittest.TestCase):
         for index, value in enumerate(data):
             self.assertNotEqual(value, us12Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
 
-        
+    # Test case for US01 - Dates before current date
+    # Test cases written by Parth Paghdal (pp)
+    # This test case are written individually for finding difference between pair programming and individually
+    # There is total 4 test cases for this user story where two test cases for good data and two for bad data
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertEqual is used and both array has same length
+    def test_us_01_same_length(self):
+        us01Data = []
+        self.assertEqual(len(us01Data), len(project_4_sprints.us01_dates_before_current_date()), "This test case will pass since assertEqual method is used and both array has same length")
     
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertEqual is used to check content of both array and that content is same
+    def test_us_01_same_content(self):
+        us01Data = []
+        data = project_4_sprints.us01_dates_before_current_date()
+        for index, value in enumerate(data):
+            self.assertEqual(value, us01Data[index], "This test case will pass since assertEqual is used to check content of both array and that content is same")
+
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertNotEqual is used and both array has different length
+    def test_us_01_different_length(self):
+        us01Data = ["It has some random value to check test case"]
+        self.assertNotEqual(len(us01Data), project_4_sprints.us01_dates_before_current_date(), "This test case will pass since assertNotEqual method is used and both array has different length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertNotEqual is used to check content both array and that content is different
+    def test_us_01_different_content(self):
+        us01Data = ["It has some random value to check test case"]
+        data = project_4_sprints.us01_dates_before_current_date()
+        for index, value in enumerate(data):
+            self.assertNotEqual(value, us01Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
+
+    # Test case for US02 - Birth before marriage
+    # Test cases written by Parth Paghdal (pp)
+    # There is total 4 test cases for this user story where two test cases for good data and two for bad data
+
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertEqual is used and both array has same length
+    def test_us_02_same_length(self):
+        us02Data = [
+            "ERROR: US02 Individual: I22 wife named Kimberely /Chapmen/ has future birthdate 2011-08-16 in regards to her marriage date 2002-05-07"
+        ]
+        self.assertEqual(len(us02Data), len(project_4_sprints.us_02_birth_before_marriage()), "This test case will pass since assertEqual method is used and both array has same length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertEqual is used to check content of both array and that content is same
+    def test_us_02_same_content(self):
+        us02Data = [
+            "ERROR: US02 Individual: I22 wife named Kimberely /Chapmen/ has future birthdate 2011-08-16 in regards to her marriage date 2002-05-07"
+        ]
+        data = project_4_sprints.us_02_birth_before_marriage()
+        for index, value in enumerate(data):
+            self.assertEqual(value, us02Data[index], "This test case will pass since assertEqual is used to check content of both array and that content is same")
+
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertNotEqual is used and both array has different length
+    def test_us_02_different_length(self):
+        us02Data = [
+            "ERROR: US02 Individual: I22 wife named Kimberely /Chapmen/ has future birthdate 2011-08-16 in regards to her marriage date 2002-05-07",
+            "ERROR: US02 Individual: I22 wife named Kimberely /Chapmen/ has future birthdate 2011-08-16 in regards to her marriage date 2002-05-07"
+        ]
+        self.assertNotEqual(len(us02Data), len(project_4_sprints.us_02_birth_before_marriage()), "This test case will pass since assertNotEqual method is used and both array has different length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertNotEqual is used to check content of both array and that content is different
+    def test_us_02_different_content(self):
+        us02Data = [
+            "ERROR: US02 Individual: I22 wife named Andrew /Chapmen/ has future birthdate 2011-08-16 in regards to her marriage date 2002-05-07"
+        ]
+        data = project_4_sprints.us_02_birth_before_marriage()
+        for index, value in enumerate(data):
+            self.assertNotEqual(value, us02Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
+
 if __name__ == '__main__':
     unittest.main()
 
