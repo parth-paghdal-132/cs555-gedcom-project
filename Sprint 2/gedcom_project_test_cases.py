@@ -473,36 +473,7 @@ class GedComProjectTestCases(unittest.TestCase):
         for index, value in enumerate(data):
             self.assertNotEqual(value, us02Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
     
-    # Test case for US25 - Unique first names in families
-    # Test cases written by Sai Krishna (km)
-    # There is total 4 test cases for this user story where two test cases for good data and two for bad data
-    # This test case will check length of expected and actual output
-    # This test case will pass since assertEqual is used and both array has same length
-    def test_us_25_same_length(self):
-        us25Data = [
-            "ERROR: US25 FAMILY: F1 is having 2 children with same name: John /Chapmen/ and same birthdate: 1930-03-16"
-        ]
-        self.assertEqual(len(us25Data), len(project_4_sprints.us_25_unique_first_names_in_families()), "This test case will pass since assertEqual method is used and both array has same length")
-
-    # This test case will check content of expected and actual output by in order
-    # This test case will pass since assertEqual is used to check content of both array and that content is same
-    def test_us_25_same_content(self):
-        us25Data = [
-            "ERROR: US25 FAMILY: F1 is having 2 children with same name: John /Chapmen/ and same birthdate: 1930-03-16"
-        ]
-        data = project_4_sprints.us_25_unique_first_names_in_families()
-        for index, value in enumerate(data):
-            self.assertEqual(value, us25Data[index], "This test case will pass since assertEqual is used to check content of both array and that content is same")
-
-    # This test case will check length of expected and actual output
-    # This test case will pass since assertNotEqual is used and both array has different length
-    def test_us_25_different_length(self):
-        us25Data = [
-            "ERROR: US25 FAMILY: F1 is having 2 children with same name: John /Chapmen/ and same birthdate: 1930-03-16",
-            "ERROR: US25 FAMILY: F1 is having 2 children with same name: John /Chapmen/ and same birthdate: 1930-03-16"
-        ]
-        self.assertNotEqual(len(us25Data), len(project_4_sprints.us_25_unique_first_names_in_families()), "This test case will pass since assertNotEqual method is used and both array has different length")
-
+    
     # Test case for US25 - Unique first names in families
     # Test cases written by Sai Krishna (km)
     # There is total 4 test cases for this user story where two test cases for good data and two for bad data
