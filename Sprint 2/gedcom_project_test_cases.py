@@ -442,7 +442,7 @@ class GedComProjectTestCases(unittest.TestCase):
         us02Data = [
             "ERROR: US02 Individual: I22 wife named Kimberely /Chapmen/ has future birthdate 2011-08-16 in regards to her marriage date 2002-05-07"
         ]
-        self.assertEqual(len(us02Data), len(project_4_sprints.us_02_birth_before_marriage()), "This test case will pass since assertEqual method is used and both array has same length")
+        self.assertEqual(len(us02Data), len(project_4_sprints.us02_birth_before_marriage()), "This test case will pass since assertEqual method is used and both array has same length")
 
     # This test case will check content of expected and actual output by in order
     # This test case will pass since assertEqual is used to check content of both array and that content is same
@@ -450,7 +450,7 @@ class GedComProjectTestCases(unittest.TestCase):
         us02Data = [
             "ERROR: US02 Individual: I22 wife named Kimberely /Chapmen/ has future birthdate 2011-08-16 in regards to her marriage date 2002-05-07"
         ]
-        data = project_4_sprints.us_02_birth_before_marriage()
+        data = project_4_sprints.us02_birth_before_marriage()
         for index, value in enumerate(data):
             self.assertEqual(value, us02Data[index], "This test case will pass since assertEqual is used to check content of both array and that content is same")
 
@@ -461,7 +461,7 @@ class GedComProjectTestCases(unittest.TestCase):
             "ERROR: US02 Individual: I22 wife named Kimberely /Chapmen/ has future birthdate 2011-08-16 in regards to her marriage date 2002-05-07",
             "ERROR: US02 Individual: I22 wife named Kimberely /Chapmen/ has future birthdate 2011-08-16 in regards to her marriage date 2002-05-07"
         ]
-        self.assertNotEqual(len(us02Data), len(project_4_sprints.us_02_birth_before_marriage()), "This test case will pass since assertNotEqual method is used and both array has different length")
+        self.assertNotEqual(len(us02Data), len(project_4_sprints.us02_birth_before_marriage()), "This test case will pass since assertNotEqual method is used and both array has different length")
 
     # This test case will check content of expected and actual output by in order
     # This test case will pass since assertNotEqual is used to check content of both array and that content is different
@@ -469,7 +469,7 @@ class GedComProjectTestCases(unittest.TestCase):
         us02Data = [
             "ERROR: US02 Individual: I22 wife named Andrew /Chapmen/ has future birthdate 2011-08-16 in regards to her marriage date 2002-05-07"
         ]
-        data = project_4_sprints.us_02_birth_before_marriage()
+        data = project_4_sprints.us02_birth_before_marriage()
         for index, value in enumerate(data):
             self.assertNotEqual(value, us02Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
 

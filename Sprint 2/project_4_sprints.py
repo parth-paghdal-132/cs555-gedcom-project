@@ -547,7 +547,7 @@ print(*data, sep="\n", file=sprint2CodeOutput)
 # Story Name: Birth before marriage
 # Owner: Parth Paghdal (pp)
 # Email: ppaghdal@stevens.edu
-def us_02_birth_before_marriage():
+def us02_birth_before_marriage():
     data = []
     for family in families:
         husbandId = family[IDX_FAM_HUSBAND_ID]
@@ -573,6 +573,6 @@ def us_02_birth_before_marriage():
             
     return data
 
-data = us_02_birth_before_marriage()
+data = us02_birth_before_marriage()
 print(*data, sep="\n")
 print(*data, sep="\n", file=sprint2CodeOutput)
