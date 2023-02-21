@@ -79,3 +79,9 @@ ERROR: US12 Family: F1 father named: Edward /Chapmen/ and age:99 more than 80 ye
 ERROR: US12 Family: F3 father named: Joanne /Chapmen/ and age:92 more than 80 year than his child named: Kimberely /Chapmen/ with age 11
 
 ERROR: US02 Individual: I22 wife named Kimberely /Chapmen/ has future birthdate 2011-08-16 in regards to her marriage date 2002-05-07
+ERROR: US25 FAMILY: F1 is having 2 children with same name: John /Chapmen/ and same birthdate: 1930-03-16
+ERROR: US10 FAMILY: F3 has wife named: Sebastian /Chapmen/ born on 1930-03-16 and got married on 1941-10-03 and this time difference is less than 14 years
+ERROR: US10 FAMILY: F3 has husband named: Joanne /Chapmen/ born on 1931-02-17 and got married on 1941-10-03 and this time difference is less than 14 years
+ERROR: US10 FAMILY: F4 has husband named: Dominic /Chapmen/ born on 1930-03-16 and got married on 1942-04-06 and this time difference is less than 14 years
+ERROR: US10 FAMILY: F4 has wife named: Carol /Chapmen/ born on 1932-08-23 and got married on 1942-04-06 and this time difference is less than 14 years
+ERROR: US10 FAMILY: F14 has wife named: Kimberely /Chapmen/ born on 2011-08-16 and got married on 2002-05-07 and this time difference is less than 14 years

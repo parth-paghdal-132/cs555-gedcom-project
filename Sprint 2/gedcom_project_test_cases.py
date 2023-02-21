@@ -566,7 +566,7 @@ class GedComProjectTestCases(unittest.TestCase):
             "ERROR: US10 FAMILY: F4 has husband named: Dominic /Chapmen/ born on 1930-03-16 and got married on 1942-04-06 and this time difference is less than 14 years",
             "ERROR: US10 FAMILY: F4 has wife named: Carol /Chapmen/ born on 1932-08-23 and got married on 1942-04-06 and this time difference is less than 14 years"
         ]
-        data = project_4_sprints.us_25_unique_first_names_in_families()
+        data = project_4_sprints.us_10_marriage_after_14()
         for index, value in enumerate(data):
             self.assertNotEqual(value, us10Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
 

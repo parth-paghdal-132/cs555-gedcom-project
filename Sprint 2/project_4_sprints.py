@@ -1,6 +1,7 @@
 import datetime
 from dateutil.relativedelta import relativedelta
 from prettytable import PrettyTable
+from collections import Counter
 
 # This object holds valid tag with their level
 # Tag with other key value pair then this will considered as Invalid
