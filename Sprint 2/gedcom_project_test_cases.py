@@ -472,6 +472,134 @@ class GedComProjectTestCases(unittest.TestCase):
         data = project_4_sprints.us02_birth_before_marriage()
         for index, value in enumerate(data):
             self.assertNotEqual(value, us02Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
+    
+    # Test case for US25 - Unique first names in families
+    # Test cases written by Sai Krishna (km)
+    # There is total 4 test cases for this user story where two test cases for good data and two for bad data
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertEqual is used and both array has same length
+    def test_us_25_same_length(self):
+        us25Data = [
+            "ERROR: US25 FAMILY: F1 is having 2 children with same name: John /Chapmen/ and same birthdate: 1930-03-16"
+        ]
+        self.assertEqual(len(us25Data), len(project_4_sprints.us_25_unique_first_names_in_families()), "This test case will pass since assertEqual method is used and both array has same length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertEqual is used to check content of both array and that content is same
+    def test_us_25_same_content(self):
+        us25Data = [
+            "ERROR: US25 FAMILY: F1 is having 2 children with same name: John /Chapmen/ and same birthdate: 1930-03-16"
+        ]
+        data = project_4_sprints.us_25_unique_first_names_in_families()
+        for index, value in enumerate(data):
+            self.assertEqual(value, us25Data[index], "This test case will pass since assertEqual is used to check content of both array and that content is same")
+
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertNotEqual is used and both array has different length
+    def test_us_25_different_length(self):
+        us25Data = [
+            "ERROR: US25 FAMILY: F1 is having 2 children with same name: John /Chapmen/ and same birthdate: 1930-03-16",
+            "ERROR: US25 FAMILY: F1 is having 2 children with same name: John /Chapmen/ and same birthdate: 1930-03-16"
+        ]
+        self.assertNotEqual(len(us25Data), len(project_4_sprints.us_25_unique_first_names_in_families()), "This test case will pass since assertNotEqual method is used and both array has different length")
+
+    # Test case for US25 - Unique first names in families
+    # Test cases written by Sai Krishna (km)
+    # There is total 4 test cases for this user story where two test cases for good data and two for bad data
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertEqual is used and both array has same length
+    def test_us_25_same_length(self):
+        us25Data = [
+            "ERROR: US25 FAMILY: F1 is having 2 children with same name: John /Chapmen/ and same birthdate: 1930-03-16"
+        ]
+        self.assertEqual(len(us25Data), len(project_4_sprints.us_25_unique_first_names_in_families()), "This test case will pass since assertEqual method is used and both array has same length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertEqual is used to check content of both array and that content is same
+    def test_us_25_same_content(self):
+        us25Data = [
+            "ERROR: US25 FAMILY: F1 is having 2 children with same name: John /Chapmen/ and same birthdate: 1930-03-16"
+        ]
+        data = project_4_sprints.us_25_unique_first_names_in_families()
+        for index, value in enumerate(data):
+            self.assertEqual(value, us25Data[index], "This test case will pass since assertEqual is used to check content of both array and that content is same")
+
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertNotEqual is used and both array has different length
+    def test_us_25_different_length(self):
+        us25Data = [
+            "ERROR: US25 FAMILY: F1 is having 2 children with same name: John /Chapmen/ and same birthdate: 1930-03-16",
+            "ERROR: US25 FAMILY: F1 is having 2 children with same name: John /Chapmen/ and same birthdate: 1930-03-16"
+        ]
+        self.assertNotEqual(len(us25Data), len(project_4_sprints.us_25_unique_first_names_in_families()), "This test case will pass since assertNotEqual method is used and both array has different length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertNotEqual is used to check content of both array and that content is different
+    def test_us_25_different_content(self):
+        us25Data = [
+            "ERROR: US25 FAMILY: F1 is having 250 children with same name: John /Chapmen/ and same birthdate: 1930-03-16"
+        ]
+        data = project_4_sprints.us_25_unique_first_names_in_families()
+        for index, value in enumerate(data):
+            self.assertNotEqual(value, us25Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
+
+     # Test case for US10 - Marriage after 14
+    # Test cases written by Sai Krishna (km)
+    # There is total 4 test cases for this user story where two test cases for good data and two for bad data
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertEqual is used and both array has same length
+    def test_us_10_same_length(self):
+        us10Data = [
+            "ERROR: US10 FAMILY: F3 has wife named: Sebastian /Chapmen/ born on 1930-03-16 and got married on 1941-10-03 and this time difference is less than 14 years",
+            "ERROR: US10 FAMILY: F3 has husband named: Joanne /Chapmen/ born on 1931-02-17 and got married on 1941-10-03 and this time difference is less than 14 years",
+            "ERROR: US10 FAMILY: F4 has husband named: Dominic /Chapmen/ born on 1930-03-16 and got married on 1942-04-06 and this time difference is less than 14 years",
+            "ERROR: US10 FAMILY: F4 has wife named: Carol /Chapmen/ born on 1932-08-23 and got married on 1942-04-06 and this time difference is less than 14 years",
+            "ERROR: US10 FAMILY: F14 has wife named: Kimberely /Chapmen/ born on 2011-08-16 and got married on 2002-05-07 and this time difference is less than 14 years",
+        ]
+        self.assertEqual(len(us10Data), len(project_4_sprints.us_10_marriage_after_14()), "This test case will pass since assertEqual method is used and both array has same length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertEqual is used to check content of both array and that content is same
+    def test_us_10_same_content(self):
+        us10Data = [
+            "ERROR: US10 FAMILY: F3 has wife named: Sebastian /Chapmen/ born on 1930-03-16 and got married on 1941-10-03 and this time difference is less than 14 years",
+            "ERROR: US10 FAMILY: F3 has husband named: Joanne /Chapmen/ born on 1931-02-17 and got married on 1941-10-03 and this time difference is less than 14 years",
+            "ERROR: US10 FAMILY: F4 has husband named: Dominic /Chapmen/ born on 1930-03-16 and got married on 1942-04-06 and this time difference is less than 14 years",
+            "ERROR: US10 FAMILY: F4 has wife named: Carol /Chapmen/ born on 1932-08-23 and got married on 1942-04-06 and this time difference is less than 14 years",
+            "ERROR: US10 FAMILY: F14 has wife named: Kimberely /Chapmen/ born on 2011-08-16 and got married on 2002-05-07 and this time difference is less than 14 years",
+        ]
+        data = project_4_sprints.us_10_marriage_after_14()
+        for index, value in enumerate(data):
+            self.assertEqual(value, us10Data[index], "This test case will pass since assertEqual is used to check content of both array and that content is same")
+
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertNotEqual is used and both array has different length
+    def test_us_10_different_length(self):
+        us10Data = [
+            "ERROR: US10 FAMILY: F3 has wife named: Sebastian /Chapmen/ born on 1930-03-16 and got married on 1941-10-03 and this time difference is less than 14 years",
+            "ERROR: US10 FAMILY: F3 has husband named: Joanne /Chapmen/ born on 1931-02-17 and got married on 1941-10-03 and this time difference is less than 14 years",
+            "ERROR: US10 FAMILY: F4 has husband named: Dominic /Chapmen/ born on 1930-03-16 and got married on 1942-04-06 and this time difference is less than 14 years",
+            "ERROR: US10 FAMILY: F4 has wife named: Carol /Chapmen/ born on 1932-08-23 and got married on 1942-04-06 and this time difference is less than 14 years",
+            "ERROR: US10 FAMILY: F14 has wife named: Kimberely /Chapmen/ born on 2011-08-16 and got married on 2002-05-07 and this time difference is less than 14 years",
+            "ERROR: US10 FAMILY: F3 has wife named: Sebastian /Chapmen/ born on 1930-03-16 and got married on 1941-10-03 and this time difference is less than 14 years",   
+        ]
+        self.assertNotEqual(len(us10Data), len(project_4_sprints.us_10_marriage_after_14()), "This test case will pass since assertNotEqual method is used and both array has different length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertNotEqual is used to check content of both array and that content is different
+    def test_us_10_different_content(self):
+        us10Data = [
+            "ERROR: US10 FAMILY: F14 has wife named: Kimberely /Chapmen/ born on 2011-08-16 and got married on 2002-05-07 and this time difference is less than 14 years",
+            "ERROR: US10 FAMILY: F3 has wife named: Sebastian /Chapmen/ born on 1930-03-16 and got married on 1941-10-03 and this time difference is less than 14 years",
+            "ERROR: US10 FAMILY: F3 has husband named: Joanne /Chapmen/ born on 1931-02-17 and got married on 1941-10-03 and this time difference is less than 14 years",
+            "ERROR: US10 FAMILY: F4 has husband named: Dominic /Chapmen/ born on 1930-03-16 and got married on 1942-04-06 and this time difference is less than 14 years",
+            "ERROR: US10 FAMILY: F4 has wife named: Carol /Chapmen/ born on 1932-08-23 and got married on 1942-04-06 and this time difference is less than 14 years"
+        ]
+        data = project_4_sprints.us_25_unique_first_names_in_families()
+        for index, value in enumerate(data):
+            self.assertNotEqual(value, us10Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
+
+    
 
 if __name__ == '__main__':
     unittest.main()
