@@ -576,3 +576,62 @@ def us02_birth_before_marriage():
 data = us02_birth_before_marriage()
 print(*data, sep="\n")
 print(*data, sep="\n", file=sprint2CodeOutput)
+
+#User Story US25
+#Story Name: Unique first names in families
+#Owner: Sai Krishna (km)
+#Email : smiriyal@stevens.edu
+def us_25_unique_first_names_in_families():
+    data = []
+    for family in families:
+        children_ids = family[IDX_FAM_CHILD]
+        children_ids = children_ids.replace("{", "").replace("}", "").replace("'","").replace(" ","").split(",")
+        childrenBirthName = []
+        for individual in individuals:
+            if individual[IDX_IND_ID] in children_ids:
+                name = individual[IDX_IND_NAME]
+                birthday = individual[IDX_IND_BIRTHDAY]
+                childrenBirthName.append((name, birthday))
+        temp = dict(Counter(childrenBirthName))
+        for key, value in temp.items():
+            if value > 1:
+                data.append("ERROR: US25 FAMILY: "+ str(family[IDX_FAM_ID])+ " is having "+ str(value) + " children with same name: "+ str(key[0]) + " and same birthdate: "+ str(key[1]))
+
+    return data
+
+data = us_25_unique_first_names_in_families()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint2CodeOutput)
+
+#User Story US10
+#Story Name: Marriage after 14
+#Owner: Sai Krishna (km)
+#Email : smiriyal@stevens.edu
+def us_10_marriage_after_14():
+    data = []
+    for family in families:
+        husbandId = family[IDX_FAM_HUSBAND_ID]
+        wifeId = family[IDX_FAM_WIFE_ID]
+        marriageDate = family[IDX_FAM_MARRIED]
+        for individual in individuals:
+            if individual[IDX_IND_ID] == husbandId:
+                husbandBirthday = individual[IDX_IND_BIRTHDAY]
+                if husbandBirthday != "NA":
+                    husbandBirthday = datetime.datetime.strptime(husbandBirthday, "%Y-%m-%d").date()
+                    diffInDays = (marriageDate - husbandBirthday).days
+                    years = diffInDays // 365
+                    if years < 14:
+                        data.append("ERROR: US10 FAMILY: "+ str(family[IDX_IND_ID]) + " has husband named: "+ str(family[IDX_FAM_HUSBAND_NAME])+ " born on "+ str(husbandBirthday)+" and got married on "+ str(marriageDate)+ " and this time difference is less than 14 years")
+            if individual[IDX_IND_ID] == wifeId:
+                wifeBirthday = individual[IDX_IND_BIRTHDAY]
+                if wifeBirthday != "NA":
+                    wifeBirthday = datetime.datetime.strptime(wifeBirthday, "%Y-%m-%d").date()
+                    diffInDays = (marriageDate - wifeBirthday).days
+                    years = diffInDays // 365
+                    if years < 14:         
+                        data.append("ERROR: US10 FAMILY: "+ str(family[IDX_IND_ID]) + " has wife named: "+ str(family[IDX_FAM_WIFE_NAME])+ " born on "+ str(wifeBirthday)+" and got married on "+ str(marriageDate)+ " and this time difference is less than 14 years")
+    return data
+
+data = us_10_marriage_after_14()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint2CodeOutput)
