@@ -633,6 +633,30 @@ def us_10_marriage_after_14():
                         data.append("ERROR: US10 FAMILY: "+ str(family[IDX_IND_ID]) + " has wife named: "+ str(family[IDX_FAM_WIFE_NAME])+ " born on "+ str(wifeBirthday)+" and got married on "+ str(marriageDate)+ " and this time difference is less than 14 years")
     return data
 
+
 data = us_10_marriage_after_14()
 print(*data, sep="\n")
 print(*data, sep="\n", file=sprint2CodeOutput)
+
+# User story US04
+# Story Name: Marriage before divorce
+# Owner: Ambati Baby Naga Sahithya (sa)
+# Email: bambati@stevens.edu
+def us_04_marriage_before_divorce():
+    data = []
+    for family in families:
+        marriageDate = family[IDX_FAM_MARRIED]
+        divorceDate = family[IDX_FAM_DIVORCED]
+        if marriageDate == "NA" or divorceDate == "NA":
+            continue
+        if divorceDate < marriageDate:
+            data.append("ERROR: US04 FAMILY: " + str(family[IDX_FAM_ID]) + " is having future marriage date " + str(
+                marriageDate) + " in reagrds to divorce date " + str(divorceDate))
+    return data
+
+
+data = us_04_marriage_before_divorce()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint2CodeOutput)
+
+
