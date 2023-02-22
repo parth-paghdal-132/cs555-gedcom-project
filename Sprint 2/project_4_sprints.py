@@ -660,3 +660,39 @@ print(*data, sep="\n")
 print(*data, sep="\n", file=sprint2CodeOutput)
 
 
+# User story US06
+# Story Name: Divorce before death
+# Owner: Ambati Baby Naga Sahithya (sa)
+# Email: bambati@stevens.edu
+def us_06_divorce_before_death():
+    data = []
+    for family in families:
+        divorceDate = family[IDX_FAM_DIVORCED]
+        if divorceDate == "NA":
+            continue
+        husbandId = family[IDX_FAM_HUSBAND_ID]
+        wifeId = family[IDX_FAM_WIFE_ID]
+        for individual in individuals:
+            if individual[IDX_IND_ID] == husbandId:
+                deathDate = individual[IDX_IND_DEATH]
+                if deathDate != "NA":
+                    deathDate = datetime.datetime.strptime(deathDate, "%Y-%m-%d").date()
+                    if (divorceDate > deathDate):
+                        data.append("ERROR: US06 FAMILY: " + str(family[IDX_FAM_ID]) + " divorce happened at " + str(
+                            divorceDate) + " which is after the death of husband on " + str(deathDate))
+
+            if individual[IDX_IND_ID] == wifeId:
+                deathDate = individual[IDX_IND_DEATH]
+                if deathDate != "NA":
+                    deathDate = datetime.datetime.strptime(deathDate, "%Y-%m-%d").date()
+                    if (divorceDate > deathDate):
+                        data.append("ERROR: US06 FAMILY: " + str(family[IDX_FAM_ID]) + " divorce happened at " + str(
+                            divorceDate) + " which is after the death of wife on " + str(deathDate))
+
+    return data
+
+
+data = us_10_marriage_after_14()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint2CodeOutput)
+
