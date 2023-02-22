@@ -570,7 +570,8 @@ class GedComProjectTestCases(unittest.TestCase):
         for index, value in enumerate(data):
             self.assertNotEqual(value, us10Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
             
-     # Name:- AMBATI BABY NAGA SAHITHYA
+            
+      # Name:- AMBATI BABY NAGA SAHITHYA
         # CWID:- 20012050
         # Test case for us_04_marriage_before_divorce()
         # There is total 4 test cases for this user story where two test cases for good data and two for bad data
@@ -614,12 +615,55 @@ class GedComProjectTestCases(unittest.TestCase):
             for index, value in enumerate(data):
                 self.assertNotEqual(value, us04Data[index],
                                     "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
+                
+                
+         # Name:- AMBATI BABY NAGA SAHITHYA
+        # CWID:- 20012050
+        # Test case for us_06_divorce_before_death()
+        # There is total 4 test cases for this user story where two test cases for good data and two for bad data
+        # This test case will check length of expected and actual output
+        # This test case will pass since assertEqual is used and both array has same length
+        def test_us_06_same_length(self):
+            us06Data = [
+                "ERROR: US06 FAMILY: F6 divorce happened at 1951-08-17 which is after the death of husband on 1929-03-19"
+            ]
+            self.assertEqual(len(us06Data), len(project_4_sprints.us_06_divorce_before_death()),
+                             "This test case will pass since assertEqual method is used and both array has same length")
 
+        # This test case will check content of expected and actual output by in order
+        # This test case will pass since assertEqual is used to check content of both array and that content is same
+        def test_us_06_same_content(self):
+            us06Data = [
+                "ERROR: US06 FAMILY: F6 divorce happened at 1951-08-17 which is after the death of husband on 1929-03-19"
+            ]
+            data = project_4_sprints.us_06_divorce_before_death()
+            for index, value in enumerate(data):
+                self.assertEqual(value, us06Data[index],
+                                 "This test case will pass since assertEqual is used to check content of both array and that content is same")
 
-            
-            
+        # This test case will check length of expected and actual output
+        # This test case will pass since assertNotEqual is used and both array has different length
+        def test_us_06_different_length(self):
+            us06Data = [
+                "ERROR: US06 FAMILY: F6 divorce happened at 1951-08-17 which is after the death of husband on 1929-03-19",
+                "ERROR: US06 FAMILY: F6 divorce happened at 1951-08-17 which is after the death of husband on 1929-03-19"
+            ]
+            self.assertNotEqual(len(us06Data), len(project_4_sprints.us_06_divorce_before_death()),
+                                "This test case will pass since assertEqual method is used and both array has same length")
+
+        # This test case will check content of expected and actual output by in order
+        # This test case will pass since assertNotEqual is used to check content of both array and that content is different
+        def test_us_06_different_content(self):
+            us06Data = [
+                "ERROR: US06 FAMILY: F6410 divorce happened at 3521-08-17 which is after the death of husband on 1129-03-19"
+            ]
+            data = project_4_sprints.us_06_divorce_before_death()
+            for index, value in enumerate(data):
+                self.assertNotEqual(value, us06Data[index],
+                                    "This test case will pass since assertEqual is used to check content of both array and that content is same")
        
-    
+
+      
 
 if __name__ == '__main__':
     unittest.main()
