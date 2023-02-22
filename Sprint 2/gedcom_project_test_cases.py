@@ -569,7 +569,56 @@ class GedComProjectTestCases(unittest.TestCase):
         data = project_4_sprints.us_10_marriage_after_14()
         for index, value in enumerate(data):
             self.assertNotEqual(value, us10Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
+            
+     # Name:- AMBATI BABY NAGA SAHITHYA
+        # CWID:- 20012050
+        # Test case for us_04_marriage_before_divorce()
+        # There is total 4 test cases for this user story where two test cases for good data and two for bad data
+        # This test case will check length of expected and actual output
+        # This test case will pass since assertEqual is used and both array has same length
+        def test_us_04_same_length(self):
+            us04Data = [
+                "ERROR: US04 FAMILY: F6 is having future marriage date 1959-05-10 in reagrds to divorce date 1951-08-17"
+            ]
+            self.assertEqual(len(us04Data), len(project_4_sprints.us_04_marriage_before_divorce()),
+                             "This test case will pass since assertEqual method is used and both array has same length")
 
+        # This test case will check content of expected and actual output by in order
+        # This test case will pass since assertEqual is used to check content of both array and that content is same
+        def test_us_04_same_content(self):
+            us04Data = [
+                "ERROR: US04 FAMILY: F6 is having future marriage date 1959-05-10 in reagrds to divorce date 1951-08-17"
+            ]
+            data = project_4_sprints.us_04_marriage_before_divorce()
+            for index, value in enumerate(data):
+                self.assertEqual(value, us04Data[index],
+                                 "This test case will pass since assertEqual is used to check content of both array and that content is same")
+
+        # This test case will check length of expected and actual output
+        # This test case will pass since assertNotEqual is used and both array has different length
+        def test_us_04_different_length(self):
+            us04Data = [
+                "ERROR: US04 FAMILY: F6 is having future marriage date 1959-05-10 in reagrds to divorce date 1951-08-17",
+                "ERROR: US04 FAMILY: F6 is having future marriage date 1959-05-10 in reagrds to divorce date 1951-08-17"
+            ]
+            self.assertNotEqual(len(us04Data), len(project_4_sprints.us_04_marriage_before_divorce()),
+                                "This test case will pass since assertNotEqual method is used and both array has different length")
+
+        # This test case will check content of expected and actual output by in order
+        # This test case will pass since assertNotEqual is used to check content of both array and that content is different
+        def test_us_04_different_content(self):
+            us04Data = [
+                "ERROR: US04 FAMILY: F1526 is having future marriage date 2052-05-10 in reagrds to divorce date 1950-08-17"
+            ]
+            data = project_4_sprints.us_04_marriage_before_divorce()
+            for index, value in enumerate(data):
+                self.assertNotEqual(value, us04Data[index],
+                                    "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
+
+
+            
+            
+       
     
 
 if __name__ == '__main__':
