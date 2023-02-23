@@ -692,7 +692,7 @@ def us_06_divorce_before_death():
     return data
 
 
-data = us_10_marriage_after_14()
+data = us_06_divorce_before_death()
 print(*data, sep="\n")
 print(*data, sep="\n", file=sprint2CodeOutput)
 
