@@ -696,3 +696,75 @@ data = us_06_divorce_before_death()
 print(*data, sep="\n")
 print(*data, sep="\n", file=sprint2CodeOutput)
 
+# User story US08
+# Story Name: Birth before marriage of parents
+# Owner: Manoj Patel (mp)
+# Email: mpateld@stevens.edu
+def us_08_birth_before_marriage_of_parents():
+    data = []
+    for family in families:
+        marriageDate = family[IDX_FAM_MARRIED]
+        divorceDate = family[IDX_FAM_DIVORCED]
+        children_ids = family[IDX_FAM_CHILD]
+        children_ids = children_ids.replace("{", "").replace("}", "").replace("'","").replace(" ","").split(",")
+        for individual in individuals:
+            birthday = individual[IDX_IND_BIRTHDAY]
+            if birthday != "NA" and individual[IDX_IND_ID] in children_ids:
+                birthday = datetime.datetime.strptime(birthday, "%Y-%m-%d").date()
+                if marriageDate != "NA" and birthday < marriageDate:
+                    data.append("ERROR: US08 FAMILY "+ str(family[IDX_FAM_ID])+ " is having child named "+ individual[IDX_IND_NAME] + " born on "+ str(birthday)+" which is earlier than parents' marriage date "+ str(marriageDate))
+
+                if divorceDate != "NA":
+                    newDivorceDate = divorceDate + relativedelta(month=+9)
+                    if birthday > newDivorceDate:
+                        data.append("ERROR: US08 FAMILY "+ str(family[IDX_FAM_ID])+ " is having child named "+ individual[IDX_IND_NAME]+ " born "+ str(birthday)+ " which is 9 months after the parents' divorce date "+ str(divorceDate))
+    return data
+
+data = us_08_birth_before_marriage_of_parents()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint2CodeOutput)
+
+# User story US09
+# Story Name: Birth before death of parents
+# Owner: Manoj Patel (mp)
+# Email: mpateld@stevens.edu
+def us_09_birth_before_death_of_parents():
+    data = []
+    for family in families:
+        marriageDate = family[IDX_FAM_MARRIED]
+        divorceDate = family[IDX_FAM_DIVORCED]
+        children_ids = family[IDX_FAM_CHILD]
+        children_ids = children_ids.replace("{", "").replace("}", "").replace("'","").replace(" ","").split(",")
+        motherDeathDate = "NA"
+        motherId = family[IDX_FAM_WIFE_ID]
+        fatherDeathDate = "NA"
+        fatherId = family[IDX_FAM_HUSBAND_ID]
+
+        for individual in individuals:
+            if individual[IDX_IND_ID] == fatherId:
+                fatherDeathDate = individual[IDX_IND_DEATH]
+
+            if individual[IDX_IND_ID] == motherId:
+                motherDeathDate = individual[IDX_IND_DEATH]
+        if motherDeathDate != "NA" and fatherDeathDate != "NA":
+            motherDeathDate = datetime.datetime.strptime(motherDeathDate, "%Y-%m-%d").date()
+            fatherDeathDate = datetime.datetime.strptime(fatherDeathDate, "%Y-%m-%d").date()
+                    
+        for individual in individuals:
+            birthday = individual[IDX_IND_BIRTHDAY]
+            if birthday != "NA" and individual[IDX_IND_ID] in children_ids:
+                birthday = datetime.datetime.strptime(birthday, "%Y-%m-%d").date()
+                
+                if motherDeathDate != "NA":
+                    if motherDeathDate < birthday:
+                        data.append("ERROR: US09 FAMILY "+ str(family[IDX_FAM_ID])+ " is having child named " + str(individual[IDX_IND_NAME])+ " who is born on "+str(birthday)+" after death of mother on "+ str(motherDeathDate))
+                
+                if fatherDeathDate != "NA":
+                    fatherNewDeathDate = fatherDeathDate - relativedelta(month=9)
+                    if birthday > fatherNewDeathDate:
+                        data.append("ERROR: US09 FAMILY "+ str(family[IDX_IND_ID])+ " is having child named "+ str(individual[IDX_IND_NAME]) + " who is born on "+ str(birthday)+ " after 9 months of father death on "+ str(fatherDeathDate))
+    return data
+
+data = us_09_birth_before_death_of_parents()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint2CodeOutput)
