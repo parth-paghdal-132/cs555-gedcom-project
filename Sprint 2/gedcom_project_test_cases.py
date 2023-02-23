@@ -111,51 +111,52 @@ class GedComProjectTestCases(unittest.TestCase):
     # This test case will pass since assertEqual is used and both arrays have the same length
     def test_us_29_same_length(self):
         us29Data = [
-           "Error: Individual US29 I1 : named: Edward /Chapmen/ died on: 2010-03-15"
-            "Error: Individual US29 I2 : named: Wanda /Chapmen/ died on: 2005-06-19"
-            "Error: Individual US29 I3 : named: Sam /Chapmen/ died on: 2015-04-16"
-            "Error: Individual US29 I6 : named: John /Chapmen/ died on: 2012-02-18"
-            "Error: Individual US29 I7 : named: John /Chapmen/ died on: 1929-03-19"
-            "Error: Individual US29 I8 : named: Adrian /Chapmen/ died on: 1925-05-19"
-            "Error: Individual US29 I9 : named: Karen /Chapmen/ died on: 1990-05-18"
-            "Error: Individual US29 I11 : named: Carol /Chapmen/ died on: 2015-10-30"
+            "Error: Individual US29 I1 : named: Edward /Chapmen/ died on: 2010-03-15",
+            "Error: Individual US29 I2 : named: Wanda /Chapmen/ died on: 2005-06-19",
+            "Error: Individual US29 I3 : named: Sam /Chapmen/ died on: 2015-04-16",
+            "Error: Individual US29 I6 : named: John /Chapmen/ died on: 2012-02-18",
+            "Error: Individual US29 I7 : named: John /Chapmen/ died on: 1929-03-19",
+            "Error: Individual US29 I8 : named: Adrian /Chapmen/ died on: 1925-05-19",
+            "Error: Individual US29 I9 : named: Karen /Chapmen/ died on: 1990-05-18",
+            "Error: Individual US29 I11 : named: Carol /Chapmen/ died on: 2015-10-30",
             "Error: Individual US29 I13 : named: Maria /Chapmen/ died on: 1999-05-16"
         ]
-        self.assertNotEqual(len(project_4_sprints.us_29_List_deceased()), len(us29Data),
+        self.assertEqual(len(project_4_sprints.us_29_List_deceased()), len(us29Data),
                          "This test case will pass since assertEqual method is used and both arrays have the same length")
 
     # This test case will check the content of the expected and actual output by order
     # This test case will pass since assertEqual is used to check content of both arrays and that content is the same
     def test_us_29_same_content(self):
         us29Data = [
-          "Error: Individual US29 I1 : named: Edward /Chapmen/ died on: 2010-03-15"
-            "Error: Individual US29 I2 : named: Wanda /Chapmen/ died on: 2005-06-19"
-            "Error: Individual US29 I3 : named: Sam /Chapmen/ died on: 2015-04-16"
-            "Error: Individual US29 I6 : named: John /Chapmen/ died on: 2012-02-18"
-            "Error: Individual US29 I7 : named: John /Chapmen/ died on: 1929-03-19"
-            "Error: Individual US29 I8 : named: Adrian /Chapmen/ died on: 1925-05-19"
-            "Error: Individual US29 I9 : named: Karen /Chapmen/ died on: 1990-05-18"
-            "Error: Individual US29 I11 : named: Carol /Chapmen/ died on: 2015-10-30"
+            "Error: Individual US29 I1 : named: Edward /Chapmen/ died on: 2010-03-15",
+            "Error: Individual US29 I2 : named: Wanda /Chapmen/ died on: 2005-06-19",
+            "Error: Individual US29 I3 : named: Sam /Chapmen/ died on: 2015-04-16",
+            "Error: Individual US29 I6 : named: John /Chapmen/ died on: 2012-02-18",
+            "Error: Individual US29 I7 : named: John /Chapmen/ died on: 1929-03-19",
+            "Error: Individual US29 I8 : named: Adrian /Chapmen/ died on: 1925-05-19",
+            "Error: Individual US29 I9 : named: Karen /Chapmen/ died on: 1990-05-18",
+            "Error: Individual US29 I11 : named: Carol /Chapmen/ died on: 2015-10-30",
             "Error: Individual US29 I13 : named: Maria /Chapmen/ died on: 1999-05-16"
         ]
         data = project_4_sprints.us_29_List_deceased()
         for index, value in enumerate(data):
-            self.assertEqual(value, data[index],
+            self.assertEqual(value, us29Data[index],
                              "This test case will pass since assertEqual is used to check content of both arrays and that content is the same")
 
     # This test case will check the length of the expected and actual output
     # This test case will pass since assertNotEqual is used and both arrays have different length
     def test_us_29_different_length(self):
         us29Data = [
-           "Error: Individual US29 I1 : named: Edward /Chapmen/ died on: 2010-03-15"
-            "Error: Individual US29 I2 : named: Wanda /Chapmen/ died on: 2005-06-19"
-            "Error: Individual US29 I3 : named: Sam /Chapmen/ died on: 2015-04-16"
-            "Error: Individual US29 I6 : named: John /Chapmen/ died on: 2012-02-18"
-            "Error: Individual US29 I7 : named: John /Chapmen/ died on: 1929-03-19"
-            "Error: Individual US29 I8 : named: Adrian /Chapmen/ died on: 1925-05-19"
-            "Error: Individual US29 I9 : named: Karen /Chapmen/ died on: 1990-05-18"
-            "Error: Individual US29 I11 : named: Carol /Chapmen/ died on: 2015-10-30"
-            "Error: Individual US29 I13 : named: Maria /Chapmen/ died on: 1999-05-16"
+            "Error: Individual US29 I1 : named: Edward /Chapmen/ died on: 2010-03-15",
+            "Error: Individual US29 I2 : named: Wanda /Chapmen/ died on: 2005-06-19",
+            "Error: Individual US29 I3 : named: Sam /Chapmen/ died on: 2015-04-16",
+            "Error: Individual US29 I6 : named: John /Chapmen/ died on: 2012-02-18",
+            "Error: Individual US29 I7 : named: John /Chapmen/ died on: 1929-03-19",
+            "Error: Individual US29 I8 : named: Adrian /Chapmen/ died on: 1925-05-19",
+            "Error: Individual US29 I9 : named: Karen /Chapmen/ died on: 1990-05-18",
+            "Error: Individual US29 I11 : named: Carol /Chapmen/ died on: 2015-10-30",
+            "Error: Individual US29 I13 : named: Maria /Chapmen/ died on: 1999-05-16",
+            "Some random string to check test case"
         ]
         self.assertNotEqual(len(project_4_sprints.us_29_List_deceased()),len(us29Data),"This test case will pass since assertNotEqual is used and both arrays have different length")
 
@@ -163,19 +164,19 @@ class GedComProjectTestCases(unittest.TestCase):
     # This test case will pass since assertNotEqual is used to check content of both arrays and that content is different
     def test_us_29_different_content(self):
         us29Data = [
-            "Error: Individual US29 I1 : named: Edward /Chapmen/ died on: 2010-03-15"
-            "Error: Individual US29 I2 : named: Wanda /Chapmen/ died on: 2005-06-19"
-            "Error: Individual US29 I3 : named: Sam /Chapmen/ died on: 2015-04-16"
-            "Error: Individual US29 I6 : named: John /Chapmen/ died on: 2012-02-18"
-            "Error: Individual US29 I7 : named: John /Chapmen/ died on: 1929-03-19"
-            "Error: Individual US29 I8 : named: Adrian /Chapmen/ died on: 1925-05-19"
-            "Error: Individual US29 I9 : named: Karen /Chapmen/ died on: 1990-05-18"
+            "Error: Individual US29 I13 : named: Maria /Chapmen/ died on: 1999-05-16",
+            "Error: Individual US29 I1 : named: Edward /Chapmen/ died on: 2010-03-15",
+            "Error: Individual US29 I2 : named: Wanda /Chapmen/ died on: 2005-06-19",
+            "Error: Individual US29 I3 : named: Sam /Chapmen/ died on: 2015-04-16",
+            "Error: Individual US29 I6 : named: John /Chapmen/ died on: 2012-02-18",
+            "Error: Individual US29 I7 : named: John /Chapmen/ died on: 1929-03-19",
+            "Error: Individual US29 I8 : named: Adrian /Chapmen/ died on: 1925-05-19",
+            "Error: Individual US29 I9 : named: Karen /Chapmen/ died on: 1990-05-18",
             "Error: Individual US29 I11 : named: Carol /Chapmen/ died on: 2015-10-30"
-            "Error: Individual US29 I13 : named: Maria /Chapmen/ died on: 1999-05-16"
         ]
         data = project_4_sprints.us_29_List_deceased()
         for index, value in enumerate(data):
-            self.assertEqual(value, data[index],
+            self.assertNotEqual(value, us29Data[index],
                                 "This test case will pass since assertNotEqual is used to check content of both arrays and that content is different")
 
 
