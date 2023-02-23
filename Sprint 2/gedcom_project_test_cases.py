@@ -663,6 +663,79 @@ class GedComProjectTestCases(unittest.TestCase):
             self.assertNotEqual(value, us06Data[index],
                                 "This test case will pass since assertEqual is used to check content of both array and that content is same")
     
+# Test case for US08 - Birth before marriage of parents
+    # Test cases written by Manoj Patel (mp)
+    # There is total 4 test cases for this user story where two test cases for good data and two for bad data
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertEqual method is used and both array has same length
+    def test_us_08_same_length(self):
+        us08Data = [
+            "ERROR: US08 FAMILY F2 is having child named Sam /Chapmen/ born on 1953-11-29 which is earlier than parents' marriage date 1954-05-27"
+        ]
+        self.assertEqual(len(us08Data), len(project_4_sprints.us_08_birth_before_marriage_of_parents()),
+                            "This test case will pass since assertEqual method is used and both array has same length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertEqual is used to check content of both array and that content is same
+    def test_us_08_same_content(self):
+        us08Data = [
+            "ERROR: US08 FAMILY F2 is having child named Sam /Chapmen/ born on 1953-11-29 which is earlier than parents' marriage date 1954-05-27"
+        ]
+        data = project_4_sprints.us_08_birth_before_marriage_of_parents()
+        for index, value in enumerate(data):
+            self.assertEqual(value, us08Data[index],"This test case will pass since assertEqual is used to check content of both array and that content is same")
+
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertNotEqual method is used and both array has different length
+    def test_us_08_different_length(self):
+        us08Data = [
+            "ERROR: US08 FAMILY F2 is having child named Sam /Chapmen/ born on 1953-11-29 which is earlier than parents' marriage date 1954-05-27",
+            "ERROR: US08 FAMILY F2 is having child named Sam /Chapmen/ born on 1953-11-29 which is earlier than parents' marriage date 1954-05-27"
+        ]
+        self.assertNotEqual(len(us08Data), len(project_4_sprints.us_08_birth_before_marriage_of_parents()),
+                            "This test case will pass since assertNotEqual method is used and both array has different length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertNotEqual is used to check content of both array and that content is different
+    def test_us_08_different_content(self):
+        us08Data = [
+            "ERROR: US08 FAMILY F215 is having child named Tako /Mannican/ born on 1324-11-29 which is earlier than parents' marriage date 3568-05-27"
+        ]
+        data = project_4_sprints.us_08_birth_before_marriage_of_parents()
+        for index, value in enumerate(data):
+            self.assertNotEqual(value, us08Data[index],"This test case will pass since assertNotEqual is used to check content of both array and that content is different")
+
+
+    # Test case for US09 - Birth before death of parents
+    # Test cases written by Manoj Patel (mp)
+    # There is total 4 test cases for this user story where two test cases for good data and two for bad data
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertEqual method is used and both array has same length
+    def test_us_09_same_length(self):
+        us09Data = []
+        self.assertEqual(len(us09Data), len(project_4_sprints.us_09_birth_before_death_of_parents()), "This test case will pass since assertEqual method is used and both array has same length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertEqual is used to check content of both array and that content is same
+    def test_us_09_same_content(self):
+        us09Data = []
+        data = project_4_sprints.us_09_birth_before_death_of_parents()
+        for index, value in enumerate(data):
+            self.assertEqual(value, us09Data[index], "This test case will pass since assertEqual is used to check content of both array and that content is same")
+
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertNotEqual method is used and both array has different length
+    def test_us_09_different_length(self):
+        us09Data = ["Here is the some random string to check test case"]
+        self.assertNotEqual(len(us09Data), len(project_4_sprints.us_09_birth_before_death_of_parents()), "This test case will pass since assertNotEqual method is used and both array has different length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertNotEqual is used to check content of both array and that content is different
+    def test_us_09_different_content(self):
+        us09Data = ["Here is the some random string to check test case"]
+        data = project_4_sprints.us_09_birth_before_death_of_parents()
+        for index, value in enumerate(data):
+            self.assertNotEqual(value, us09Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
 
       
 
