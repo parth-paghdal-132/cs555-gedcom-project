@@ -87,3 +87,5 @@ ERROR: US10 FAMILY: F4 has wife named: Carol /Chapmen/ born on 1932-08-23 and go
 ERROR: US10 FAMILY: F14 has wife named: Kimberely /Chapmen/ born on 2011-08-16 and got married on 2002-05-07 and this time difference is less than 14 years
 ERROR: US04 FAMILY: F6 is having future marriage date 1959-05-10 in reagrds to divorce date 1951-08-17
 ERROR: US06 FAMILY: F6 divorce happened at 1951-08-17 which is after the death of husband on 1929-03-19
+ERROR: US08 FAMILY F2 is having child named Sam /Chapmen/ born on 1953-11-29 which is earlier than parents' marriage date 1954-05-27
+
