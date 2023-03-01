@@ -488,7 +488,7 @@ def us12_parents_not_too_old():
             if individual[IDX_IND_ID] == fatherId:
                 fatherAge = individual[IDX_IND_AGE]
             if individual[IDX_IND_ID] == motherId:
-                motherAge = 0
+                motherAge = individual[IDX_IND_AGE]
             if fatherAge != None and motherAge != None:
                 break
         

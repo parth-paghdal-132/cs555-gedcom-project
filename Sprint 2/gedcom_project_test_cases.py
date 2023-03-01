@@ -359,8 +359,11 @@ class GedComProjectTestCases(unittest.TestCase):
     # This test case will pass since assertEqual is used and both array has same length
     def test_us_12_same_length(self):
         us12Data = [
+            "ERROR: US12 Family: F1 mother named: Wanda /Chapmen/ and age:94 more than 60 year than her child named: John /Chapmen/ with age 0",
             "ERROR: US12 Family: F1 father named: Edward /Chapmen/ and age:99 more than 80 year than his child named: John /Chapmen/ with age 0",
+            "ERROR: US12 Family: F1 mother named: Wanda /Chapmen/ and age:94 more than 60 year than her child named: Adrian /Chapmen/ with age -4",
             "ERROR: US12 Family: F1 father named: Edward /Chapmen/ and age:99 more than 80 year than his child named: Adrian /Chapmen/ with age -4",
+            "ERROR: US12 Family: F3 mother named: Sebastian /Chapmen/ and age:92 more than 60 year than her child named: Kimberely /Chapmen/ with age 11",
             "ERROR: US12 Family: F3 father named: Joanne /Chapmen/ and age:92 more than 80 year than his child named: Kimberely /Chapmen/ with age 11"
         ]
         self.assertEqual(len(us12Data), len(project_4_sprints.us12_parents_not_too_old()), "This test case will pass since assertEqual method is used and both array has same length")
@@ -369,8 +372,11 @@ class GedComProjectTestCases(unittest.TestCase):
     # This test case will pass since assertEqual is used to check content of both array and that content is same
     def test_us_12_same_content(self):
         us12Data = [
+            "ERROR: US12 Family: F1 mother named: Wanda /Chapmen/ and age:94 more than 60 year than her child named: John /Chapmen/ with age 0",
             "ERROR: US12 Family: F1 father named: Edward /Chapmen/ and age:99 more than 80 year than his child named: John /Chapmen/ with age 0",
+            "ERROR: US12 Family: F1 mother named: Wanda /Chapmen/ and age:94 more than 60 year than her child named: Adrian /Chapmen/ with age -4",
             "ERROR: US12 Family: F1 father named: Edward /Chapmen/ and age:99 more than 80 year than his child named: Adrian /Chapmen/ with age -4",
+            "ERROR: US12 Family: F3 mother named: Sebastian /Chapmen/ and age:92 more than 60 year than her child named: Kimberely /Chapmen/ with age 11",
             "ERROR: US12 Family: F3 father named: Joanne /Chapmen/ and age:92 more than 80 year than his child named: Kimberely /Chapmen/ with age 11"
         ]
         data = project_4_sprints.us12_parents_not_too_old()
@@ -393,9 +399,12 @@ class GedComProjectTestCases(unittest.TestCase):
     # This test case will pass since assertNotEqual is used to check content both array and that content is different
     def test_us_12_different_content(self):
         us12Data = [
-            "ERROR: US12 Family: F3 father named: Joanne /Chapmen/ and age:92 more than 80 year than his child named: Kimberely /Chapmen/ with age 11",
             "ERROR: US12 Family: F1 father named: Edward /Chapmen/ and age:99 more than 80 year than his child named: John /Chapmen/ with age 0",
-            "ERROR: US12 Family: F1 father named: Edward /Chapmen/ and age:99 more than 80 year than his child named: Adrian /Chapmen/ with age -4"
+            "ERROR: US12 Family: F1 mother named: Wanda /Chapmen/ and age:94 more than 60 year than her child named: Adrian /Chapmen/ with age -4",
+            "ERROR: US12 Family: F1 father named: Edward /Chapmen/ and age:99 more than 80 year than his child named: Adrian /Chapmen/ with age -4",
+            "ERROR: US12 Family: F3 mother named: Sebastian /Chapmen/ and age:92 more than 60 year than her child named: Kimberely /Chapmen/ with age 11",
+            "ERROR: US12 Family: F3 father named: Joanne /Chapmen/ and age:92 more than 80 year than his child named: Kimberely /Chapmen/ with age 11",
+            "ERROR: US12 Family: F1 mother named: Wanda /Chapmen/ and age:94 more than 60 year than her child named: John /Chapmen/ with age 0"
         ]
         data = project_4_sprints.us12_parents_not_too_old()
         for index, value in enumerate(data):
