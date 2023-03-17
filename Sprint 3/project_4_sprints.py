@@ -3,6 +3,7 @@ from datetime import timedelta
 from dateutil.relativedelta import relativedelta
 from prettytable import PrettyTable
 from collections import Counter
+import json
 
 # This object holds valid tag with their level
 # Tag with other key value pair then this will considered as Invalid
@@ -209,11 +210,13 @@ for key, value in familiesData.items():
         # This finds husband name
         if(value[i][0] == "HUSB"):
             husbandId = value[i][1]
-            husbandName = individualsData[husbandId][0][1]
+            if husbandId in individualsData:
+                husbandName = individualsData[husbandId][0][1]
         # This finds wife name
         if(value[i][0] == "WIFE"):
             wifeId = value[i][1]
-            wifeName = individualsData[wifeId][0][1]
+            if wifeId in individualsData:
+                wifeName = individualsData[wifeId][0][1]
         # This collect children name in array
         if(value[i][0] == "CHIL"):
             child = value[i][1]
@@ -805,5 +808,63 @@ def us_13_siblings_spacing():
     return data
 
 data = us_13_siblings_spacing()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint3CodeOutput)
+
+# User story US26
+# Story Name: Corresponding entries
+# Owner: Parth Paghdal (pp)
+# Email: ppaghdal@stevens.edu
+def us_26_corresponding_entries():
+    data = []
+    individualDict = {}
+    for individual in individuals:
+        dict = {}
+        if individual[IDX_IND_CHILD] != "NA":
+            children_ids = individual[IDX_IND_CHILD]
+            children_ids = children_ids.replace("{", "").replace("}", "").replace("'","").replace(" ","").split(",")
+            dict["child"] = children_ids
+        if individual[IDX_IND_SPOUCE] != "NA":
+            spouceIds = individual[IDX_IND_SPOUCE]
+            spouceIds = spouceIds.replace("{", "").replace("}","").replace("'","").replace(" ", "").split(",")
+            dict["spouce"] = spouceIds
+        individualDict[individual[IDX_IND_ID]] = dict
+    
+    familyDict = {}
+    for family in families:
+        dict = {}
+        dict["husband"] = family[IDX_FAM_HUSBAND_ID]
+        dict["wife"] = family[IDX_FAM_WIFE_ID]
+        if family[IDX_FAM_CHILD] != "NA":
+            children_ids = family[IDX_FAM_CHILD]
+            children_ids = children_ids.replace("{", "").replace("}", "").replace("'","").replace(" ","").split(",")
+            dict["children"] = children_ids
+        familyDict[family[IDX_FAM_ID]] = dict
+
+
+    for familyId, family in familyDict.items():
+        for spouce in ["husband", "wife"]:
+            if spouce in family:
+                spouce_id = family[spouce]
+                if spouce_id not in individualDict:
+                    data.append("ERROR: US26 FAMILY "+ familyId + " is having spouce "+ spouce_id+ " whose id not found in individual table.")
+        if "children" in family:
+            for child_id in family["children"]:
+                if child_id not in individualDict:
+                    data.append("ERROR: US26 FAMILY "+ familyId+ " is having child "+ child_id+" whose id not found in individual table.")
+
+    for individualId, individual in individualDict.items():
+        if "spouce" in individual:
+            for familyId in individual["spouce"]:
+                if familyId not in familyDict:
+                    data.append("ERROR: US26 INDIVIDUAL "+ individualId + " is not having record in family table.")
+        if "child" in individual:
+            for familyId in individual["child"]:
+                if familyId not in familyDict:
+                    data.append("ERROR: US26 INDIVIDUAL "+ individualId + " is child of family "+ familyId+ " but record not found in family table.")
+
+    return data
+
+data = us_26_corresponding_entries()
 print(*data, sep="\n")
 print(*data, sep="\n", file=sprint3CodeOutput)

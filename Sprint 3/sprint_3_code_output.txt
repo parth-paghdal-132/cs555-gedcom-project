@@ -5,8 +5,8 @@ Individuals
 |  I1 |   Edward /Chapmen/  |   M    | 1910-08-15 |  99 | False | 2010-03-15 |    NA   |  {'F1'} |
 |  I2 |   Wanda /Chapmen/   |   F    | 1911-02-16 |  94 | False | 2005-06-19 |    NA   |  {'F1'} |
 |  I3 |    Sam /Chapmen/    |   M    | 1930-03-16 |  85 | False | 2015-04-16 |  {'F1'} |    NA   |
-|  I4 | Sebastian /Chapmen/ |   M    | 1930-03-16 |  92 |  True |     NA     |  {'F1'} |    NA   |
-|  I5 |  Dominic /Chapmen/  |   M    | 1930-03-16 |  92 |  True |     NA     |  {'F1'} |    NA   |
+|  I4 | Sebastian /Chapmen/ |   M    | 1930-03-16 |  93 |  True |     NA     |  {'F1'} |    NA   |
+|  I5 |  Dominic /Chapmen/  |   M    | 1930-03-16 |  93 |  True |     NA     |  {'F1'} |    NA   |
 |  I6 |    John /Chapmen/   |   M    | 1930-03-16 |  81 | False | 2012-02-18 |  {'F1'} |    NA   |
 |  I7 |    John /Chapmen/   |   M    | 1930-03-16 |  0  | False | 1929-03-19 |  {'F1'} |    NA   |
 |  I8 |   Adrian /Chapmen/  |   M    | 1930-03-16 |  -4 | False | 1925-05-19 |  {'F1'} |    NA   |
@@ -69,7 +69,7 @@ ERROR: US05 Family: F5 husband died on 2012-02-18 before his marriage date 2016-
 ERROR: US05 Family: F6 husband died on 1929-03-19 before his marriage date 1959-05-10
 ERROR: US05 Family: F7 husband died on 1925-05-19 before his marriage date 1954-06-15
 
-ERROR: US28 FAMILY: F1 sorted siblings (oldest first): ID:I4 Age: 92 |-| ID:I5 Age: 92 |-| ID:I3 Age: 85 |-| ID:I6 Age: 81 |-| ID:I7 Age: 0 |-| ID:I8 Age: -4
+ERROR: US28 FAMILY: F1 sorted siblings (oldest first): ID:I4 Age: 93 |-| ID:I5 Age: 93 |-| ID:I3 Age: 85 |-| ID:I6 Age: 81 |-| ID:I7 Age: 0 |-| ID:I8 Age: -4
 ERROR: US28 FAMILY: F2 sorted siblings (oldest first): ID:I16 Age: 69 |-| ID:I15 Age: 65
 ERROR: US28 FAMILY: F3 sorted siblings (oldest first): ID:I20 Age: 80 |-| ID:I21 Age: 76 |-| ID:I22 Age: 11
 ERROR: US28 FAMILY: F11 sorted siblings (oldest first): ID:I24 Age: 52
@@ -78,7 +78,7 @@ ERROR: US12 Family: F1 mother named: Wanda /Chapmen/ and age:94 more than 60 yea
 ERROR: US12 Family: F1 father named: Edward /Chapmen/ and age:99 more than 80 year than his child named: John /Chapmen/ with age 0
 ERROR: US12 Family: F1 mother named: Wanda /Chapmen/ and age:94 more than 60 year than her child named: Adrian /Chapmen/ with age -4
 ERROR: US12 Family: F1 father named: Edward /Chapmen/ and age:99 more than 80 year than his child named: Adrian /Chapmen/ with age -4
-ERROR: US12 Family: F3 mother named: Sebastian /Chapmen/ and age:92 more than 60 year than her child named: Kimberely /Chapmen/ with age 11
+ERROR: US12 Family: F3 mother named: Sebastian /Chapmen/ and age:93 more than 60 year than her child named: Kimberely /Chapmen/ with age 11
 ERROR: US12 Family: F3 father named: Joanne /Chapmen/ and age:92 more than 80 year than his child named: Kimberely /Chapmen/ with age 11
 
 ERROR: US02 Individual: I22 wife named Kimberely /Chapmen/ has future birthdate 2011-08-16 in regards to her marriage date 2002-05-07
@@ -100,3 +100,4 @@ ERROR: US13 Individual I7 named John /Chapmen/ born on 1930-03-16 is either born
 ERROR: US13 Individual I16 named Sam /Chapmen/ born on 1953-11-29 is either born before 8 months or less than 2 days apart his sibling id I15 named Neil /Chapmen/ born on 1957-12-25
 ERROR: US13 Individual I20 named Benjamin /Chapmen/ born on 1943-01-12 is either born before 8 months or less than 2 days apart his sibling id I21 named Boris /Chapmen/ born on 1946-05-29
 ERROR: US13 Individual I21 named Boris /Chapmen/ born on 1946-05-29 is either born before 8 months or less than 2 days apart his sibling id I22 named Kimberely /Chapmen/ born on 2011-08-16
+
