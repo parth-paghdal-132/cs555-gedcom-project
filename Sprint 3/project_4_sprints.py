@@ -868,3 +868,53 @@ def us_26_corresponding_entries():
 data = us_26_corresponding_entries()
 print(*data, sep="\n")
 print(*data, sep="\n", file=sprint3CodeOutput)
+
+#User Story US14
+#Story Name: Multiple births <= 5
+#Owner: Sai Krishna (km)
+#Email : smiriyal@stevens.edu
+def us_14_multiple_births():
+    data = []
+    for family in families:
+        familyId = family[IDX_FAM_ID]
+        children_ids = family[IDX_FAM_CHILD]
+        children_ids = children_ids.replace("{", "").replace("}", "").replace("'","").replace(" ","").split(",")
+        birthDates = {}
+        for individual in individuals:
+            if individual[IDX_IND_ID] in children_ids:
+                if individual[IDX_IND_BIRTHDAY] != "NA":
+                    birthday = individual[IDX_IND_BIRTHDAY]
+                    if birthday in birthDates:
+                        birthDates[birthday] = birthDates[birthday] + 1
+                    else:
+                        birthDates[birthday] = 1
+        for birthdate, count in birthDates.items():
+            if(count > 5):
+                data.append("ERROR: US14 FAMILY "+ familyId+ " is having more than 5 children born on "+ birthdate)
+
+    return data
+
+data = us_14_multiple_births()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint3CodeOutput)
+
+#User Story US18
+#Story Name: Siblings should not marry
+#Owner: Sai Krishna (km)
+#Email : smiriyal@stevens.edu
+def us_18_siblings_should_not_marry():
+    data = []
+    for family in families:
+        familyId = family[IDX_FAM_ID]
+        children_ids = family[IDX_FAM_CHILD]
+        children_ids = children_ids.replace("{", "").replace("}", "").replace("'","").replace(" ","").split(",")
+        for family2 in families:
+            husbandId = family2[IDX_FAM_HUSBAND_ID]
+            wifeId = family2[IDX_FAM_WIFE_ID]
+            if(husbandId in children_ids and wifeId in children_ids):
+                data.append("ERROR: US18 FAMILY "+ familyId+" is having siblings "+ husbandId + " and "+ wifeId+ " are married to each other.")
+    return data
+
+data = us_18_siblings_should_not_marry()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint3CodeOutput)
