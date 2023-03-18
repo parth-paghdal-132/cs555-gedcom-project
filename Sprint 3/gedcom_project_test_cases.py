@@ -848,7 +848,82 @@ class GedComProjectTestCases(unittest.TestCase):
         data = project_4_sprints.us_26_corresponding_entries()
         for index, value in enumerate(data):
             self.assertNotEqual(value, us26Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
+    
+    # Test case for US14 - Multiple births <= 5
+    # Test cases written by Sai Krishna (km)
+    # There is total 4 test cases for this user story where two test cases for good data and two for bad data
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertEqual is used and both array has same length
+    def test_us_14_same_length(self):
+        us14Data = [
+            "ERROR: US14 FAMILY F1 is having more than 5 children born on 1930-03-16"
+        ]
+        self.assertEqual(len(us14Data), len(project_4_sprints.us_14_multiple_births()), "This test case will pass since assertEqual method is used and both array has same length")
 
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertEqual is used to check content of both array and that content is same
+    def test_us_14_same_content(self):
+        us14Data = [
+            "ERROR: US14 FAMILY F1 is having more than 5 children born on 1930-03-16"
+        ]
+        data = project_4_sprints.us_14_multiple_births()
+        for index, value in enumerate(data):
+            self.assertEqual(value, us14Data[index], "This test case will pass since assertEqual is used to check content of both array and that content is same")
+
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertNotEqual method is used and both array has different length
+    def test_us_14_different_length(self):
+        us14Data = [
+            "ERROR: US14 FAMILY F1 is having more than 5 children born on 1930-03-16",
+            "ERROR: US14 FAMILY F1 is having more than 5 children born on 1930-03-16"
+        ]
+        self.assertNotEqual(len(us14Data), len(project_4_sprints.us_14_multiple_births()), "This test case will pass since assertNotEqual method is used and both array has different length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertNotEqual is used to check content of both array and that content is different
+    def test_us_14_different_content(self):
+        us14Data = [
+            "ERROR: US14 FAMILY F2512 is having more than 105 children born on 1930-03-16",
+            "ERROR: US14 FAMILY F0132 is having more than 10525 children born on 1930-03-16"
+        ]
+        data = project_4_sprints.us_14_multiple_births()
+        for index, value in enumerate(data):
+            self.assertNotEqual(value, us14Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
+
+    # Test case for US18 - Siblings should not marry
+    # Test cases written by Sai Krishna (km)
+    # There is total 4 test cases for this user story where two test cases for good data and two for bad data
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertEqual is used and both array has same length
+    def test_us_18_same_length(self):
+        us18Data = []
+        self.assertEqual(len(us18Data), len(project_4_sprints.us_18_siblings_should_not_marry()), "This test case will pass since assertEqual method is used and both array has same length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertEqual is used to check content of both array and that content is same
+    def test_us_18_same_content(self):
+        us18Data = []
+        data = project_4_sprints.us_18_siblings_should_not_marry()
+        for index, value in enumerate(data):
+            self.assertEqual(value, us18Data[index], "This test case will pass since assertEqual is used to check content of both array and that content is same")
+
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertNotEqual method is used and both array has different length
+    def test_us_18_different_length(self):
+        us18Data = [
+            "some random string to test this function"
+        ]
+        self.assertNotEqual(len(us18Data), len(project_4_sprints.us_18_siblings_should_not_marry()), "This test case will pass since assertNotEqual method is used and both array has different length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertNotEqual is used to check content of both array and that content is different
+    def test_us_18_different_content(self):
+        us18Data = [
+            "some random string to test this function"
+        ]
+        data = project_4_sprints.us_18_siblings_should_not_marry()
+        for index, value in enumerate(data):
+            self.assertNotEqual(value, us18Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
 
 
 if __name__ == '__main__':
