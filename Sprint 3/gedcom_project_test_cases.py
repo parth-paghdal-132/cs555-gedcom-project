@@ -928,4 +928,91 @@ class GedComProjectTestCases(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+    
+    
+    # Name:- AMBATI BABY NAGA SAHITHYA
+    # CWID:- 20012050
+    # Test case for us_22_unique_ids()
+    # There is total 4 test cases for this user story where two test cases for good data and two for bad data
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertEqual is used and both array has same length
+    def test_us_22_same_length(self):
+        us22Data = []
+        self.assertEqual(len(us22Data), len(project_4_sprints.us_22_unique_ids()), "This test case will pass since assertEqual method is used and both array has same length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertEqual is used to check content of both array and that content is same
+    def test_us_22_same_content(self):
+        us22Data = []
+        data = project_4_sprints.us_22_unique_ids()
+        for index, value in enumerate(data):
+            self.assertEqual(value, us22Data[index], "This test case will pass since assertEqual is used to check content of both array and that content is same")
+
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertNotEqual method is used and both array has different length
+    def test_us_22_different_length(self):
+        us22Data = [
+            "some random string to test this function"
+        ]
+        self.assertNotEqual(len(us22Data), len(project_4_sprints.us_22_unique_ids()), "This test case will pass since assertNotEqual method is used and both array has different length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertNotEqual is used to check content of both array and that content is different
+    def test_us_22_different_content(self):
+        us22Data = [
+            "some random string to test this function"
+        ]
+        data = project_4_sprints.us_22_unique_ids()
+        for index, value in enumerate(data):
+            self.assertNotEqual(value, us22Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
+    
+    # Name:- AMBATI BABY NAGA SAHITHYA
+    # CWID:- 20012050
+    # Test case for us_23_unique_name_and_birth_date()
+    # There is total 4 test cases for this user story where two test cases for good data and two for bad data
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertEqual is used and both array has same length
+    def test_us_23_same_length(self):
+        us23Data = [
+            "ERROR US23 INDIVIDUAL I6 is having duplicate record with same name John /Chapmen/ and same birthdate 1930-03-16",
+            "ERROR US23 INDIVIDUAL I7 is having duplicate record with same name John /Chapmen/ and same birthdate 1930-03-16"
+        ]
+        self.assertEqual(len(us23Data), len(project_4_sprints.us_23_unique_name_and_birth_date()), "This test case will pass since assertEqual method is used and both array has same length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertEqual is used to check content of both array and that content is same
+    def test_us_23_same_content(self):
+        us23Data = [
+            "ERROR US23 INDIVIDUAL I6 is having duplicate record with same name John /Chapmen/ and same birthdate 1930-03-16",
+            "ERROR US23 INDIVIDUAL I7 is having duplicate record with same name John /Chapmen/ and same birthdate 1930-03-16"
+        ]
+        data = project_4_sprints.us_23_unique_name_and_birth_date()
+        for index, value in enumerate(data):
+            self.assertEqual(value, us23Data[index], "This test case will pass since assertEqual is used to check content of both array and that content is same")
+
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertNotEqual method is used and both array has different length
+    def test_us_23_different_length(self):
+        us23Data = [
+            "ERROR US23 INDIVIDUAL I6 is having duplicate record with same name John /Chapmen/ and same birthdate 1930-03-16",
+            "ERROR US23 INDIVIDUAL I7 is having duplicate record with same name John /Chapmen/ and same birthdate 1930-03-16",
+            "ERROR US23 INDIVIDUAL I6 is having duplicate record with same name John /Chapmen/ and same birthdate 1930-03-16",
+            "ERROR US23 INDIVIDUAL I7 is having duplicate record with same name John /Chapmen/ and same birthdate 1930-03-16"
+        ]
+        self.assertNotEqual(len(us23Data), len(project_4_sprints.us_23_unique_name_and_birth_date()), "This test case will pass since assertNotEqual method is used and both array has different length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertNotEqual is used to check content of both array and that content is different
+    def test_us_23_different_content(self):
+        us23Data = [
+            "ERROR US23 INDIVIDUAL I7 is having duplicate record with same name John /Chapmen/ and same birthdate 1930-03-16",
+            "ERROR US23 INDIVIDUAL I6 is having duplicate record with same name John /Chapmen/ and same birthdate 1930-03-16",
+        ]
+        data = project_4_sprints.us_23_unique_name_and_birth_date()
+        for index, value in enumerate(data):
+            self.assertNotEqual(value, us23Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
+
+if __name__ == '__main__':
+    unittest.main()
+
 
