@@ -918,3 +918,58 @@ def us_18_siblings_should_not_marry():
 data = us_18_siblings_should_not_marry()
 print(*data, sep="\n")
 print(*data, sep="\n", file=sprint3CodeOutput)
+
+# User story US22
+# Story Name: Unique IDs
+# Owner: Ambati Baby Naga Sahithya (sa)
+# Email: bambati@stevens.edu
+def us_22_unique_ids():
+    data = []
+    individualDuplicates = []
+    individualSeen = set()
+    for individual in individuals:
+        if individual[IDX_IND_ID] in individualSeen:
+            individualDuplicates.append(individual)
+        else:
+            individualSeen.add(individual[IDX_IND_ID])
+    
+    familyDuplicates = []
+    familySeen = set()
+    for family in families:
+        if family[IDX_FAM_ID] in familySeen:
+            familyDuplicates.append(family)
+        else:   
+            familySeen.add(family[IDX_FAM_ID])
+    
+    for individualDuplicate in individualDuplicates:
+        data.append("ERROR: US22 INDIVIDUAL "+ individualDuplicate[IDX_IND_ID]+" unique id rule is violated this time name is "+ individualDuplicate[IDX_IND_NAME])
+    
+    for familyDuplicate in familyDuplicates:
+        data.append("ERROR: US22 FAMILY "+ familyDuplicate[IDX_FAM_ID]+" unique id rule for family id is violated.")
+    return data
+
+data = us_22_unique_ids()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint3CodeOutput)
+
+# User story US23
+# Story Name: Unique name and birth date
+# Owner: Ambati Baby Naga Sahithya (sa)
+# Email: bambati@stevens.edu
+def us_23_unique_name_and_birth_date():
+    data = []
+
+    tempIds = []
+    for i in range(len(individuals)):
+        for j in range(i+1, len(individuals)):
+            a = individuals[i]
+            b = individuals[j]
+            if a[IDX_IND_NAME] == b[IDX_IND_NAME] and a[IDX_IND_BIRTHDAY] == b[IDX_IND_BIRTHDAY]:
+                data.append("ERROR US23 INDIVIDUAL "+ a[IDX_IND_ID] +" is having duplicate record with same name "+ a[IDX_IND_NAME]+" and same birthdate "+ a[IDX_IND_BIRTHDAY])
+                data.append("ERROR US23 INDIVIDUAL "+ b[IDX_IND_ID] +" is having duplicate record with same name "+ b[IDX_IND_NAME]+" and same birthdate "+ b[IDX_IND_BIRTHDAY])
+
+    return data
+
+data = us_23_unique_name_and_birth_date()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint3CodeOutput)
