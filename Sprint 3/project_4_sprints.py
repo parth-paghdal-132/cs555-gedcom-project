@@ -973,3 +973,67 @@ def us_23_unique_name_and_birth_date():
 data = us_23_unique_name_and_birth_date()
 print(*data, sep="\n")
 print(*data, sep="\n", file=sprint3CodeOutput)
+
+
+# User story US15
+# Story Name: Fewer than 15 siblings
+# Owner: Manoj Patel (mp)
+# Email: mpateld@stevens.edu
+def us_15_fewer_then_15_siblings():
+    data = []
+    for family in families:
+        children_ids = family[IDX_FAM_CHILD]
+        children_ids = children_ids.replace("{", "").replace("}", "").replace("'","").replace(" ","").split(",")
+        if len(children_ids) > 15:
+            data.append("ERROR: US15 FAMILY "+ family[IDX_FAM_ID]+ " is having more than 15 siblings.")
+    return data
+
+data = us_15_fewer_then_15_siblings()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint3CodeOutput)
+
+# User story US20
+# Story Name: Aunts and uncles
+# Owner: Manoj Patel (mp)
+# Email: mpateld@stevens.edu
+def us_20_aunts_and_uncles():
+    data = []
+
+    arrayofChildWithUncleAndAunts = []
+    for family in families:
+        fatherId = family[IDX_FAM_HUSBAND_ID]
+        motherId = family[IDX_FAM_WIFE_ID]
+        children_ids = family[IDX_FAM_CHILD]
+        children_ids = children_ids.replace("{", "").replace("}", "").replace("'","").replace(" ","").split(",")
+        for childId in children_ids:
+            arrayofChildWithUncleAndAunts.append({"childId":childId, "fatherId":fatherId, "motherId": motherId, "uncleAuntsOfThisChild": []})
+    for family in families:
+        fatherId = family[IDX_FAM_HUSBAND_ID]
+        motherId = family[IDX_FAM_WIFE_ID]
+        children_ids = family[IDX_FAM_CHILD]
+        children_ids = children_ids.replace("{", "").replace("}", "").replace("'","").replace(" ","").split(",")
+        for childId in children_ids:
+            matchingObjects = [obj for obj in arrayofChildWithUncleAndAunts if obj["fatherId"] == childId or obj["motherId"] == childId]
+            if matchingObjects is not None:
+                for matchingObject in matchingObjects:
+                    matchingObject["uncleAuntsOfThisChild"].extend(children_ids)
+
+    for family in families:
+        familyId = family[IDX_FAM_ID]
+        husbandId = family[IDX_FAM_HUSBAND_ID]
+        wifeId = family[IDX_FAM_WIFE_ID]
+        matchingObjects = [obj for obj in arrayofChildWithUncleAndAunts if obj["childId"] == husbandId]
+        if len(matchingObjects) != 0:
+            for matchedObject in matchingObjects:
+                if wifeId in matchedObject["uncleAuntsOfThisChild"]:
+                    data.append("ERROR US20 FAMILY "+ familyId+ " husband "+ husbandId + " is married to his aunt "+ wifeId)
+        matchingObjects = [obj for obj in arrayofChildWithUncleAndAunts if obj["childId"] == wifeId]
+        if len(matchingObjects) != 0:
+            for matchedObject in matchingObjects:
+                if husbandId in matchedObject["uncleAuntsOfThisChild"]:
+                    data.append("ERROR US20 FAMILY "+ familyId+ " wife "+ wifeId + " is married to her uncle "+ husbandId)                    
+    return data
+
+data = us_20_aunts_and_uncles()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint3CodeOutput)
