@@ -101,3 +101,10 @@ ERROR: US13 Individual I16 named Sam /Chapmen/ born on 1953-11-29 is either born
 ERROR: US13 Individual I20 named Benjamin /Chapmen/ born on 1943-01-12 is either born before 8 months or less than 2 days apart his sibling id I21 named Boris /Chapmen/ born on 1946-05-29
 ERROR: US13 Individual I21 named Boris /Chapmen/ born on 1946-05-29 is either born before 8 months or less than 2 days apart his sibling id I22 named Kimberely /Chapmen/ born on 2011-08-16
 
+ERROR: US14 FAMILY F1 is having more than 5 children born on 1930-03-16
+
+
+ERROR US23 INDIVIDUAL I6 is having duplicate record with same name John /Chapmen/ and same birthdate 1930-03-16
+ERROR US23 INDIVIDUAL I7 is having duplicate record with same name John /Chapmen/ and same birthdate 1930-03-16
+
+ERROR US20 FAMILY F14 husband I24 is married to his aunt I22
