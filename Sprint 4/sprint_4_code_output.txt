@@ -108,3 +108,5 @@ ERROR US23 INDIVIDUAL I6 is having duplicate record with same name John /Chapmen
 ERROR US23 INDIVIDUAL I7 is having duplicate record with same name John /Chapmen/ and same birthdate 1930-03-16
 
 ERROR US20 FAMILY F14 husband I24 is married to his aunt I22
+
+ERROR: US21 FAMILY F3 is having incorrect gender role for wife with id I4 named Sebastian /Chapmen/

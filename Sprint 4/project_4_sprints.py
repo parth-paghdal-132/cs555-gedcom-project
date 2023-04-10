@@ -21,8 +21,8 @@ with open(fileName, 'r') as file:
     lines = file.read().splitlines()
 lines = [[line] for line in lines]
 
-sprint3CodeOutput = open("Sprint 4/sprint_4_code_output.txt","a")
-sprint3CodeOutput.truncate(0)
+sprint4CodeOutput = open("Sprint 4/sprint_4_code_output.txt","a")
+sprint4CodeOutput.truncate(0)
 
 # this for loop is finding any gedcom line with errors
 # if line is not having tag or level it will set error to lines
@@ -168,8 +168,8 @@ individualsTable.add_rows(individuals)
 # Showing individuals details
 # print("Individuals")
 # print(individualsTable)
-print("Individuals", file=sprint3CodeOutput)
-print(individualsTable, file=sprint3CodeOutput)
+print("Individuals", file=sprint4CodeOutput)
+print(individualsTable, file=sprint4CodeOutput)
 
 # Iterating over infolist of gather information for families
 for i in range(len(infoList)):
@@ -247,8 +247,8 @@ famliesTable.add_rows(families)
 # Showing family table
 # print("Families")
 # print(famliesTable)
-print("Families", file=sprint3CodeOutput)
-print(famliesTable, file=sprint3CodeOutput)
+print("Families", file=sprint4CodeOutput)
+print(famliesTable, file=sprint4CodeOutput)
 
 
 # Declaring constant for indexes of individuals and family
@@ -297,7 +297,7 @@ def us03_birth_before_death():
 
 data = us03_birth_before_death()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 # User story US30
 # Story Name: List living married
@@ -326,7 +326,7 @@ def us30_list_living_married():
 
 data = us30_list_living_married()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 #User Story US29
 #Story Name: List deceased
@@ -342,7 +342,7 @@ def us_29_List_deceased():
     return data
 data = us_29_List_deceased()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 
 # User story US31
@@ -368,7 +368,7 @@ def us31_list_living_single():
 
 data = us31_list_living_single()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 # User story US05
 # Story Name: Marriage before death
@@ -405,7 +405,7 @@ def us05_marriage_before_death():
 
 data = us05_marriage_before_death()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 # User story US16
 # Story Name: Male Last Names
@@ -437,7 +437,7 @@ def us16_male_last_names():
 
 data = us16_male_last_names()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 # User story US28
 # Story Name: order siblings by age
@@ -466,7 +466,7 @@ def us28_order_siblings_by_age():
 
 data = us28_order_siblings_by_age()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 #User Story US12
 #Story Name: Parents not too old
@@ -506,7 +506,7 @@ def us12_parents_not_too_old():
     return data
 data = us12_parents_not_too_old()
 print(*data, sep="\n")            
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 
 # User story US01
@@ -546,7 +546,7 @@ def us01_dates_before_current_date():
 
 data = us01_dates_before_current_date()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 # User story US02
 # Story Name: Birth before marriage
@@ -580,7 +580,7 @@ def us02_birth_before_marriage():
 
 data = us02_birth_before_marriage()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 #User Story US25
 #Story Name: Unique first names in families
@@ -606,7 +606,7 @@ def us_25_unique_first_names_in_families():
 
 data = us_25_unique_first_names_in_families()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 #User Story US10
 #Story Name: Marriage after 14
@@ -640,7 +640,7 @@ def us_10_marriage_after_14():
 
 data = us_10_marriage_after_14()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 # User story US04
 # Story Name: Marriage before divorce
@@ -661,7 +661,7 @@ def us_04_marriage_before_divorce():
 
 data = us_04_marriage_before_divorce()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 
 # User story US06
@@ -698,7 +698,7 @@ def us_06_divorce_before_death():
 
 data = us_06_divorce_before_death()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 # User story US08
 # Story Name: Birth before marriage of parents
@@ -726,7 +726,7 @@ def us_08_birth_before_marriage_of_parents():
 
 data = us_08_birth_before_marriage_of_parents()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 # User story US09
 # Story Name: Birth before death of parents
@@ -771,7 +771,7 @@ def us_09_birth_before_death_of_parents():
 
 data = us_09_birth_before_death_of_parents()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 # User story US13 
 # Story Name: Siblings spacing
@@ -809,7 +809,7 @@ def us_13_siblings_spacing():
 
 data = us_13_siblings_spacing()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 # User story US26
 # Story Name: Corresponding entries
@@ -867,7 +867,7 @@ def us_26_corresponding_entries():
 
 data = us_26_corresponding_entries()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 #User Story US14
 #Story Name: Multiple births <= 5
@@ -896,7 +896,7 @@ def us_14_multiple_births():
 
 data = us_14_multiple_births()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 #User Story US18
 #Story Name: Siblings should not marry
@@ -917,7 +917,7 @@ def us_18_siblings_should_not_marry():
 
 data = us_18_siblings_should_not_marry()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 # User story US22
 # Story Name: Unique IDs
@@ -950,7 +950,7 @@ def us_22_unique_ids():
 
 data = us_22_unique_ids()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 # User story US23
 # Story Name: Unique name and birth date
@@ -972,7 +972,7 @@ def us_23_unique_name_and_birth_date():
 
 data = us_23_unique_name_and_birth_date()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 
 # User story US15
@@ -990,7 +990,7 @@ def us_15_fewer_then_15_siblings():
 
 data = us_15_fewer_then_15_siblings()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
 
 # User story US20
 # Story Name: Aunts and uncles
@@ -1036,4 +1036,46 @@ def us_20_aunts_and_uncles():
 
 data = us_20_aunts_and_uncles()
 print(*data, sep="\n")
-print(*data, sep="\n", file=sprint3CodeOutput)
+print(*data, sep="\n", file=sprint4CodeOutput)
+
+# User story US07
+# Story Name: Less then 150 years old
+# Owner: Parth Paghdal (pp)
+# Email: ppaghdal@stevens.edu
+def us_07_less_than_150_years():
+    data = []
+    for individual in individuals:
+        age = individual[IDX_IND_AGE]
+        if(age > 150):
+            data.append("ERROR: US07 INDIVIDUAL "+ str(individual[IDX_IND_ID])+ " named "+ str(individual[IDX_IND_NAME])+ " has age more than 150 years.")        
+    return data
+
+data = us_07_less_than_150_years()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint4CodeOutput)
+
+# User story US21
+# Story Name: Correct gender for role
+# Owner: Parth Paghdal (pp)
+# Email: ppaghdal@stevens.edu
+def us_21_correct_gender_for_role():
+    data = []
+    for family in families:
+        husbandId = family[IDX_FAM_HUSBAND_ID]
+        wifeId = family[IDX_FAM_WIFE_ID]
+        husbandGender = "M"
+        wifeGender = "F"
+        for individual in individuals:
+            if(individual[IDX_IND_ID] == husbandId):
+                husbandGender = individual[IDX_IND_GENDER]
+            if(individual[IDX_IND_ID] == wifeId):
+                wifeGender = individual[IDX_IND_GENDER]
+        if(husbandGender != "M"):
+            data.append("ERROR: US21 FAMILY "+ str(family[IDX_FAM_ID])+" is having incorrect gender role for husband with id "+ str(husbandId)+ " named "+str(family[IDX_FAM_HUSBAND_NAME]) )
+        if(wifeGender != "F"):
+            data.append("ERROR: US21 FAMILY "+ str(family[IDX_FAM_ID])+" is having incorrect gender role for wife with id "+ str(wifeId)+ " named "+str(family[IDX_FAM_WIFE_NAME]) )
+    return data
+
+data = us_21_correct_gender_for_role()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint4CodeOutput)
