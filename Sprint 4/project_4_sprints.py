@@ -1079,3 +1079,45 @@ def us_21_correct_gender_for_role():
 data = us_21_correct_gender_for_role()
 print(*data, sep="\n")
 print(*data, sep="\n", file=sprint4CodeOutput)
+
+# User Story US24
+# Story Name: Unique families by spouses
+# Owner: Sai Krishna (km), Parth Paghdal (pp)
+# Email : smiriyal@stevens.edu, ppaghdal@stevens.edu
+# This user story done using pair programming with Parth Paghdal (pp)
+def us_24_unique_families_by_spouces():
+    data = []
+    marriageData = []
+    for family in families:
+        marriageDate = family[IDX_FAM_MARRIED]
+        husbandName = family[IDX_FAM_HUSBAND_NAME]
+        wifeName = family[IDX_FAM_WIFE_NAME]
+        marriageData.append((marriageDate, husbandName, wifeName))
+
+    counter = dict(Counter(marriageData))
+    for key, value in counter.items():
+        if(value > 1):
+            data.append("ERROR: US24 FAMILY is having family where husband named  "+ key[1] + " and wife named" + key[2] + " married on "+ str(key[0]+" is breaking the user storey rule") )
+        
+    return data
+
+data = us_24_unique_families_by_spouces()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint4CodeOutput)
+
+#User Story US27
+#Story Name: Include individual ages
+#Owner: Sai Krishna (km)
+#Email : smiriyal@stevens.edu
+def us_27_include_individual_ages():
+    data = []
+    for individual in individuals:
+        id = individual[IDX_IND_ID]
+        name = individual[IDX_IND_NAME]
+        age = individual[IDX_IND_AGE]
+        data.append("ERROR: US27 INDIVIDUAL "+str(id)+" named "+str(name)+" is "+str(age)+" years old.")
+    return data
+
+data = us_27_include_individual_ages()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint4CodeOutput)
