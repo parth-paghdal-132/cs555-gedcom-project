@@ -1156,7 +1156,154 @@ class GedComProjectTestCases(unittest.TestCase):
         for index, value in enumerate(data):
             self.assertNotEqual(value, us21Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
 
+     # Test case for US24 - Unique families by spouses
+    # Test cases written by Sai Krishna (km) and Parth Paghdal (pp)
+    # This test case are written using pair programming
+    # There is total 4 test cases for this user story where two test cases for good data and two for bad data
 
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertEqual is used and both array has same length
+    def test_us_24_same_length(self):
+        us24Data = []
+        self.assertEqual(len(us24Data), len(project_4_sprints.us_24_unique_families_by_spouces()), "This test case will pass since assertEqual method is used and both array has same length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertEqual is used to check content of both array and that content is same
+    def test_us_24_same_content(self):
+        us24Data = []
+        data = project_4_sprints.us_24_unique_families_by_spouces()
+        for index, value in enumerate(data):
+            self.assertEqual(value, us24Data[index], "This test case will pass since assertEqual is used to check content of both array and that content is same")
+
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertNotEqual is used and both array has different length
+    def test_us_24_different_length(self):
+        us24Data = ["Some random string to test this function"]
+        self.assertNotEqual(len(us24Data), len(project_4_sprints.us_24_unique_families_by_spouces()), "This test case will pass since assertNotEqual is used and both array has different length")
+
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertNotEqual is used to check content both array and that content is different
+    def test_us_24_different_content(self):
+        us24Data = ["Some random string to test this function"]
+        data = project_4_sprints.us_24_unique_families_by_spouces()
+        for index, value in enumerate(data):
+            self.assertNotEqual(value, us24Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
+
+    # Test case for US27 - Include individual ages
+    # Test cases written by Sai Krishna (km)
+    # There is total 4 test cases for this user story where two test cases for good data and two for bad data
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertEqual is used and both array has same length
+    def test_us_27_same_length(self):
+        us27Data = [
+            "ERROR: US27 INDIVIDUAL I1 named Edward /Chapmen/ is 99 years old.",
+            "ERROR: US27 INDIVIDUAL I2 named Wanda /Chapmen/ is 94 years old.",
+            "ERROR: US27 INDIVIDUAL I3 named Sam /Chapmen/ is 85 years old.",
+            "ERROR: US27 INDIVIDUAL I4 named Sebastian /Chapmen/ is 93 years old.",
+            "ERROR: US27 INDIVIDUAL I5 named Dominic /Chapmen/ is 93 years old.",
+            "ERROR: US27 INDIVIDUAL I6 named John /Chapmen/ is 81 years old.",
+            "ERROR: US27 INDIVIDUAL I7 named John /Chapmen/ is 0 years old.",
+            "ERROR: US27 INDIVIDUAL I8 named Adrian /Chapmen/ is -4 years old.",
+            "ERROR: US27 INDIVIDUAL I9 named Karen /Chapmen/ is 60 years old.",
+            "ERROR: US27 INDIVIDUAL I10 named Joanne /Chapmen/ is 92 years old.",
+            "ERROR: US27 INDIVIDUAL I11 named Carol /Chapmen/ is 83 years old.",
+            "ERROR: US27 INDIVIDUAL I12 named Leah /Chapmen/ is 94 years old.",
+            "ERROR: US27 INDIVIDUAL I13 named Maria /Chapmen/ is 70 years old.",
+            "ERROR: US27 INDIVIDUAL I14 named Jennifer /Chapmen/ is 92 years old.",
+            "ERROR: US27 INDIVIDUAL I15 named Neil /Chapmen/ is 65 years old.",
+            "ERROR: US27 INDIVIDUAL I16 named Sam /Chapmen/ is 69 years old.",
+            "ERROR: US27 INDIVIDUAL I17 named Victoria /Chapmen/ is 63 years old.",
+            "ERROR: US27 INDIVIDUAL I18 named Abigail /Black/ is 63 years old.",
+            "ERROR: US27 INDIVIDUAL I19 named Felicity /Chapmen/ is 62 years old.",
+            "ERROR: US27 INDIVIDUAL I20 named Benjamin /Chapmen/ is 80 years old.",
+            "ERROR: US27 INDIVIDUAL I21 named Boris /Chapmen/ is 76 years old.",
+            "ERROR: US27 INDIVIDUAL I22 named Kimberely /Chapmen/ is 11 years old.",
+            "ERROR: US27 INDIVIDUAL I23 named Nicola /Chapmen/ is 77 years old.",
+            "ERROR: US27 INDIVIDUAL I24 named Andrew /Chapmen/ is 52 years old.",
+            "ERROR: US27 INDIVIDUAL I25 named Penelope /Chapmen/ is 75 years old.",
+            "ERROR: US27 INDIVIDUAL I26 named Sonia /Chapmen/ is 47 years old.",
+        ]
+        self.assertEqual(len(us27Data), len(project_4_sprints.us_27_include_individual_ages()), "This test case will pass since assertEqual method is used and both array has same length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertEqual is used to check content of both array and that content is same
+    def test_us_27_same_content(self):
+        us27Data = [
+            "ERROR: US27 INDIVIDUAL I1 named Edward /Chapmen/ is 99 years old.",
+            "ERROR: US27 INDIVIDUAL I2 named Wanda /Chapmen/ is 94 years old.",
+            "ERROR: US27 INDIVIDUAL I3 named Sam /Chapmen/ is 85 years old.",
+            "ERROR: US27 INDIVIDUAL I4 named Sebastian /Chapmen/ is 93 years old.",
+            "ERROR: US27 INDIVIDUAL I5 named Dominic /Chapmen/ is 93 years old.",
+            "ERROR: US27 INDIVIDUAL I6 named John /Chapmen/ is 81 years old.",
+            "ERROR: US27 INDIVIDUAL I7 named John /Chapmen/ is 0 years old.",
+            "ERROR: US27 INDIVIDUAL I8 named Adrian /Chapmen/ is -4 years old.",
+            "ERROR: US27 INDIVIDUAL I9 named Karen /Chapmen/ is 60 years old.",
+            "ERROR: US27 INDIVIDUAL I10 named Joanne /Chapmen/ is 92 years old.",
+            "ERROR: US27 INDIVIDUAL I11 named Carol /Chapmen/ is 83 years old.",
+            "ERROR: US27 INDIVIDUAL I12 named Leah /Chapmen/ is 94 years old.",
+            "ERROR: US27 INDIVIDUAL I13 named Maria /Chapmen/ is 70 years old.",
+            "ERROR: US27 INDIVIDUAL I14 named Jennifer /Chapmen/ is 92 years old.",
+            "ERROR: US27 INDIVIDUAL I15 named Neil /Chapmen/ is 65 years old.",
+            "ERROR: US27 INDIVIDUAL I16 named Sam /Chapmen/ is 69 years old.",
+            "ERROR: US27 INDIVIDUAL I17 named Victoria /Chapmen/ is 63 years old.",
+            "ERROR: US27 INDIVIDUAL I18 named Abigail /Black/ is 63 years old.",
+            "ERROR: US27 INDIVIDUAL I19 named Felicity /Chapmen/ is 62 years old.",
+            "ERROR: US27 INDIVIDUAL I20 named Benjamin /Chapmen/ is 80 years old.",
+            "ERROR: US27 INDIVIDUAL I21 named Boris /Chapmen/ is 76 years old.",
+            "ERROR: US27 INDIVIDUAL I22 named Kimberely /Chapmen/ is 11 years old.",
+            "ERROR: US27 INDIVIDUAL I23 named Nicola /Chapmen/ is 77 years old.",
+            "ERROR: US27 INDIVIDUAL I24 named Andrew /Chapmen/ is 52 years old.",
+            "ERROR: US27 INDIVIDUAL I25 named Penelope /Chapmen/ is 75 years old.",
+            "ERROR: US27 INDIVIDUAL I26 named Sonia /Chapmen/ is 47 years old.",
+        ]
+        data = project_4_sprints.us_27_include_individual_ages()
+        for index, value in enumerate(data):
+            self.assertEqual(value, us27Data[index], "This test case will pass since assertEqual is used to check content of both array and that content is same")
+
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertNotEqual method is used and both array has different length
+    def test_us_27_different_length(self):
+        us27Data = [
+            "some random string to test this function"
+        ]
+        self.assertNotEqual(len(us27Data), len(project_4_sprints.us_27_include_individual_ages()), "This test case will pass since assertNotEqual method is used and both array has different length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertNotEqual is used to check content of both array and that content is different
+    def test_us_27_different_content(self):
+        us27Data = [
+            "ERROR: US27 INDIVIDUAL I26 named Sonia /Chapmen/ is 47 years old.",
+            "ERROR: US27 INDIVIDUAL I1 named Edward /Chapmen/ is 99 years old.",
+            "ERROR: US27 INDIVIDUAL I2 named Wanda /Chapmen/ is 94 years old.",
+            "ERROR: US27 INDIVIDUAL I3 named Sam /Chapmen/ is 85 years old.",
+            "ERROR: US27 INDIVIDUAL I4 named Sebastian /Chapmen/ is 93 years old.",
+            "ERROR: US27 INDIVIDUAL I5 named Dominic /Chapmen/ is 93 years old.",
+            "ERROR: US27 INDIVIDUAL I6 named John /Chapmen/ is 81 years old.",
+            "ERROR: US27 INDIVIDUAL I7 named John /Chapmen/ is 0 years old.",
+            "ERROR: US27 INDIVIDUAL I8 named Adrian /Chapmen/ is -4 years old.",
+            "ERROR: US27 INDIVIDUAL I9 named Karen /Chapmen/ is 60 years old.",
+            "ERROR: US27 INDIVIDUAL I10 named Joanne /Chapmen/ is 92 years old.",
+            "ERROR: US27 INDIVIDUAL I11 named Carol /Chapmen/ is 83 years old.",
+            "ERROR: US27 INDIVIDUAL I12 named Leah /Chapmen/ is 94 years old.",
+            "ERROR: US27 INDIVIDUAL I13 named Maria /Chapmen/ is 70 years old.",
+            "ERROR: US27 INDIVIDUAL I14 named Jennifer /Chapmen/ is 92 years old.",
+            "ERROR: US27 INDIVIDUAL I15 named Neil /Chapmen/ is 65 years old.",
+            "ERROR: US27 INDIVIDUAL I16 named Sam /Chapmen/ is 69 years old.",
+            "ERROR: US27 INDIVIDUAL I17 named Victoria /Chapmen/ is 63 years old.",
+            "ERROR: US27 INDIVIDUAL I18 named Abigail /Black/ is 63 years old.",
+            "ERROR: US27 INDIVIDUAL I19 named Felicity /Chapmen/ is 62 years old.",
+            "ERROR: US27 INDIVIDUAL I20 named Benjamin /Chapmen/ is 80 years old.",
+            "ERROR: US27 INDIVIDUAL I21 named Boris /Chapmen/ is 76 years old.",
+            "ERROR: US27 INDIVIDUAL I22 named Kimberely /Chapmen/ is 11 years old.",
+            "ERROR: US27 INDIVIDUAL I23 named Nicola /Chapmen/ is 77 years old.",
+            "ERROR: US27 INDIVIDUAL I24 named Andrew /Chapmen/ is 52 years old.",
+            "ERROR: US27 INDIVIDUAL I25 named Penelope /Chapmen/ is 75 years old."
+        ]
+        data = project_4_sprints.us_27_include_individual_ages()
+        for index, value in enumerate(data):
+            self.assertNotEqual(value, us27Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
+            
 if __name__ == '__main__':
     unittest.main()
 
