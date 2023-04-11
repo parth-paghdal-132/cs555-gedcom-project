@@ -1121,3 +1121,44 @@ def us_27_include_individual_ages():
 data = us_27_include_individual_ages()
 print(*data, sep="\n")
 print(*data, sep="\n", file=sprint4CodeOutput)
+
+# User story US36
+# Story Name: List recent deaths
+# Owner: Manoj Patel (mp)
+# Email: mpateld@stevens.edu
+def us_36_list_recent_deaths():
+    data = []
+    today = datetime.datetime.now()
+    last30Days = today - timedelta(days=30)
+    for individual in individuals:
+        deathdate = individual[IDX_IND_DEATH]
+        if(deathdate != "NA"):
+            deathdate = datetime.datetime.strptime(deathdate, "%Y-%m-%d")
+            if(deathdate >= last30Days and deathdate <= today):
+                data.append("ERROR: US36 INDIVIDUAL "+individual[IDX_IND_ID]+" named "+individual[IDX_IND_NAME]+" is died in last 30 days on "+str(individual[IDX_IND_DEATH]))
+    return data
+
+data = us_36_list_recent_deaths()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint4CodeOutput)
+
+# User story US38
+# Story Name: List upcoming birthdays
+# Owner: Manoj Patel (mp)
+# Email: mpateld@stevens.edu
+def us_38_list_upcoming_birthdays():
+    data = []
+    today = datetime.datetime.now()
+    next30Days = today + timedelta(days=30)
+    for individual in individuals:
+        isAlive = individual[IDX_IND_ALIVE]
+        birthday = individual[IDX_IND_BIRTHDAY]
+        if(isAlive and birthday != "NA"):
+            birthday = datetime.datetime.strptime(birthday, "%Y-%m-%d")
+            if(today <= birthday <= next30Days):
+                data.append("ERROR: US38 INDIVIDUAL "+individual[IDX_IND_ID]+" named "+individual[IDX_IND_NAME]+ " is having birthdat in next 30 days on "+str(individual[IDX_IND_BIRTHDAY]))
+    return data
+
+data = us_38_list_upcoming_birthdays()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint4CodeOutput)
