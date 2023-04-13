@@ -1367,5 +1367,184 @@ class GedComProjectTestCases(unittest.TestCase):
            
 if __name__ == '__main__':
     unittest.main()
+    
+    # Name:- AMBATI BABY NAGA SAHITHYA
+    # CWID:- 20012050
+    # Test case for us_32_list_multiple_births()
+    # There is total 4 test cases for this user story where two test cases for good data and two for bad data
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertEqual is used and both array has same length
+    def test_us_32_same_length(self):
+        us32Data = [
+            "ERROR: US32 INDIVIDUAL I1 named Edward /Chapmen/ born on 1910-08-15",
+            "ERROR: US32 INDIVIDUAL I2 named Wanda /Chapmen/ born on 1911-02-16",
+            "ERROR: US32 INDIVIDUAL I3 named Sam /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I4 named Sebastian /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I5 named Dominic /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I6 named John /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I7 named John /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I8 named Adrian /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I9 named Karen /Chapmen/ born on 1929-06-17",
+            "ERROR: US32 INDIVIDUAL I10 named Joanne /Chapmen/ born on 1931-02-17",
+            "ERROR: US32 INDIVIDUAL I11 named Carol /Chapmen/ born on 1932-08-23",
+            "ERROR: US32 INDIVIDUAL I12 named Leah /Chapmen/ born on 1928-05-13",
+            "ERROR: US32 INDIVIDUAL I13 named Maria /Chapmen/ born on 1928-08-15",
+            "ERROR: US32 INDIVIDUAL I14 named Jennifer /Chapmen/ born on 1930-06-14",
+            "ERROR: US32 INDIVIDUAL I15 named Neil /Chapmen/ born on 1957-12-25",
+            "ERROR: US32 INDIVIDUAL I16 named Sam /Chapmen/ born on 1953-11-29",
+            "ERROR: US32 INDIVIDUAL I17 named Victoria /Chapmen/ born on 1959-09-29",
+            "ERROR: US32 INDIVIDUAL I18 named Abigail /Black/ born on 1959-04-19",
+            "ERROR: US32 INDIVIDUAL I19 named Felicity /Chapmen/ born on 1960-08-18",
+            "ERROR: US32 INDIVIDUAL I20 named Benjamin /Chapmen/ born on 1943-01-12",
+            "ERROR: US32 INDIVIDUAL I21 named Boris /Chapmen/ born on 1946-05-29",
+            "ERROR: US32 INDIVIDUAL I22 named Kimberely /Chapmen/ born on 2011-08-16",
+            "ERROR: US32 INDIVIDUAL I23 named Nicola /Chapmen/ born on 1945-04-14",
+            "ERROR: US32 INDIVIDUAL I24 named Andrew /Chapmen/ born on 1970-05-15",
+            "ERROR: US32 INDIVIDUAL I25 named Penelope /Chapmen/ born on 1947-09-16",
+            "ERROR: US32 INDIVIDUAL I26 named Sonia /Chapmen/ born on 1975-06-17",
+        ]
+        self.assertEqual(len(us32Data), len(project_4_sprints.us_32_list_multiple_births()), "This test case will pass since assertEqual method is used and both array has same length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertEqual is used to check content of both array and that content is same
+    def test_us_32_same_content(self):
+        us32Data = [
+            "ERROR: US32 INDIVIDUAL I1 named Edward /Chapmen/ born on 1910-08-15",
+            "ERROR: US32 INDIVIDUAL I2 named Wanda /Chapmen/ born on 1911-02-16",
+            "ERROR: US32 INDIVIDUAL I3 named Sam /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I4 named Sebastian /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I5 named Dominic /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I6 named John /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I7 named John /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I8 named Adrian /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I9 named Karen /Chapmen/ born on 1929-06-17",
+            "ERROR: US32 INDIVIDUAL I10 named Joanne /Chapmen/ born on 1931-02-17",
+            "ERROR: US32 INDIVIDUAL I11 named Carol /Chapmen/ born on 1932-08-23",
+            "ERROR: US32 INDIVIDUAL I12 named Leah /Chapmen/ born on 1928-05-13",
+            "ERROR: US32 INDIVIDUAL I13 named Maria /Chapmen/ born on 1928-08-15",
+            "ERROR: US32 INDIVIDUAL I14 named Jennifer /Chapmen/ born on 1930-06-14",
+            "ERROR: US32 INDIVIDUAL I15 named Neil /Chapmen/ born on 1957-12-25",
+            "ERROR: US32 INDIVIDUAL I16 named Sam /Chapmen/ born on 1953-11-29",
+            "ERROR: US32 INDIVIDUAL I17 named Victoria /Chapmen/ born on 1959-09-29",
+            "ERROR: US32 INDIVIDUAL I18 named Abigail /Black/ born on 1959-04-19",
+            "ERROR: US32 INDIVIDUAL I19 named Felicity /Chapmen/ born on 1960-08-18",
+            "ERROR: US32 INDIVIDUAL I20 named Benjamin /Chapmen/ born on 1943-01-12",
+            "ERROR: US32 INDIVIDUAL I21 named Boris /Chapmen/ born on 1946-05-29",
+            "ERROR: US32 INDIVIDUAL I22 named Kimberely /Chapmen/ born on 2011-08-16",
+            "ERROR: US32 INDIVIDUAL I23 named Nicola /Chapmen/ born on 1945-04-14",
+            "ERROR: US32 INDIVIDUAL I24 named Andrew /Chapmen/ born on 1970-05-15",
+            "ERROR: US32 INDIVIDUAL I25 named Penelope /Chapmen/ born on 1947-09-16",
+            "ERROR: US32 INDIVIDUAL I26 named Sonia /Chapmen/ born on 1975-06-17",
+        ]
+        data = project_4_sprints.us_32_list_multiple_births()
+        for index, value in enumerate(data):
+            self.assertEqual(value, us32Data[index], "This test case will pass since assertEqual is used to check content of both array and that content is same")
+
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertNotEqual method is used and both array has different length
+    def test_us_32_different_length(self):
+        us32Data = [
+            "Some random string to test this function.",
+            "ERROR: US32 INDIVIDUAL I1 named Edward /Chapmen/ born on 1910-08-15",
+            "ERROR: US32 INDIVIDUAL I2 named Wanda /Chapmen/ born on 1911-02-16",
+            "ERROR: US32 INDIVIDUAL I3 named Sam /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I4 named Sebastian /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I5 named Dominic /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I6 named John /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I7 named John /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I8 named Adrian /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I9 named Karen /Chapmen/ born on 1929-06-17",
+            "ERROR: US32 INDIVIDUAL I10 named Joanne /Chapmen/ born on 1931-02-17",
+            "ERROR: US32 INDIVIDUAL I11 named Carol /Chapmen/ born on 1932-08-23",
+            "ERROR: US32 INDIVIDUAL I12 named Leah /Chapmen/ born on 1928-05-13",
+            "ERROR: US32 INDIVIDUAL I13 named Maria /Chapmen/ born on 1928-08-15",
+            "ERROR: US32 INDIVIDUAL I14 named Jennifer /Chapmen/ born on 1930-06-14",
+            "ERROR: US32 INDIVIDUAL I15 named Neil /Chapmen/ born on 1957-12-25",
+            "ERROR: US32 INDIVIDUAL I16 named Sam /Chapmen/ born on 1953-11-29",
+            "ERROR: US32 INDIVIDUAL I17 named Victoria /Chapmen/ born on 1959-09-29",
+            "ERROR: US32 INDIVIDUAL I18 named Abigail /Black/ born on 1959-04-19",
+            "ERROR: US32 INDIVIDUAL I19 named Felicity /Chapmen/ born on 1960-08-18",
+            "ERROR: US32 INDIVIDUAL I20 named Benjamin /Chapmen/ born on 1943-01-12",
+            "ERROR: US32 INDIVIDUAL I21 named Boris /Chapmen/ born on 1946-05-29",
+            "ERROR: US32 INDIVIDUAL I22 named Kimberely /Chapmen/ born on 2011-08-16",
+            "ERROR: US32 INDIVIDUAL I23 named Nicola /Chapmen/ born on 1945-04-14",
+            "ERROR: US32 INDIVIDUAL I24 named Andrew /Chapmen/ born on 1970-05-15",
+            "ERROR: US32 INDIVIDUAL I25 named Penelope /Chapmen/ born on 1947-09-16",
+            "ERROR: US32 INDIVIDUAL I26 named Sonia /Chapmen/ born on 1975-06-17",
+        ]
+
+        self.assertNotEqual(len(us32Data), len(project_4_sprints.us_32_list_multiple_births()), "This test case will pass since assertNotEqual method is used and both array has different length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertNotEqual is used to check content of both array and that content is different
+    def test_us_32_different_content(self):
+        us32Data = [
+            "ERROR: US32 INDIVIDUAL I26 named Sonia /Chapmen/ born on 1975-06-17",
+            "ERROR: US32 INDIVIDUAL I1 named Edward /Chapmen/ born on 1910-08-15",
+            "ERROR: US32 INDIVIDUAL I2 named Wanda /Chapmen/ born on 1911-02-16",
+            "ERROR: US32 INDIVIDUAL I3 named Sam /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I4 named Sebastian /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I5 named Dominic /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I6 named John /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I7 named John /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I8 named Adrian /Chapmen/ born on 1930-03-16",
+            "ERROR: US32 INDIVIDUAL I9 named Karen /Chapmen/ born on 1929-06-17",
+            "ERROR: US32 INDIVIDUAL I10 named Joanne /Chapmen/ born on 1931-02-17",
+            "ERROR: US32 INDIVIDUAL I11 named Carol /Chapmen/ born on 1932-08-23",
+            "ERROR: US32 INDIVIDUAL I12 named Leah /Chapmen/ born on 1928-05-13",
+            "ERROR: US32 INDIVIDUAL I13 named Maria /Chapmen/ born on 1928-08-15",
+            "ERROR: US32 INDIVIDUAL I14 named Jennifer /Chapmen/ born on 1930-06-14",
+            "ERROR: US32 INDIVIDUAL I15 named Neil /Chapmen/ born on 1957-12-25",
+            "ERROR: US32 INDIVIDUAL I16 named Sam /Chapmen/ born on 1953-11-29",
+            "ERROR: US32 INDIVIDUAL I17 named Victoria /Chapmen/ born on 1959-09-29",
+            "ERROR: US32 INDIVIDUAL I18 named Abigail /Black/ born on 1959-04-19",
+            "ERROR: US32 INDIVIDUAL I19 named Felicity /Chapmen/ born on 1960-08-18",
+            "ERROR: US32 INDIVIDUAL I20 named Benjamin /Chapmen/ born on 1943-01-12",
+            "ERROR: US32 INDIVIDUAL I21 named Boris /Chapmen/ born on 1946-05-29",
+            "ERROR: US32 INDIVIDUAL I22 named Kimberely /Chapmen/ born on 2011-08-16",
+            "ERROR: US32 INDIVIDUAL I23 named Nicola /Chapmen/ born on 1945-04-14",
+            "ERROR: US32 INDIVIDUAL I24 named Andrew /Chapmen/ born on 1970-05-15",
+            "ERROR: US32 INDIVIDUAL I25 named Penelope /Chapmen/ born on 1947-09-16"
+        ]
+
+        data = project_4_sprints.us_32_list_multiple_births()
+        for index, value in enumerate(data):
+            self.assertNotEqual(value, us32Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
+
+    # Name:- AMBATI BABY NAGA SAHITHYA
+    # CWID:- 20012050
+    # Test case for us_35_list_recent_births()
+    # There is total 4 test cases for this user story where two test cases for good data and two for bad data
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertEqual method is used and both array has same length
+    def test_us_35_same_length(self):
+        us35Data = []
+        self.assertEqual(len(us35Data), len(project_4_sprints.us_35_list_recent_births()), "This test case will pass since assertEqual method is used and both array has same length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertEqual is used to check content of both array and that content is same
+    def test_us_35_same_content(self):
+        us35Data = []
+        data = project_4_sprints.us_35_list_recent_births()
+        for index, value in enumerate(data):
+            self.assertEqual(value, us35Data[index], "This test case will pass since assertEqual is used to check content of both array and that content is same")
+
+    # This test case will check length of expected and actual output
+    # This test case will pass since assertNotEqual method is used and both array has different length
+    def test_us_35_different_length(self):
+        us35Data = ["Some random string to test this function"]
+        self.assertNotEqual(len(us35Data), len(project_4_sprints.us_35_list_recent_births()), "This test case will pass since assertNotEqual method is used and both array has different length")
+
+    # This test case will check content of expected and actual output by in order
+    # This test case will pass since assertNotEqual is used to check content of both array and that content is different
+    def test_us_35_different_content(self):
+        us35Data = ["Some random string to test this function"]
+        data = project_4_sprints.us_35_list_recent_births()
+        for index, value in enumerate(data):
+            self.assertNotEqual(value, us35Data[index], "This test case will pass since assertNotEqual is used to check content of both array and that content is different")
+
+if __name__ == '__main__':
+    unittest.main()
+
 
 
