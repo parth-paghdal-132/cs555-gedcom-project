@@ -1162,3 +1162,41 @@ def us_38_list_upcoming_birthdays():
 data = us_38_list_upcoming_birthdays()
 print(*data, sep="\n")
 print(*data, sep="\n", file=sprint4CodeOutput)
+
+
+# User story US32
+# Story Name: List multiple births
+# Owner: Ambati Baby Naga Sahithya (sa)
+# Email: bambati@stevens.edu
+def us_32_list_multiple_births():
+    data = []
+    for individual in individuals:
+        data.append("ERROR: US32 INDIVIDUAL "+str(individual[IDX_IND_ID])+" named "+individual[IDX_IND_NAME]+ " born on "+str(individual[IDX_IND_BIRTHDAY]))
+    return data
+
+data = us_32_list_multiple_births()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint4CodeOutput)
+
+# User story US35
+# Story Name: List recent births
+# Owner: Ambati Baby Naga Sahithya (sa)
+# Email: bambati@stevens.edu
+def us_35_list_recent_births():
+    data = []
+    today = datetime.datetime.now()
+    last30Days = today - timedelta(days=30)
+    for individual in individuals:
+        birthday = individual[IDX_IND_BIRTHDAY]
+        if(birthday != "NA"):
+            birthday = datetime.datetime.strptime(birthday, "%Y-%m-%d")
+            if(birthday >= last30Days and birthday <= today):
+                data.append("ERROR: US35 INDIVIDUAL "+individual[IDX_IND_ID]+" named "+individual[IDX_IND_NAME]+" is born in last 30 days on "+str(individual[IDX_IND_BIRTHDAY]))
+    return data
+
+data = us_35_list_recent_births()
+print(*data, sep="\n")
+print(*data, sep="\n", file=sprint4CodeOutput)
+
+
+
