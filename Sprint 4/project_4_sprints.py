@@ -1197,6 +1197,3 @@ def us_35_list_recent_births():
 data = us_35_list_recent_births()
 print(*data, sep="\n")
 print(*data, sep="\n", file=sprint4CodeOutput)
-
-
-

@@ -24,7 +24,7 @@ Individuals
 | I20 |  Benjamin /Chapmen/ |   M    | 1943-01-12 |  80 |  True |     NA     |  {'F3'} |    NA   |
 | I21 |   Boris /Chapmen/   |   M    | 1946-05-29 |  76 |  True |     NA     |  {'F3'} |    NA   |
 | I22 | Kimberely /Chapmen/ |   F    | 2011-08-16 |  11 |  True |     NA     |  {'F3'} |    NA   |
-| I23 |   Nicola /Chapmen/  |   F    | 1945-04-14 |  77 |  True |     NA     |    NA   | {'F11'} |
+| I23 |   Nicola /Chapmen/  |   F    | 1945-04-14 |  78 |  True |     NA     |    NA   | {'F11'} |
 | I24 |   Andrew /Chapmen/  |   M    | 1970-05-15 |  52 |  True |     NA     | {'F11'} |    NA   |
 | I25 |  Penelope /Chapmen/ |   F    | 1947-09-16 |  75 |  True |     NA     |    NA   | {'F12'} |
 | I26 |   Sonia /Chapmen/   |   F    | 1975-06-17 |  47 |  True |     NA     | {'F12'} |    NA   |
@@ -110,3 +110,59 @@ ERROR US23 INDIVIDUAL I7 is having duplicate record with same name John /Chapmen
 ERROR US20 FAMILY F14 husband I24 is married to his aunt I22
 
 ERROR: US21 FAMILY F3 is having incorrect gender role for wife with id I4 named Sebastian /Chapmen/
+
+ERROR: US27 INDIVIDUAL I1 named Edward /Chapmen/ is 99 years old.
+ERROR: US27 INDIVIDUAL I2 named Wanda /Chapmen/ is 94 years old.
+ERROR: US27 INDIVIDUAL I3 named Sam /Chapmen/ is 85 years old.
+ERROR: US27 INDIVIDUAL I4 named Sebastian /Chapmen/ is 93 years old.
+ERROR: US27 INDIVIDUAL I5 named Dominic /Chapmen/ is 93 years old.
+ERROR: US27 INDIVIDUAL I6 named John /Chapmen/ is 81 years old.
+ERROR: US27 INDIVIDUAL I7 named John /Chapmen/ is 0 years old.
+ERROR: US27 INDIVIDUAL I8 named Adrian /Chapmen/ is -4 years old.
+ERROR: US27 INDIVIDUAL I9 named Karen /Chapmen/ is 60 years old.
+ERROR: US27 INDIVIDUAL I10 named Joanne /Chapmen/ is 92 years old.
+ERROR: US27 INDIVIDUAL I11 named Carol /Chapmen/ is 83 years old.
+ERROR: US27 INDIVIDUAL I12 named Leah /Chapmen/ is 94 years old.
+ERROR: US27 INDIVIDUAL I13 named Maria /Chapmen/ is 70 years old.
+ERROR: US27 INDIVIDUAL I14 named Jennifer /Chapmen/ is 92 years old.
+ERROR: US27 INDIVIDUAL I15 named Neil /Chapmen/ is 65 years old.
+ERROR: US27 INDIVIDUAL I16 named Sam /Chapmen/ is 69 years old.
+ERROR: US27 INDIVIDUAL I17 named Victoria /Chapmen/ is 63 years old.
+ERROR: US27 INDIVIDUAL I18 named Abigail /Black/ is 63 years old.
+ERROR: US27 INDIVIDUAL I19 named Felicity /Chapmen/ is 62 years old.
+ERROR: US27 INDIVIDUAL I20 named Benjamin /Chapmen/ is 80 years old.
+ERROR: US27 INDIVIDUAL I21 named Boris /Chapmen/ is 76 years old.
+ERROR: US27 INDIVIDUAL I22 named Kimberely /Chapmen/ is 11 years old.
+ERROR: US27 INDIVIDUAL I23 named Nicola /Chapmen/ is 78 years old.
+ERROR: US27 INDIVIDUAL I24 named Andrew /Chapmen/ is 52 years old.
+ERROR: US27 INDIVIDUAL I25 named Penelope /Chapmen/ is 75 years old.
+ERROR: US27 INDIVIDUAL I26 named Sonia /Chapmen/ is 47 years old.
+
+
+ERROR: US32 INDIVIDUAL I1 named Edward /Chapmen/ born on 1910-08-15
+ERROR: US32 INDIVIDUAL I2 named Wanda /Chapmen/ born on 1911-02-16
+ERROR: US32 INDIVIDUAL I3 named Sam /Chapmen/ born on 1930-03-16
+ERROR: US32 INDIVIDUAL I4 named Sebastian /Chapmen/ born on 1930-03-16
+ERROR: US32 INDIVIDUAL I5 named Dominic /Chapmen/ born on 1930-03-16
+ERROR: US32 INDIVIDUAL I6 named John /Chapmen/ born on 1930-03-16
+ERROR: US32 INDIVIDUAL I7 named John /Chapmen/ born on 1930-03-16
+ERROR: US32 INDIVIDUAL I8 named Adrian /Chapmen/ born on 1930-03-16
+ERROR: US32 INDIVIDUAL I9 named Karen /Chapmen/ born on 1929-06-17
+ERROR: US32 INDIVIDUAL I10 named Joanne /Chapmen/ born on 1931-02-17
+ERROR: US32 INDIVIDUAL I11 named Carol /Chapmen/ born on 1932-08-23
+ERROR: US32 INDIVIDUAL I12 named Leah /Chapmen/ born on 1928-05-13
+ERROR: US32 INDIVIDUAL I13 named Maria /Chapmen/ born on 1928-08-15
+ERROR: US32 INDIVIDUAL I14 named Jennifer /Chapmen/ born on 1930-06-14
+ERROR: US32 INDIVIDUAL I15 named Neil /Chapmen/ born on 1957-12-25
+ERROR: US32 INDIVIDUAL I16 named Sam /Chapmen/ born on 1953-11-29
+ERROR: US32 INDIVIDUAL I17 named Victoria /Chapmen/ born on 1959-09-29
+ERROR: US32 INDIVIDUAL I18 named Abigail /Black/ born on 1959-04-19
+ERROR: US32 INDIVIDUAL I19 named Felicity /Chapmen/ born on 1960-08-18
+ERROR: US32 INDIVIDUAL I20 named Benjamin /Chapmen/ born on 1943-01-12
+ERROR: US32 INDIVIDUAL I21 named Boris /Chapmen/ born on 1946-05-29
+ERROR: US32 INDIVIDUAL I22 named Kimberely /Chapmen/ born on 2011-08-16
+ERROR: US32 INDIVIDUAL I23 named Nicola /Chapmen/ born on 1945-04-14
+ERROR: US32 INDIVIDUAL I24 named Andrew /Chapmen/ born on 1970-05-15
+ERROR: US32 INDIVIDUAL I25 named Penelope /Chapmen/ born on 1947-09-16
+ERROR: US32 INDIVIDUAL I26 named Sonia /Chapmen/ born on 1975-06-17
+

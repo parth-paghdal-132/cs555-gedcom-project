@@ -1219,7 +1219,7 @@ class GedComProjectTestCases(unittest.TestCase):
             "ERROR: US27 INDIVIDUAL I20 named Benjamin /Chapmen/ is 80 years old.",
             "ERROR: US27 INDIVIDUAL I21 named Boris /Chapmen/ is 76 years old.",
             "ERROR: US27 INDIVIDUAL I22 named Kimberely /Chapmen/ is 11 years old.",
-            "ERROR: US27 INDIVIDUAL I23 named Nicola /Chapmen/ is 77 years old.",
+            "ERROR: US27 INDIVIDUAL I23 named Nicola /Chapmen/ is 78 years old.",
             "ERROR: US27 INDIVIDUAL I24 named Andrew /Chapmen/ is 52 years old.",
             "ERROR: US27 INDIVIDUAL I25 named Penelope /Chapmen/ is 75 years old.",
             "ERROR: US27 INDIVIDUAL I26 named Sonia /Chapmen/ is 47 years old.",
@@ -1252,7 +1252,7 @@ class GedComProjectTestCases(unittest.TestCase):
             "ERROR: US27 INDIVIDUAL I20 named Benjamin /Chapmen/ is 80 years old.",
             "ERROR: US27 INDIVIDUAL I21 named Boris /Chapmen/ is 76 years old.",
             "ERROR: US27 INDIVIDUAL I22 named Kimberely /Chapmen/ is 11 years old.",
-            "ERROR: US27 INDIVIDUAL I23 named Nicola /Chapmen/ is 77 years old.",
+            "ERROR: US27 INDIVIDUAL I23 named Nicola /Chapmen/ is 78 years old.",
             "ERROR: US27 INDIVIDUAL I24 named Andrew /Chapmen/ is 52 years old.",
             "ERROR: US27 INDIVIDUAL I25 named Penelope /Chapmen/ is 75 years old.",
             "ERROR: US27 INDIVIDUAL I26 named Sonia /Chapmen/ is 47 years old.",
@@ -1545,6 +1545,3 @@ if __name__ == '__main__':
 
 if __name__ == '__main__':
     unittest.main()
-
-
-
